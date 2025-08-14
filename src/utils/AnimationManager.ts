@@ -6,7 +6,7 @@ export interface AnimationConfig {
 }
 
 export class AnimationManager {
-  private observer: IntersectionObserver;
+  private observer!: IntersectionObserver;
   private animatedElements: Map<HTMLElement, AnimationConfig>;
 
   constructor() {

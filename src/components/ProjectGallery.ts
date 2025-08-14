@@ -117,7 +117,9 @@ export class ProjectGallery {
         target.classList.add('active');
         
         // Filter projects
-        this.filterProjects(category);
+        if (category) {
+          this.filterProjects(category);
+        }
       });
     });
 

@@ -10,7 +10,7 @@ export interface Theme {
 }
 
 export class ThemeManager {
-  private currentTheme: Theme;
+  private currentTheme!: Theme;
   private themes: Map<string, Theme> = new Map();
   private themeChangeListeners: ((theme: Theme) => void)[] = [];
   private isInitialized: boolean = false;

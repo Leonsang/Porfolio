@@ -3,10 +3,15 @@ export class ImageCarousel {
   private images: string[];
   private currentIndex: number = 0;
   private autoPlayInterval: number | null = null;
+  private isAutoPlaying: boolean = true;
+
 
   constructor(container: HTMLElement, images: string[]) {
     this.container = container;
     this.images = images;
+    
+
+    
     this.init();
   }
 
@@ -73,6 +78,26 @@ export class ImageCarousel {
     this.autoPlayInterval = window.setInterval(() => {
       this.next();
     }, 5000); // Change image every 5 seconds
+  }
+
+  private pauseAutoPlay(): void {
+    if (this.autoPlayInterval) {
+      clearInterval(this.autoPlayInterval);
+      this.autoPlayInterval = null;
+      this.isAutoPlaying = false;
+    }
+  }
+
+  private resumeAutoPlay(): void {
+    if (!this.isAutoPlaying) {
+      this.startAutoPlay();
+      this.isAutoPlaying = true;
+    }
+  }
+
+  private handleClick(event: Event): void {
+    // Handle click events if needed
+    console.log('Carousel clicked:', event);
   }
 
 

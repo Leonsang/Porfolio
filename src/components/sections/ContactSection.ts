@@ -235,11 +235,11 @@ export class ContactSection extends BaseSection {
     const contactCards = this.sectionElement.querySelectorAll('.dashboard-card');
     contactCards.forEach(card => {
       card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-5px) scale(1.02)';
+        (card as HTMLElement).style.transform = 'translateY(-5px) scale(1.02)';
       });
       
       card.addEventListener('mouseleave', () => {
-        card.style.transform = 'translateY(0) scale(1)';
+        (card as HTMLElement).style.transform = 'translateY(0) scale(1)';
       });
     });
 

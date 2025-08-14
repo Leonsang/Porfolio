@@ -164,32 +164,7 @@ export class AudioEffects {
     };
   }
 
-  /**
-   * Create hover sound effect
-   */
-  public createHoverSound(): void {
-    if (!this.audioContext || this.isMuted) return;
-    
-    try {
-      const oscillator = this.audioContext.createOscillator();
-      const gainNode = this.audioContext.createGain();
-      
-      oscillator.connect(gainNode);
-      gainNode.connect(this.audioContext.destination);
-      
-      oscillator.frequency.setValueAtTime(800, this.audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(600, this.audioContext.currentTime + 0.1);
-      
-      gainNode.gain.setValueAtTime(0.1, this.audioContext.currentTime);
-      gainNode.gain.exponentialRampToValueAtTime(0.01, this.audioContext.currentTime + 0.1);
-      
-      oscillator.start(this.audioContext.currentTime);
-      oscillator.stop(this.audioContext.currentTime + 0.1);
-      
-    } catch (error) {
-      console.warn('⚠️ Failed to create hover sound:', error);
-    }
-  }
+
 
   public setMasterVolume(volume: number): void {
     this.masterVolume = Math.max(0, Math.min(1, volume));

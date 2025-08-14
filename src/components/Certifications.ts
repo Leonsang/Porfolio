@@ -123,7 +123,9 @@ export class Certifications {
         target.classList.add('active');
         
         // Filter certifications
-        this.filterCertifications(category);
+        if (category) {
+          this.filterCertifications(category);
+        }
       });
     });
 

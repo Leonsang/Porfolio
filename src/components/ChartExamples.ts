@@ -120,8 +120,8 @@ export class ChartExamples {
         {
           label: 'Dataset 1',
           data: [12, 19, 3, 5, 2],
-          borderColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff'],
-          backgroundColor: ['#ff6384', '#36a2eb', '#ffce56', '#4bc0c0', '#9966ff'],
+          borderColor: '#ff6384',
+          backgroundColor: '#ff6384',
           borderWidth: 2
         }
       ]
@@ -141,8 +141,8 @@ export class ChartExamples {
         {
           label: 'Users',
           data: [300, 150, 100],
-          borderColor: ['#ff6384', '#36a2eb', '#ffce56'],
-          backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+          borderColor: '#ff6384',
+          backgroundColor: '#ff6384',
           borderWidth: 2
         }
       ]

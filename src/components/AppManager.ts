@@ -23,11 +23,11 @@ export interface AppConfig {
 }
 
 export class AppManager {
-  private portfolioManager: PortfolioManager;
-  private contentUpdater: ContentUpdater;
-  private themeManager: ThemeManager;
-  private animationManager: AnimationManager;
-  private uiController: UIController;
+  private portfolioManager!: PortfolioManager;
+  private contentUpdater!: ContentUpdater;
+  private themeManager!: ThemeManager;
+  private animationManager!: AnimationManager;
+  private uiController!: UIController;
   private particlesBackground: ParticlesBackground | null = null;
   private threeDEffects: ThreeDEffects | null = null;
   private audioEffects: AudioEffects | null = null;
