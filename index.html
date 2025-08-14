@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 Erick Sang Cifuentes - Engineering Portfolio</title>
+    <meta name="description" content="Erick Sang Cifuentes - Professional Data Engineer with 5+ years experience in building scalable data pipelines and cloud infrastructure">
+    <meta name="keywords" content="Data Engineer, ETL, Apache Spark, Python, AWS, Data Pipeline, Big Data, Colombia">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="/src/styles/main.css">
+</head>
+<body>
+    <!-- Particles Background -->
+    <canvas id="particles-background" class="particles-canvas"></canvas>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="pixel-art">🎮</div>
+            <div class="loading-text">LOADING ENGINEERING PORTFOLIO...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="pixel-text">ES</span>
+            </div>
+            <ul class="nav-menu">
+                <!-- Navigation menu removed - About moved to portfolio sections -->
+            </ul>
+            <div class="nav-settings">
+                <!-- Theme and language selectors will be created dynamically by TypeScript -->
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-main">
+        <!-- Hero Section -->
+        <section id="dashboard" class="dashboard-hero">
+            <div class="hero-header">
+                <div class="hero-info">
+                    <h1 class="hero-title">
+                        <span class="pixel-text">ERICK SANG CIFUENTES</span>
+                    </h1>
+                    <h2 class="hero-subtitle">Data Engineer</h2>
+                    <p class="hero-description">
+                        Building robust data pipelines and transforming raw data into actionable insights
+                    </p>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Pipelines</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Engineering Portfolio -->
+        <div class="dashboard-content">
+            <!-- Portfolio Navigation Tabs -->
+            <div class="portfolio-navigation">
+                <div class="nav-tabs">
+                    <button class="nav-tab active" data-section="about">
+                        <i class="fas fa-user"></i>
+                        <span data-i18n="nav.about">About</span>
+                    </button>
+                    <button class="nav-tab" data-section="overview">
+                        <i class="fas fa-home"></i>
+                        <span data-i18n="nav.overview">Overview</span>
+                    </button>
+                    <button class="nav-tab" data-section="technical">
+                        <i class="fas fa-code"></i>
+                        <span data-i18n="nav.technical">Technical</span>
+                    </button>
+                    <button class="nav-tab" data-section="experience">
+                        <i class="fas fa-briefcase"></i>
+                        <span data-i18n="nav.experience">Experience</span>
+                    </button>
+                    <button class="nav-tab" data-section="projects">
+                        <i class="fas fa-rocket"></i>
+                        <span data-i18n="nav.projects">Projects</span>
+                    </button>
+                    <button class="nav-tab" data-section="contact">
+                        <i class="fas fa-envelope"></i>
+                        <span data-i18n="nav.contact">Contact</span>
+                    </button>
+                </div>
+                
+                <!-- Theme and Language Controls -->
+                <div class="portfolio-controls">
+                    <!-- Theme Switcher -->
+                    <div class="control-group">
+                        <button id="theme-switcher" class="control-btn" title="Change Theme">
+                            <i class="fas fa-palette"></i>
+                            <span class="control-label">Theme</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Language Switcher -->
+                    <div class="control-group">
+                        <button id="language-switcher" class="control-btn" title="Change Language">
+                            <i class="fas fa-globe"></i>
+                            <span class="control-label">Language</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Settings Menu -->
+                    <div class="control-group">
+                        <button id="settings-menu" class="control-btn" title="Settings">
+                            <i class="fas fa-cog"></i>
+                            <span class="control-label">Settings</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Portfolio Sections -->
+            <div class="portfolio-sections">
+                <!-- About Section -->
+                <div class="portfolio-section active" id="about-section">
+                    <div class="section-header">
+                        <h2 data-i18n="about.title">About Me</h2>
+                        <p data-i18n="about.subtitle">Professional Data Engineer with expertise in building scalable data pipelines and cloud infrastructure</p>
+                    </div>
+                    
+                    <div class="about-grid">
+                        <!-- Personal Info -->
+                        <div class="dashboard-card personal-card" data-category="about">
+                            <div class="card-header">
+                                <h3 data-i18n="about.personal.title">Personal Information</h3>
+                                <span class="category-tag" data-i18n="about.personal.category">Personal</span>
+                            </div>
+                            <div class="personal-info">
+                                <div class="info-item">
+                                    <i class="fas fa-user"></i>
+                                    <div class="info-content">
+                                        <h4 data-i18n="about.personal.fullName">Full Name</h4>
+                                        <p>Erick Sang Cifuentes</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div class="info-content">
+                                        <h4 data-i18n="about.personal.location">Location</h4>
+                                        <p data-i18n="about.personal.country">Colombia</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <div class="info-content">
+                                        <h4 data-i18n="about.personal.education">Education</h4>
+                                        <p data-i18n="about.personal.degree">Computer Science & Engineering</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-briefcase"></i>
+                                    <div class="info-content">
+                                        <h4 data-i18n="about.personal.experience">Experience</h4>
+                                        <p data-i18n="about.personal.years">5+ Years in Data Engineering</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Summary -->
+                        <div class="dashboard-card summary-card" data-category="about">
+                            <div class="card-header">
+                                <h3 data-i18n="about.summary.title">Professional Summary</h3>
+                                <span class="category-tag" data-i18n="about.summary.category">Summary</span>
+                            </div>
+                            <div class="summary-content">
+                                <p data-i18n="about.summary.description">Passionate Data Engineer with extensive experience in designing and implementing scalable data solutions. Specialized in ETL pipeline development, cloud infrastructure, and data warehouse optimization.</p>
+                                <div class="key-highlights">
+                                    <div class="highlight-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span data-i18n="about.summary.highlight1">Multi-cloud expertise (AWS, Azure, GCP)</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span data-i18n="about.summary.highlight2">ETL pipeline orchestration with Apache Airflow</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span data-i18n="about.summary.highlight3">Real-time data processing and analytics</span>
+                                    </div>
+                                    <div class="highlight-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span data-i18n="about.summary.highlight4">Data quality management and monitoring</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Overview Section -->
+                <div class="portfolio-section" id="overview-section">
+                    <div class="section-header">
+                        <h2 data-i18n="overview.title">Portfolio Overview</h2>
+                        <p data-i18n="overview.subtitle">Welcome to my engineering portfolio - showcasing technical excellence and innovative solutions</p>
+                    </div>
+
+                    <div class="overview-grid">
+                        <!-- Performance Excellence -->
+                        <div class="dashboard-card metrics-card">
+                            <div class="card-header">
+                                <h3 data-i18n="overview.performance.title">Performance Excellence</h3>
+                                <span class="category-tag" data-i18n="overview.performance.category">Performance</span>
+                            </div>
+                            <div class="metrics-grid">
+                                <div class="metric-item" data-tooltip="Processing efficiency across all ETL workflows">
+                                    <div class="metric-icon">⚡</div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">90%</span>
+                                        <span class="metric-label">Processing</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item" data-tooltip="Average response time for data warehouse queries">
+                                    <div class="metric-icon">🚀</div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">60%</span>
+                                        <span class="metric-label">Response Time</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item" data-tooltip="Execution time optimization for data pipelines">
+                                    <div class="metric-icon">📊</div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">50%</span>
+                                        <span class="metric-label">Pipeline Speed</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item" data-tooltip="Error rate in processing workflows">
+                                    <div class="metric-icon">🔧</div>
+                                    <div class="metric-info">
+                                        <span class="metric-value">35%</span>
+                                        <span class="metric-label">Error Rate</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Portfolio Overview Stats -->
+                        <div class="dashboard-card stats-card">
+                            <div class="card-header">
+                                <h3 data-i18n="overview.stats.title">Portfolio Overview</h3>
+                                <span class="category-tag" data-i18n="overview.stats.category">Overview</span>
+                            </div>
+                            <div class="stats-grid">
+                                <div class="stat-item" data-tooltip="Experience with AWS, Azure, GCP, and other cloud platforms">
+                                    <i class="fas fa-database"></i>
+                                    <span>6 Cloud Platforms</span>
+                                </div>
+                                <div class="stat-item" data-tooltip="Proficient in Python, SQL, and JavaScript">
+                                    <i class="fas fa-code"></i>
+                                    <span>3 Languages</span>
+                                </div>
+                                <div class="stat-item" data-tooltip="Worked with PostgreSQL, MySQL, MongoDB, and Redis">
+                                    <i class="fas fa-server"></i>
+                                    <span>4 Databases</span>
+                                </div>
+                                <div class="stat-item" data-tooltip="Expert in Power BI and Looker for data visualization">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>2 BI Tools</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Section -->
+                <div class="portfolio-section" id="technical-section">
+                    <div class="section-header">
+                        <h2 data-i18n="technical.title">Technical Excellence</h2>
+                        <p data-i18n="technical.subtitle">Core technical skills and expertise across multiple domains</p>
+                    </div>
+                    
+                    <div class="technical-grid">
+                        <!-- Technical Excellence Score -->
+                        <div class="dashboard-card impact-card" data-category="technical">
+                            <div class="card-header">
+                                <h3 data-i18n="technical.excellence.title">Technical Excellence Score</h3>
+                                <span class="category-tag" data-i18n="technical.excellence.category">Technical</span>
+                            </div>
+                            <div class="impact-score">
+                                <div class="score-circle">
+                                    <span class="score-number">94%</span>
+                                </div>
+                                <div class="impact-breakdown">
+                                    <div class="impact-item">
+                                        <span class="impact-label" data-i18n="technical.excellence.cloud">Cloud & Infrastructure</span>
+                                        <div class="impact-bar">
+                                            <div class="impact-progress" style="width: 96%"></div>
+                                        </div>
+                                        <span class="impact-value">96%</span>
+                                    </div>
+                                    <div class="impact-item">
+                                        <span class="impact-label" data-i18n="technical.excellence.pipeline">Pipeline Design</span>
+                                        <div class="impact-bar">
+                                            <div class="impact-progress" style="width: 93%"></div>
+                                        </div>
+                                        <span class="impact-value">93%</span>
+                                    </div>
+                                    <div class="impact-item">
+                                        <span class="impact-label" data-i18n="technical.excellence.api">API & Integration</span>
+                                        <div class="impact-bar">
+                                            <div class="impact-progress" style="width: 91%"></div>
+                                        </div>
+                                        <span class="impact-value">91%</span>
+                                    </div>
+                                    <div class="impact-item">
+                                        <span class="impact-label" data-i18n="technical.excellence.ml">Machine Learning</span>
+                                        <div class="impact-bar">
+                                            <div class="impact-progress" style="width: 87%"></div>
+                                        </div>
+                                        <span class="impact-value">87%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technical Stack -->
+                        <div class="dashboard-card chart-card" data-category="technical">
+                            <div class="card-header">
+                                <h3 data-i18n="technical.stack.title">Technical Stack</h3>
+                                <span class="category-tag" data-i18n="technical.stack.category">Stack</span>
+                            </div>
+                            <div class="chart-container">
+                                <canvas id="skillsRadarChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Technology Stack -->
+                        <div class="dashboard-card tech-card" data-category="technical">
+                            <div class="card-header">
+                                <h3 data-i18n="technical.tech.title">Technology Stack</h3>
+                                <span class="category-tag" data-i18n="technical.tech.category">Stack</span>
+                            </div>
+                            <div class="tech-grid">
+                                <div class="tech-category" data-tooltip="Cloud infrastructure and platform expertise">
+                                    <h4 data-i18n="technical.tech.cloud">Cloud</h4>
+                                    <div class="tech-tags">
+                                        <span data-tooltip="Amazon Web Services - Redshift, Glue, Lambda, S3">AWS</span>
+                                        <span data-tooltip="Microsoft Azure - Data Factory, Synapse, Blob Storage">Azure</span>
+                                        <span data-tooltip="Google Cloud Platform - BigQuery, Dataflow, Pub/Sub">GCP</span>
+                                    </div>
+                                </div>
+                                <div class="tech-category" data-tooltip="Data processing and analysis technologies">
+                                    <h4 data-i18n="technical.tech.data">Data</h4>
+                                    <div class="tech-tags">
+                                        <span data-tooltip="Python for ETL pipelines and data processing">Python</span>
+                                        <span data-tooltip="SQL for data querying and manipulation">SQL</span>
+                                        <span data-tooltip="Apache Spark for big data processing">Spark</span>
+                                    </div>
+                                </div>
+                                <div class="tech-category" data-tooltip="Business Intelligence and visualization tools">
+                                    <h4 data-i18n="technical.tech.bi">BI Tools</h4>
+                                    <div class="tech-tags">
+                                        <span data-tooltip="Microsoft Power BI for data visualization">Power BI</span>
+                                        <span data-tooltip="Looker for data exploration and analytics">LookerML</span>
+                                        <span data-tooltip="BigQuery for data warehousing">BigQuery</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Section -->
+                <div class="portfolio-section" id="experience-section">
+                    <div class="section-header">
+                        <h2 data-i18n="experience.title">Professional Experience</h2>
+                        <p data-i18n="experience.subtitle">My journey through different roles and companies</p>
+                    </div>
+                    
+                    <div class="experience-grid">
+                        <!-- Professional Journey -->
+                        <div class="dashboard-card experience-card">
+                            <div class="card-header">
+                                <h3 data-i18n="experience.journey.title">Professional Journey</h3>
+                                <span class="category-tag" data-i18n="experience.journey.category">Journey</span>
+                            </div>
+                            <div class="timeline-compact">
+                                <div class="timeline-item" data-tooltip="Led HR data warehouse development using BigQuery and Apache Airflow">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h4>SohoHumantech</h4>
+                                        <span>Data Engineer | 2025</span>
+                                        <p>HR Data Warehouse & BigQuery</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" data-tooltip="Designed and implemented AWS SSOT solution for improved security">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h4>CUN</h4>
+                                        <span>Data Engineer | 2025</span>
+                                        <p>AWS SSOT Architecture</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item" data-tooltip="Successfully migrated legacy systems to cloud infrastructure">
+                                    <div class="timeline-dot"></div>
+                                    <div class="timeline-content">
+                                        <h4>FACTECH</h4>
+                                        <span>Data Engineer | 2024-2025</span>
+                                        <p>Cloud Migration & Airflow</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Leadership & Strategy -->
+                        <div class="dashboard-card human-skills-card">
+                            <div class="card-header">
+                                <h3 data-i18n="experience.leadership.title">Leadership & Strategy</h3>
+                                <span class="category-tag" data-i18n="experience.leadership.category">Leadership</span>
+                            </div>
+                            <div class="human-skills-grid">
+                                <div class="skill-category">
+                                    <h4>Project Management (94%)</h4>
+                                    <div class="skill-items">
+                                        <div class="skill-item">
+                                            <span>Deadline Management</span>
+                                            <div class="skill-score">96%</div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <span>Risk Assessment</span>
+                                            <div class="skill-score">92%</div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <span>Stakeholder Communication</span>
+                                            <div class="skill-score">93%</div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <span>Resource Planning</span>
+                                            <div class="skill-score">89%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-category">
+                                    <h4>Problem Solving (95%)</h4>
+                                    <div class="skill-items">
+                                        <div class="skill-item">
+                                            <span>Root Cause Analysis</span>
+                                            <div class="skill-score">96%</div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <span>Creative Solutions</span>
+                                            <div class="skill-score">94%</div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <span>Quick Prototyping</span>
+                                            <div class="skill-score">93%</div>
+                                        </div>
+                                        <div class="skill-item">
+                                            <span>Troubleshooting</span>
+                                            <div class="skill-score">95%</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="portfolio-section" id="projects-section">
+                    <div class="section-header">
+                        <h2 data-i18n="projects.title">Innovation & Projects</h2>
+                        <p data-i18n="projects.subtitle">Key projects and innovative solutions I've developed</p>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <!-- Innovation Hub -->
+                        <div class="dashboard-card development-card" data-category="projects">
+                            <div class="card-header">
+                                <h3 data-i18n="projects.innovation.title">Innovation Hub</h3>
+                                <span class="category-tag" data-i18n="projects.innovation.category">Innovation</span>
+                            </div>
+                            <div class="excellence-grid">
+                                <div class="excellence-item">
+                                    <div class="excellence-icon">📚</div>
+                                    <div class="excellence-content">
+                                        <h4 data-i18n="projects.innovation.versionControl">Version Control</h4>
+                                        <div class="excellence-score">94%</div>
+                                    </div>
+                                </div>
+                                <div class="excellence-item">
+                                    <div class="excellence-icon">🔄</div>
+                                    <div class="excellence-content">
+                                        <h4 data-i18n="projects.innovation.cicd">CI/CD Pipeline</h4>
+                                        <div class="excellence-score">92%</div>
+                                    </div>
+                                </div>
+                                <div class="excellence-item">
+                                    <div class="excellence-icon">✨</div>
+                                    <div class="excellence-content">
+                                        <h4 data-i18n="projects.innovation.codeQuality">Code Quality</h4>
+                                        <div class="excellence-score">93%</div>
+                                    </div>
+                                </div>
+                                <div class="excellence-item">
+                                    <div class="excellence-icon">🧪</div>
+                                    <div class="excellence-content">
+                                        <h4 data-i18n="projects.innovation.testing">Testing & QA</h4>
+                                        <div class="excellence-score">89%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Business Impact & ROI -->
+                        <div class="dashboard-card business-impact-card" data-category="projects">
+                            <div class="card-header">
+                                <h3 data-i18n="projects.business.title">Business Impact & ROI</h3>
+                                <span class="category-tag" data-i18n="projects.business.category">Business</span>
+                            </div>
+                            <div class="business-metrics">
+                                <div class="business-metric">
+                                    <div class="metric-header">
+                                        <h4 data-i18n="projects.business.costOptimization">Cost Optimization</h4>
+                                        <span class="metric-percentage">90%</span>
+                                    </div>
+                                    <div class="metric-details">
+                                        <div class="metric-item">
+                                            <span data-i18n="projects.business.cloudCost">Cloud Cost Management</span>
+                                            <div class="metric-bar">
+                                                <div class="metric-progress" style="width: 92%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <span data-i18n="projects.business.resourceUtilization">Resource Utilization</span>
+                                            <div class="metric-bar">
+                                                <div class="metric-progress" style="width: 89%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <span data-i18n="projects.business.performanceCost">Performance vs Cost</span>
+                                            <div class="metric-bar">
+                                                <div class="metric-progress" style="width: 88%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="business-metric">
+                                    <div class="metric-header">
+                                        <h4 data-i18n="projects.business.timeToMarket">Time to Market</h4>
+                                        <span class="metric-percentage">87%</span>
+                                    </div>
+                                    <div class="metric-details">
+                                        <div class="metric-item">
+                                            <span data-i18n="projects.business.rapidPrototyping">Rapid Prototyping</span>
+                                            <div class="metric-bar">
+                                                <div class="metric-progress" style="width: 89%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <span data-i18n="projects.business.mvpDevelopment">MVP Development</span>
+                                            <div class="metric-bar">
+                                                <div class="metric-progress" style="width: 86%"></div>
+                                            </div>
+                                        </div>
+                                        <div class="metric-item">
+                                            <span data-i18n="projects.business.agileMethodology">Agile Methodology</span>
+                                            <div class="metric-bar">
+                                                <div class="metric-progress" style="width: 90%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Section -->
+                <div class="portfolio-section" id="contact-section">
+                    <div class="section-header">
+                        <h2 data-i18n="contact.title">Get In Touch</h2>
+                        <p data-i18n="contact.subtitle">Let's discuss your next project or opportunity</p>
+                    </div>
+                    
+                    <div class="contact-grid">
+                        <!-- Contact Information -->
+                        <div class="dashboard-card contact-info-card" data-category="contact">
+                            <div class="card-header">
+                                <h3 data-i18n="contact.info.title">Contact Information</h3>
+                                <span class="category-tag" data-i18n="contact.info.category">Contact</span>
+                            </div>
+                            <div class="contact-info">
+                                <div class="contact-item" data-tooltip="Primary email for professional inquiries">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>ericksang@gmail.com</span>
+                                </div>
+                                <div class="contact-item" data-tooltip="Professional network and career updates">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>linkedin.com/in/esangc</span>
+                                </div>
+                                <div class="contact-item" data-tooltip="Open source projects and code samples">
+                                    <i class="fab fa-github"></i>
+                                    <span>github.com/leonsang</span>
+                                </div>
+                                <div class="contact-item" data-tooltip="Location and availability">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span data-i18n="contact.info.location">Colombia</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Form -->
+                        <div class="dashboard-card contact-form-card" data-category="contact">
+                            <div class="card-header">
+                                <h3 data-i18n="contact.form.title">Send Message</h3>
+                                <span class="category-tag" data-i18n="contact.form.category">Form</span>
+                            </div>
+                            <form id="contact-form" class="contact-form">
+                                <div class="form-group">
+                                    <input type="text" id="name" name="name" data-i18n-placeholder="contact.form.name" placeholder="Your Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="email" name="email" data-i18n-placeholder="contact.form.email" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="subject" name="subject" data-i18n-placeholder="contact.form.subject" placeholder="Subject" required>
+                                </div>
+                                <div class="form-group">
+                                    <textarea id="message" name="message" data-i18n-placeholder="contact.form.message" placeholder="Your Message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Audio Visualizer -->
+    <div class="audio-visualizer-container">
+        <canvas id="audio-visualizer" class="audio-visualizer"></canvas>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
