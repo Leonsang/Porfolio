@@ -1,15 +1,20 @@
 import { ThemeManager } from '../utils/ThemeManager';
+import { AnimationManager } from '../utils/AnimationManager';
 import { i18n } from '../i18n/i18n';
 
 export class UIController {
   private themeManager: ThemeManager;
+  private animationManager: AnimationManager;
   private themeSwitcher: HTMLElement | null = null;
   private languageSwitcher: HTMLElement | null = null;
   private settingsMenu: HTMLElement | null = null;
+  private musicToggle: HTMLElement | null = null;
   private isInitialized: boolean = false;
+  private isMusicEnabled: boolean = true; // Control para habilitar/deshabilitar música
 
-  constructor(themeManager: ThemeManager) {
+  constructor(themeManager: ThemeManager, animationManager: AnimationManager) {
     this.themeManager = themeManager;
+    this.animationManager = animationManager;
   }
 
   /**
@@ -42,6 +47,7 @@ export class UIController {
     this.themeSwitcher = document.getElementById('theme-switcher');
     this.languageSwitcher = document.getElementById('language-switcher');
     this.settingsMenu = document.getElementById('settings-menu');
+    this.musicToggle = document.getElementById('music-toggle');
 
     console.log('🔧 UIController: Theme switcher found:', !!this.themeSwitcher);
     console.log('🔧 UIController: Language switcher found:', !!this.languageSwitcher);
@@ -64,22 +70,66 @@ export class UIController {
   private setupEventListeners(): void {
     // Theme switcher
     if (this.themeSwitcher) {
-      this.themeSwitcher.addEventListener('click', () => {
+      this.themeSwitcher.addEventListener('click', (e) => {
+        this.animationManager.animateControlButton(this.themeSwitcher!, 'click');
         this.showThemeSelector();
+      });
+      
+      // Add hover and focus animations
+      this.themeSwitcher.addEventListener('mouseenter', () => {
+        this.animationManager.animateControlButton(this.themeSwitcher!, 'hover');
+      });
+      
+      this.themeSwitcher.addEventListener('focus', () => {
+        this.animationManager.animateControlButton(this.themeSwitcher!, 'focus');
       });
     }
 
     // Language switcher
     if (this.languageSwitcher) {
-      this.languageSwitcher.addEventListener('click', () => {
+      this.languageSwitcher.addEventListener('click', (e) => {
+        this.animationManager.animateControlButton(this.languageSwitcher!, 'click');
         this.showLanguageSelector();
+      });
+      
+      this.languageSwitcher.addEventListener('mouseenter', () => {
+        this.animationManager.animateControlButton(this.languageSwitcher!, 'hover');
+      });
+      
+      this.languageSwitcher.addEventListener('focus', () => {
+        this.animationManager.animateControlButton(this.languageSwitcher!, 'focus');
       });
     }
 
     // Settings menu
     if (this.settingsMenu) {
-      this.settingsMenu.addEventListener('click', () => {
+      this.settingsMenu.addEventListener('click', (e) => {
+        this.animationManager.animateControlButton(this.settingsMenu!, 'click');
         this.showSettingsMenu();
+      });
+      
+      this.settingsMenu.addEventListener('mouseenter', () => {
+        this.animationManager.animateControlButton(this.settingsMenu!, 'hover');
+      });
+      
+      this.settingsMenu.addEventListener('focus', () => {
+        this.animationManager.animateControlButton(this.settingsMenu!, 'focus');
+      });
+    }
+
+    // Music toggle
+    if (this.musicToggle) {
+      this.musicToggle.addEventListener('click', (e) => {
+        this.animationManager.animateControlButton(this.musicToggle!, 'click');
+        this.toggleMusicPlayer();
+      });
+      
+      this.musicToggle.addEventListener('mouseenter', () => {
+        this.animationManager.animateControlButton(this.musicToggle!, 'hover');
+      });
+      
+      this.musicToggle.addEventListener('focus', () => {
+        this.animationManager.animateControlButton(this.musicToggle!, 'focus');
       });
     }
   }
@@ -124,6 +174,9 @@ export class UIController {
     
     modal.querySelector('.modal-content')?.appendChild(themeList);
     document.body.appendChild(modal);
+    
+    // Animate modal entrance
+    this.animationManager.animateModalEntrance(modal);
   }
 
   /**
@@ -158,6 +211,9 @@ export class UIController {
     
     modal.querySelector('.modal-content')?.appendChild(languageList);
     document.body.appendChild(modal);
+    
+    // Animate modal entrance
+    this.animationManager.animateModalEntrance(modal);
   }
 
   /**
@@ -176,7 +232,7 @@ export class UIController {
       <h4>Animations</h4>
       <div class="setting-item">
         <label>
-          <input type="checkbox" id="enable-animations" checked>
+          <input type="checkbox" id="enable-animations" ${this.animationManager.areAnimationsEnabled() ? 'checked' : ''}>
           Enable animations
         </label>
       </div>
@@ -200,6 +256,12 @@ export class UIController {
         </label>
       </div>
       <div class="setting-item">
+        <label>
+          <input type="checkbox" id="enable-music" ${this.isMusicPlayerEnabled() ? 'checked' : ''}>
+          Enable music player
+        </label>
+      </div>
+      <div class="setting-item">
         <label>Master Volume</label>
         <input type="range" id="master-volume" min="0" max="100" value="50">
       </div>
@@ -210,6 +272,9 @@ export class UIController {
     
     modal.querySelector('.modal-content')?.appendChild(settingsContent);
     document.body.appendChild(modal);
+    
+    // Animate modal entrance
+    this.animationManager.animateModalEntrance(modal);
     
     // Setup settings event listeners
     this.setupSettingsEventListeners();
@@ -254,7 +319,9 @@ export class UIController {
   /**
    * Close modal
    */
-  private closeModal(modal: HTMLElement): void {
+  private async closeModal(modal: HTMLElement): Promise<void> {
+    // Animate modal exit
+    await this.animationManager.animateModalExit(modal);
     modal.remove();
   }
 
@@ -298,6 +365,7 @@ export class UIController {
     if (animationsCheckbox) {
       animationsCheckbox.addEventListener('change', (e) => {
         const target = e.target as HTMLInputElement;
+        this.animationManager.toggleAnimations(target.checked);
         // Dispatch custom event for animation manager
         window.dispatchEvent(new CustomEvent('animationsToggled', {
           detail: { enabled: target.checked }
@@ -326,6 +394,15 @@ export class UIController {
         window.dispatchEvent(new CustomEvent('audioToggled', {
           detail: { enabled: target.checked }
         }));
+      });
+    }
+    
+    // Music checkbox
+    const musicCheckbox = document.getElementById('enable-music') as HTMLInputElement;
+    if (musicCheckbox) {
+      musicCheckbox.addEventListener('change', (e) => {
+        const target = e.target as HTMLInputElement;
+        this.setMusicEnabled(target.checked);
       });
     }
     
@@ -366,5 +443,42 @@ export class UIController {
     }
     
     this.isInitialized = false;
+  }
+
+  /**
+   * Toggle music player visibility
+   */
+  private toggleMusicPlayer(): void {
+    if (!this.isMusicEnabled) {
+      console.log('🎵 Music player is disabled');
+      return;
+    }
+    
+    // Dispatch custom event for music player toggle
+    const event = new CustomEvent('musicPlayerToggle');
+    window.dispatchEvent(event);
+  }
+
+  /**
+   * Enable/disable music player
+   */
+  public setMusicEnabled(enabled: boolean): void {
+    this.isMusicEnabled = enabled;
+    
+    if (this.musicToggle) {
+      this.musicToggle.classList.toggle('disabled', !enabled);
+      this.musicToggle.style.opacity = enabled ? '1' : '0.5';
+      this.musicToggle.style.cursor = enabled ? 'pointer' : 'not-allowed';
+      
+      // Update tooltip
+      this.musicToggle.title = enabled ? 'Toggle Music Player' : 'Music Player Disabled';
+    }
+  }
+
+  /**
+   * Check if music is enabled
+   */
+  public isMusicPlayerEnabled(): boolean {
+    return this.isMusicEnabled;
   }
 }

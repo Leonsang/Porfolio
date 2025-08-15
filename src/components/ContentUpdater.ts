@@ -49,7 +49,7 @@ export class ContentUpdater {
     }
   }
 
-  private updateAllContent(): void {
+  public updateAllContent(): void {
     console.log('🔄 Updating all content...');
     
     // Update all registered elements
@@ -69,33 +69,49 @@ export class ContentUpdater {
   private updateDataI18nElements(): void {
     console.log('🔄 Updating data-i18n elements...');
     
-    // Update all elements with data-i18n attribute
-    const dataI18nElements = document.querySelectorAll('[data-i18n]');
-    console.log(`📝 Found ${dataI18nElements.length} elements with data-i18n`);
-    
-    dataI18nElements.forEach(element => {
-      const key = element.getAttribute('data-i18n');
-      if (key) {
-        const translation = i18n.t(key);
-        if (translation && translation !== key) {
-          element.textContent = translation;
+    try {
+      // Update all elements with data-i18n attribute
+      const dataI18nElements = document.querySelectorAll('[data-i18n]');
+      console.log(`📝 Found ${dataI18nElements.length} elements with data-i18n`);
+      
+      dataI18nElements.forEach(element => {
+        try {
+          const key = element.getAttribute('data-i18n');
+          if (key) {
+            const translation = i18n.t(key);
+            if (translation && translation !== key) {
+              element.textContent = translation;
+              console.log(`✅ Updated element with key "${key}": ${translation}`);
+            } else {
+              console.warn(`⚠️ No translation found for key: ${key}`);
+            }
+          }
+        } catch (error) {
+          console.error(`❌ Error updating element:`, error);
         }
-      }
-    });
+      });
 
-    // Update all elements with data-i18n-placeholder attribute
-    const dataI18nPlaceholderElements = document.querySelectorAll('[data-i18n-placeholder]');
-    console.log(`📝 Found ${dataI18nPlaceholderElements.length} elements with data-i18n-placeholder`);
-    
-    dataI18nPlaceholderElements.forEach(element => {
-      const key = element.getAttribute('data-i18n-placeholder');
-      if (key && (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
-        const translation = i18n.t(key);
-        if (translation && translation !== key) {
-          element.placeholder = translation;
+      // Update all elements with data-i18n-placeholder attribute
+      const dataI18nPlaceholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+      console.log(`📝 Found ${dataI18nPlaceholderElements.length} elements with data-i18n-placeholder`);
+      
+      dataI18nPlaceholderElements.forEach(element => {
+        try {
+          const key = element.getAttribute('data-i18n-placeholder');
+          if (key && (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement)) {
+            const translation = i18n.t(key);
+            if (translation && translation !== key) {
+              element.placeholder = translation;
+              console.log(`✅ Updated placeholder with key "${key}": ${translation}`);
+            }
+          }
+        } catch (error) {
+          console.error(`❌ Error updating placeholder:`, error);
         }
-      }
-    });
+      });
+    } catch (error) {
+      console.error('❌ Error in updateDataI18nElements:', error);
+    }
   }
 
   private updateNavigation(): void {
@@ -212,16 +228,16 @@ export class ContentUpdater {
     this.updateAllContent();
   }
 
-  /**
-   * Get current language
-   */
+  public forceLanguageUpdate(language: string): void {
+    console.log(`🔄 Forcing language update to: ${language}`);
+    this.currentLanguage = language;
+    this.updateAllContent();
+  }
+
   public getCurrentLanguage(): string {
     return this.currentLanguage;
   }
 
-  /**
-   * Check if updater is initialized
-   */
   public isReady(): boolean {
     return this.isInitialized;
   }

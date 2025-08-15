@@ -6,14 +6,17 @@ import { ExperienceSection } from './sections/ExperienceSection';
 import { ProjectsSection } from './sections/ProjectsSection';
 import { ContactSection } from './sections/ContactSection';
 import { BaseSection } from './sections/BaseSection';
+import { AnimationManager } from '../utils/AnimationManager';
 import { i18n } from '../i18n/i18n';
 
 export class PortfolioManager {
   private navigation: PortfolioNavigation;
   private sections: Map<string, BaseSection> = new Map();
+  private animationManager: AnimationManager;
   private isInitialized: boolean = false;
 
-  constructor() {
+  constructor(animationManager: AnimationManager) {
+    this.animationManager = animationManager;
     this.navigation = new PortfolioNavigation((sectionId: string) => {
       this.onSectionChange(sectionId);
     });
@@ -175,25 +178,48 @@ export class PortfolioManager {
   /**
    * Handle section change
    */
-  private onSectionChange(sectionId: string): void {
+  private async onSectionChange(sectionId: string): Promise<void> {
     console.log(`🔄 Section changed to: ${sectionId}`);
 
-    // Hide all sections
-    this.sections.forEach(section => {
-      section.hide();
-    });
+    // Get current and target sections
+    const currentSectionElement = this.getCurrentActiveSectionElement();
+    const targetSectionElement = document.getElementById(`${sectionId}-section`);
 
-    // Show the selected section
-    const selectedSection = this.sections.get(sectionId);
-    if (selectedSection) {
-      selectedSection.show();
+    if (targetSectionElement) {
+      // Use animation manager for smooth transitions
+      await this.animationManager.animateSectionTransition(
+        currentSectionElement,
+        targetSectionElement,
+        this.getTransitionDirection(sectionId)
+      );
+
+      // DESPUÉS de que la animación termine, actualizar los estados
+      if (currentSectionElement) {
+        // Quitar la clase active de la sección anterior
+        currentSectionElement.classList.remove('active');
+        const previousSection = this.sections.get(this.navigation.getActiveSection());
+        if (previousSection) {
+          previousSection.hide();
+        }
+      }
+
+      // Mostrar la nueva sección
+      const selectedSection = this.sections.get(sectionId);
+      if (selectedSection) {
+        selectedSection.show();
+        
+        // Animate content cards entrance
+        setTimeout(() => {
+          this.animationManager.animateContentCardsEntrance(targetSectionElement);
+        }, 100);
+      }
+
+      // Update URL hash (optional)
+      this.updateURLHash(sectionId);
+
+      // Trigger analytics or tracking (optional)
+      this.trackSectionView(sectionId);
     }
-
-    // Update URL hash (optional)
-    this.updateURLHash(sectionId);
-
-    // Trigger analytics or tracking (optional)
-    this.trackSectionView(sectionId);
   }
 
   /**
@@ -259,6 +285,28 @@ export class PortfolioManager {
     console.log(`📊 Tracking view of section: ${sectionId}`);
     
     // Example: gtag('event', 'section_view', { section: sectionId });
+  }
+
+  /**
+   * Get current active section element
+   */
+  private getCurrentActiveSectionElement(): HTMLElement | null {
+    const activeSection = this.navigation.getActiveSection();
+    if (activeSection) {
+      return document.getElementById(`${activeSection}-section`);
+    }
+    return null;
+  }
+
+  /**
+   * Determine transition direction based on section order
+   */
+  private getTransitionDirection(targetSectionId: string): 'forward' | 'backward' {
+    const sectionOrder = ['about', 'overview', 'technical', 'experience', 'projects', 'contact'];
+    const currentIndex = sectionOrder.indexOf(this.navigation.getActiveSection());
+    const targetIndex = sectionOrder.indexOf(targetSectionId);
+    
+    return targetIndex > currentIndex ? 'forward' : 'backward';
   }
 
   /**

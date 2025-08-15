@@ -6,137 +6,345 @@ export interface AnimationConfig {
 }
 
 export class AnimationManager {
-  private observer!: IntersectionObserver;
-  private animatedElements: Map<HTMLElement, AnimationConfig>;
+  private isEnabled: boolean = true;
+  private animationDuration: number = 600;
+  private easingFunction: string = 'cubic-bezier(0.4, 0, 0.2, 1)';
+  private isInitialized: boolean = false;
 
   constructor() {
-    this.animatedElements = new Map();
-    this.initIntersectionObserver();
+    this.isEnabled = localStorage.getItem('portfolio-animations') !== 'false';
   }
 
-  private initIntersectionObserver(): void {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            this.animateElement(entry.target as HTMLElement);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+  /**
+   * Initialize the animation manager
+   */
+  public init(): void {
+    if (this.isInitialized) return;
+    
+    this.setupGlobalEventListeners();
+    this.isInitialized = true;
+    console.log('🎬 AnimationManager initialized');
+  }
+
+  /**
+   * Setup global event listeners
+   */
+  private setupGlobalEventListeners(): void {
+    // Listen for animation toggle events
+    window.addEventListener('animationsToggled', ((e: CustomEvent) => {
+      this.isEnabled = e.detail.enabled;
+      localStorage.setItem('portfolio-animations', this.isEnabled.toString());
+      console.log(`🎬 Animations ${this.isEnabled ? 'enabled' : 'disabled'}`);
+    }) as EventListener);
+  }
+
+  /**
+   * Animate section transition
+   */
+  public animateSectionTransition(
+    fromSection: HTMLElement | null,
+    toSection: HTMLElement | null,
+    direction: 'forward' | 'backward' = 'forward'
+  ): Promise<void> {
+    return new Promise((resolve) => {
+      if (!this.isEnabled || !toSection) {
+        resolve();
+        return;
       }
-    );
-  }
 
-  public addElement(element: HTMLElement, config: AnimationConfig): void {
-    this.animatedElements.set(element, config);
-    this.observer.observe(element);
-    
-    // Add initial state
-    element.style.opacity = '0';
-    element.style.transform = 'translateY(30px)';
-    element.style.transition = `all ${config.duration}ms ${config.easing}`;
-    
-    if (config.delay) {
-      element.style.transitionDelay = `${config.delay}ms`;
-    }
-  }
+      const duration = this.animationDuration;
+      const easing = this.easingFunction;
 
-  private animateElement(element: HTMLElement): void {
-    const config = this.animatedElements.get(element);
-    if (!config) return;
+      // Prepare sections for animation
+      this.prepareSectionForAnimation(toSection, direction);
+      
+      // Animate out current section (if exists)
+      if (fromSection) {
+        this.animateSectionOut(fromSection, direction);
+      }
 
-    element.style.opacity = '1';
-    element.style.transform = 'translateY(0)';
+      // Animate in new section
+      this.animateSectionIn(toSection, direction, duration, easing);
 
-    // Remove from observer after animation
-    setTimeout(() => {
-      this.observer.unobserve(element);
-      this.animatedElements.delete(element);
-    }, config.duration + (config.delay || 0));
-  }
-
-  public addStaggeredAnimation(elements: HTMLElement[], baseConfig: AnimationConfig, staggerDelay: number = 100): void {
-    elements.forEach((element, index) => {
-      const config = {
-        ...baseConfig,
-        delay: (baseConfig.delay || 0) + (index * staggerDelay)
-      };
-      this.addElement(element, config);
+      // Resolve after animation completes
+      setTimeout(resolve, duration);
     });
   }
 
-  public addTypewriterEffect(element: HTMLElement, text: string, speed: number = 50): void {
-    element.textContent = '';
-    element.style.overflow = 'hidden';
-    element.style.borderRight = '2px solid var(--primary-color)';
+  /**
+   * Prepare section for animation
+   */
+  private prepareSectionForAnimation(section: HTMLElement, direction: 'forward' | 'backward'): void {
+    // NO cambiar display - solo usar CSS classes
+    section.classList.add('active');
+    section.style.opacity = '0';
+    section.style.transform = this.getInitialTransform(direction);
+    section.style.transition = 'none';
     
-    let index = 0;
-    const typeInterval = setInterval(() => {
-      element.textContent += text[index];
-      index++;
-      
-      if (index >= text.length) {
-        clearInterval(typeInterval);
-        element.style.borderRight = 'none';
-      }
-    }, speed);
+    // Force reflow
+    section.offsetHeight;
   }
 
-  public addFloatingAnimation(element: HTMLElement, intensity: number = 10): void {
-    element.style.animation = `floating ${3 + Math.random() * 2}s ease-in-out infinite`;
-    element.style.animationDelay = `${Math.random() * 2}s`;
+  /**
+   * Get initial transform based on direction
+   */
+  private getInitialTransform(direction: 'forward' | 'backward'): string {
+    const distance = '50px';
     
-    // Add floating keyframes if they don't exist
-    if (!document.querySelector('#floating-keyframes')) {
-      const style = document.createElement('style');
-      style.id = 'floating-keyframes';
-      style.textContent = `
-        @keyframes floating {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          25% { transform: translateY(-${intensity}px) rotate(1deg); }
-          50% { transform: translateY(-${intensity/2}px) rotate(0deg); }
-          75% { transform: translateY(-${intensity}px) rotate(-1deg); }
-        }
-      `;
-      document.head.appendChild(style);
+    switch (direction) {
+      case 'forward':
+        return `translateX(${distance})`;
+      case 'backward':
+        return `translateX(-${distance})`;
+      default:
+        return `translateY(${distance})`;
     }
   }
 
-  public addGlitchEffect(element: HTMLElement, intensity: number = 5): void {
-    const glitchInterval = setInterval(() => {
-      const originalTransform = element.style.transform;
-      const glitchX = (Math.random() - 0.5) * intensity;
-      const glitchY = (Math.random() - 0.5) * intensity;
-      
-      element.style.transform = `translate(${glitchX}px, ${glitchY}px)`;
+  /**
+   * Animate section out
+   */
+  private animateSectionOut(section: HTMLElement, direction: 'forward' | 'backward'): void {
+    const outTransform = direction === 'forward' ? 'translateX(-50px)' : 'translateX(50px)';
+    
+    section.style.transition = `all ${this.animationDuration}ms ${this.easingFunction}`;
+    section.style.opacity = '0';
+    section.style.transform = outTransform;
+    
+    // NO quitar la clase active aquí - eso lo hace el PortfolioManager
+    
+    // Limpiar estilos después de la animación
+    setTimeout(() => {
+      this.cleanupSectionStyles(section);
+    }, this.animationDuration);
+  }
+
+  /**
+   * Animate section in
+   */
+  private animateSectionIn(
+    section: HTMLElement,
+    direction: 'forward' | 'backward',
+    duration: number,
+    easing: string
+  ): void {
+    section.style.transition = `all ${duration}ms ${easing}`;
+    
+    // Force reflow
+    section.offsetHeight;
+    
+    // Animate to final state
+    section.style.opacity = '1';
+    section.style.transform = 'translateX(0) translateY(0)';
+    
+    // Limpiar estilos inline después de la animación
+    setTimeout(() => {
+      this.cleanupSectionStyles(section);
+    }, duration);
+  }
+
+  /**
+   * Cleanup section styles after animation
+   */
+  private cleanupSectionStyles(section: HTMLElement): void {
+    // Solo limpiar estilos que agregamos, no tocar display o clases
+    section.style.opacity = '';
+    section.style.transform = '';
+    section.style.transition = '';
+  }
+
+  /**
+   * Animate navigation tab activation
+   */
+  public animateTabActivation(activeTab: HTMLElement, previousTab?: HTMLElement): void {
+    if (!this.isEnabled) return;
+
+    // Remove active class from previous tab
+    if (previousTab) {
+      previousTab.classList.remove('active');
+      this.animateTabDeactivation(previousTab);
+    }
+
+    // Animate active tab
+    activeTab.classList.add('active');
+    this.animateTabActivationInternal(activeTab);
+  }
+
+  /**
+   * Animate tab activation (internal method)
+   */
+  private animateTabActivationInternal(tab: HTMLElement): void {
+    // Add entrance animation
+    tab.style.animation = 'tabActivate 0.3s ease-out forwards';
+    
+    // Remove animation after completion
+    setTimeout(() => {
+      tab.style.animation = '';
+    }, 300);
+  }
+
+  /**
+   * Animate tab deactivation
+   */
+  private animateTabDeactivation(tab: HTMLElement): void {
+    tab.style.animation = 'tabDeactivate 0.2s ease-out forwards';
+    
+    setTimeout(() => {
+      tab.style.animation = '';
+    }, 200);
+  }
+
+  /**
+   * Animate control button interactions
+   */
+  public animateControlButton(button: HTMLElement, type: 'click' | 'hover' | 'focus'): void {
+    if (!this.isEnabled) return;
+
+    const animations = {
+      click: 'controlClick 0.15s ease-out',
+      hover: 'controlHover 0.2s ease-out',
+      focus: 'controlFocus 0.2s ease-out'
+    };
+
+    button.style.animation = animations[type];
       
       setTimeout(() => {
-        element.style.transform = originalTransform;
-      }, 50);
-    }, 2000);
+      button.style.animation = '';
+    }, type === 'click' ? 150 : 200);
+  }
 
-    // Stop glitch after 10 seconds
+  /**
+   * Animate modal entrance
+   */
+  public animateModalEntrance(modal: HTMLElement): void {
+    if (!this.isEnabled) return;
+
+    const modalContent = modal.querySelector('.modal') as HTMLElement;
+    if (!modalContent) return;
+
+    modal.style.opacity = '0';
+    modalContent.style.transform = 'scale(0.8) translateY(-20px)';
+    
+    // Force reflow
+    modal.offsetHeight;
+    
+    modal.style.transition = 'opacity 0.3s ease-out';
+    modalContent.style.transition = 'transform 0.3s ease-out';
+    
+    modal.style.opacity = '1';
+    modalContent.style.transform = 'scale(1) translateY(0)';
+  }
+
+  /**
+   * Animate modal exit
+   */
+  public animateModalExit(modal: HTMLElement): Promise<void> {
+    return new Promise((resolve) => {
+      if (!this.isEnabled) {
+        resolve();
+        return;
+      }
+
+      const modalContent = modal.querySelector('.modal') as HTMLElement;
+      if (!modalContent) {
+        resolve();
+        return;
+      }
+
+      modal.style.transition = 'opacity 0.2s ease-in';
+      modalContent.style.transition = 'transform 0.2s ease-in';
+      
+      modal.style.opacity = '0';
+      modalContent.style.transform = 'scale(0.8) translateY(-20px)';
+      
     setTimeout(() => {
-      clearInterval(glitchInterval);
-    }, 10000);
-  }
-
-  public addPulseEffect(element: HTMLElement, scale: number = 1.1): void {
-    element.addEventListener('mouseenter', () => {
-      element.style.transform = `scale(${scale})`;
-      element.style.transition = 'transform 0.3s ease';
-    });
-
-    element.addEventListener('mouseleave', () => {
-      element.style.transform = 'scale(1)';
+        resolve();
+      }, 200);
     });
   }
 
+  /**
+   * Animate content cards entrance
+   */
+  public animateContentCardsEntrance(container: HTMLElement): void {
+    if (!this.isEnabled) return;
+
+    const cards = container.querySelectorAll('.dashboard-card');
+    cards.forEach((card, index) => {
+      const cardElement = card as HTMLElement;
+      
+      cardElement.style.opacity = '0';
+      cardElement.style.transform = 'translateY(30px)';
+      
+      setTimeout(() => {
+        cardElement.style.transition = `all 0.6s ${this.easingFunction}`;
+        cardElement.style.opacity = '1';
+        cardElement.style.transform = 'translateY(0)';
+      }, index * 100);
+    });
+  }
+
+  /**
+   * Animate hero section entrance
+   */
+  public animateHeroEntrance(): void {
+    if (!this.isEnabled) return;
+
+    const heroTitle = document.querySelector('.hero-title') as HTMLElement;
+    const heroSubtitle = document.querySelector('.hero-subtitle') as HTMLElement;
+    const heroDescription = document.querySelector('.hero-description') as HTMLElement;
+    const heroStats = document.querySelector('.hero-stats') as HTMLElement;
+
+    if (heroTitle) {
+      heroTitle.style.animation = 'heroTitleEntrance 1s ease-out 0.2s both';
+    }
+    
+    if (heroSubtitle) {
+      heroSubtitle.style.animation = 'heroSubtitleEntrance 1s ease-out 0.4s both';
+    }
+    
+    if (heroDescription) {
+      heroDescription.style.animation = 'heroDescriptionEntrance 1s ease-out 0.6s both';
+    }
+    
+    if (heroStats) {
+      heroStats.style.animation = 'heroStatsEntrance 1s ease-out 0.8s both';
+    }
+  }
+
+  /**
+   * Toggle animations
+   */
+  public toggleAnimations(enabled: boolean): void {
+    this.isEnabled = enabled;
+    localStorage.setItem('portfolio-animations', enabled.toString());
+  }
+
+  /**
+   * Check if animations are enabled
+   */
+  public areAnimationsEnabled(): boolean {
+    return this.isEnabled;
+  }
+
+  /**
+   * Get animation duration
+   */
+  public getAnimationDuration(): number {
+    return this.animationDuration;
+  }
+
+  /**
+   * Set animation duration
+   */
+  public setAnimationDuration(duration: number): void {
+    this.animationDuration = duration;
+  }
+
+  /**
+   * Destroy animation manager
+   */
   public destroy(): void {
-    this.observer.disconnect();
-    this.animatedElements.clear();
+    this.isInitialized = false;
   }
 }

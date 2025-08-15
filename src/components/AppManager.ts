@@ -12,6 +12,8 @@ import { ImageCarousel } from './ImageCarousel';
 import { UIController } from './UIController';
 import { i18n } from '../i18n/i18n';
 import { portfolioConfig } from '../config/portfolio';
+import { AudioPlayer } from './AudioPlayer';
+import { AudioPlayerUI } from './AudioPlayerUI';
 
 export interface AppConfig {
   enableParticles: boolean;
@@ -35,6 +37,8 @@ export class AppManager {
   private projectGallery: ProjectGallery | null = null;
   private certifications: Certifications | null = null;
   private imageCarousel: ImageCarousel | null = null;
+  private audioPlayer: AudioPlayer | null = null;
+  private audioPlayerUI: AudioPlayerUI | null = null;
   
   private config: AppConfig;
   private isInitialized: boolean = false;
@@ -115,30 +119,40 @@ export class AppManager {
     });
   }
 
+  /**
+   * Initialize core managers
+   */
   private async initializeCoreManagers(): Promise<void> {
     console.log('🔧 Initializing core managers...');
     
-    // Initialize i18n first
-    await this.initializeI18n();
-    
-    // Initialize content updater
-    this.contentUpdater = new ContentUpdater();
-    
     // Initialize theme manager
     this.themeManager = new ThemeManager();
-    console.log('🔧 ThemeManager created, ready:', this.themeManager.isReady());
-    console.log('🔧 Available themes:', this.themeManager.getAvailableThemes().map(t => t.name));
     
     // Initialize animation manager
     this.animationManager = new AnimationManager();
+    this.animationManager.init();
     
-    // Initialize UI controller
-    this.uiController = new UIController(this.themeManager);
+    // Initialize UIController
+    this.uiController = new UIController(this.themeManager, this.animationManager);
+    this.uiController.init();
     
     // Initialize portfolio manager
-    this.portfolioManager = new PortfolioManager();
-    await this.portfolioManager.init();
+    this.portfolioManager = new PortfolioManager(this.animationManager);
+    this.portfolioManager.init();
     
+    // Initialize content updater
+    this.contentUpdater = new ContentUpdater();
+    // ContentUpdater se inicializa automáticamente en su constructor
+    
+    // Initialize AudioPlayer
+    this.audioPlayer = new AudioPlayer();
+    this.audioPlayerUI = new AudioPlayerUI(this.audioPlayer);
+
+    // Animate hero entrance on page load
+    setTimeout(() => {
+      this.animationManager.animateHeroEntrance();
+    }, 500);
+
     console.log('✅ Core managers initialized');
   }
 
@@ -148,7 +162,13 @@ export class AppManager {
     // Wait for i18n to be ready
     try {
       await i18n.waitForReady();
-      console.log('✅ i18n initialized');
+      console.log('✅ i18n initialized with language:', i18n.getCurrentLanguage());
+      
+      // Force initial content update after i18n is ready
+      setTimeout(() => {
+        this.contentUpdater.updateAllContent();
+      }, 100);
+      
     } catch (error) {
       console.warn('⚠️ i18n initialization failed, continuing...', error);
     }
@@ -342,24 +362,15 @@ export class AppManager {
   private setupAdvancedAnimations(): void {
     // Animate dashboard cards with stagger effect
     const dashboardCards = document.querySelectorAll('.dashboard-card');
-    const cardElements = Array.from(dashboardCards) as HTMLElement[];
-    
-    this.animationManager!.addStaggeredAnimation(cardElements, {
-      duration: 800,
-      easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-    }, 150);
+    if (dashboardCards.length > 0) {
+      const container = dashboardCards[0].parentElement;
+      if (container) {
+        this.animationManager!.animateContentCardsEntrance(container);
+      }
+    }
 
-    // Add floating animation to icons
-    const icons = document.querySelectorAll('.metric-icon, .stat-item i');
-    icons.forEach(icon => {
-      this.animationManager!.addFloatingAnimation(icon as HTMLElement, 8);
-    });
-
-    // Add pulse effect to stat cards
-    const statCards = document.querySelectorAll('.stat-card');
-    statCards.forEach(card => {
-      this.animationManager!.addPulseEffect(card as HTMLElement, 1.05);
-    });
+    // Animate hero section entrance
+    this.animationManager!.animateHeroEntrance();
   }
 
   private removeLoadingScreen(): void {

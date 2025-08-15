@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Audio files (optional - uncomment if you don't want to track audio files)
+# public/sounds/*.mp3
+# public/sounds/*.wav
+# public/sounds/*.ogg
+# public/sounds/*.m4a
