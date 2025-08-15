@@ -21,7 +21,7 @@ export class AudioPlayerUI {
 
   constructor(audioPlayer: AudioPlayer) {
     this.audioPlayer = audioPlayer;
-    this.createContainer();
+    this.container = this.createContainer();
     this.setupEventListeners();
     this.render();
     this.attachToDOM();
@@ -243,8 +243,17 @@ export class AudioPlayerUI {
   private attachToDOM(): void {
     // Insert after the navbar
     const navbar = document.querySelector('.navbar');
-    if (navbar && navbar.parentNode) {
-      navbar.parentNode.insertBefore(this.container, navbar.nextSibling);
+    if (navbar && navbar.parentNode && this.container) {
+      try {
+        navbar.parentNode.insertBefore(this.container, navbar.nextSibling);
+      } catch (error) {
+        console.warn('Could not attach audio player to DOM:', error);
+        // Fallback: append to body
+        document.body.appendChild(this.container);
+      }
+    } else {
+      console.warn('Navbar not found, appending audio player to body');
+      document.body.appendChild(this.container);
     }
   }
 
