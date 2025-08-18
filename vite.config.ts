@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false,
+    sourcemap: mode === 'analyze',
     minify: 'terser',
     rollupOptions: {
       input: {
@@ -33,4 +33,4 @@ export default defineConfig({
     port: 4173,
     open: true
   }
-})
+}))

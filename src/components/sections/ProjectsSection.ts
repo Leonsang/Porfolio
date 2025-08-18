@@ -55,6 +55,9 @@ export class ProjectsSection extends BaseSection {
   protected render(): void {
     if (!this.sectionElement) return;
 
+    // Ensure filter toolbar exists
+    this.ensureFilters();
+
     // Update i18n content
     this.updateContent();
     
@@ -265,6 +268,9 @@ export class ProjectsSection extends BaseSection {
   private setupProjectInteractions(): void {
     if (!this.sectionElement) return;
 
+    // Filters
+    this.bindFilterEvents();
+
     // Add hover effects to project cards
     const projectCards = this.sectionElement.querySelectorAll('.dashboard-card');
     projectCards.forEach(card => {
@@ -369,5 +375,66 @@ export class ProjectsSection extends BaseSection {
       this.projectProgressChart.destroy();
       this.projectProgressChart = null;
     }
+  }
+
+  /**
+   * Ensure a filter toolbar exists at the top of the projects section
+   */
+  private ensureFilters(): void {
+    if (!this.sectionElement) return;
+    const header = this.sectionElement.querySelector('.section-header');
+    if (!header) return;
+
+    let filters = this.sectionElement.querySelector('.gallery-filters');
+    if (!filters) {
+      filters = document.createElement('div');
+      filters.className = 'gallery-filters';
+      filters.innerHTML = `
+        <button class="filter-btn" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="innovation">Innovation</button>
+        <button class="filter-btn" data-filter="business">Business</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+      `;
+      header.appendChild(filters);
+    }
+  }
+
+  /**
+   * Bind filter events to filter buttons
+   */
+  private bindFilterEvents(): void {
+    if (!this.sectionElement) return;
+    const filters = this.sectionElement.querySelectorAll('.gallery-filters .filter-btn');
+    const grid = this.sectionElement.querySelector('.projects-grid');
+    if (!grid) return;
+
+    filters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const value = btn.getAttribute('data-filter');
+        this.applyFilter(grid as HTMLElement, value || 'all');
+      });
+    });
+  }
+
+  /**
+   * Apply filter to project cards
+   */
+  private applyFilter(grid: HTMLElement, filter: string): void {
+    const cards = Array.from(grid.querySelectorAll('.dashboard-card')) as HTMLElement[];
+    cards.forEach(card => {
+      const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+      const tags = Array.from(card.querySelectorAll('.tech-tag')).map(t => t.textContent?.toLowerCase() || '');
+      let show = true;
+      if (filter === 'innovation') {
+        show = title.includes('innovation');
+      } else if (filter === 'business') {
+        show = title.includes('business');
+      } else if (filter === 'ai') {
+        show = title.includes('rag') || tags.some(t => t.includes('rag') || t.includes('vector'));
+      }
+      card.style.display = show || filter === 'all' ? '' : 'none';
+    });
   }
 }

@@ -60,6 +60,8 @@ export class ChartComponent {
   private config: ChartConfig;
   private themeColors: ThemeColors;
   private isInitialized: boolean = false;
+  private dataEngineeringChart: Chart | null = null;
+  private skillsChart: Chart | null = null;
 
   constructor(canvasId: string, config: ChartConfig, themeColors?: ThemeColors) {
     this.canvas = document.getElementById(canvasId) as HTMLCanvasElement;
@@ -84,17 +86,129 @@ export class ChartComponent {
     this.isInitialized = true;
   }
 
-  private createChart(): void {
-    const defaultOptions = this.getDefaultOptions();
-    const mergedOptions = { ...defaultOptions, ...this.config.options };
+  public createChart(): void {
+    if (this.isInitialized) return;
 
-    this.chart = new Chart(this.canvas.getContext('2d')!, {
-      type: this.config.type,
-      data: {
-        labels: this.config.labels,
-        datasets: this.config.datasets
-      },
-      options: mergedOptions
+    if (this.canvas.id === 'skillsRadarChart') {
+      this.createSkillsRadarChart();
+    }
+
+    this.isInitialized = true;
+  }
+
+  private createSkillsRadarChart(): void {
+    const canvas = document.getElementById('skillsRadarChart') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Configurable Data Engineering Objectives Radar Chart with explanations
+    const chartConfig = {
+      labels: [
+        'Data Modeling',        // Kimball/Inmon, SCD, Data Warehouse, Lakehouse
+        'Data Ingestion',       // APIs, ETL, Streaming
+        'Data Transformation',   // Cleaning, Validation, Enrichment
+        'Data Storage',         // Warehouses, Lakes, Databases
+        'Data Processing',      // Batch, Real-time, ML
+        'Data Delivery'         // APIs, Dashboards, Reports
+      ],
+      data: [94, 95, 92, 88, 90, 87], // Scores for each objective
+      explanations: [
+        '94% - Kimball/Inmon methodologies, SCD types, data warehouse design, lakehouse architecture, data merge strategies',
+        '95% - APIs, ETL pipelines, real-time streaming (AWS Glue, Lambda, Kafka)',
+        '92% - Data cleaning, validation, enrichment, quality checks (Python, SQL, Great Expectations)',
+        '88% - Data warehouses, lakes, databases (Redshift, BigQuery, S3, PostgreSQL)',
+        '90% - Batch processing, real-time analytics, ML pipelines (Spark, Airflow, Python)',
+        '87% - APIs, dashboards, reports, data access (Power BI, LookerML, REST APIs)'
+      ],
+      backgroundColor: 'rgba(0, 255, 65, 0.2)',
+      borderColor: 'rgba(0, 255, 65, 0.8)',
+      pointColor: 'rgba(0, 255, 65, 1)'
+    };
+
+    const data = {
+      labels: chartConfig.labels,
+      datasets: [{
+        label: 'Proficiency Level',
+        data: chartConfig.data,
+        backgroundColor: chartConfig.backgroundColor,
+        borderColor: chartConfig.borderColor,
+        borderWidth: 2,
+        pointBackgroundColor: chartConfig.pointColor,
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: chartConfig.pointColor
+      }]
+    };
+
+    // Responsive font sizes based on screen width
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth < 1024;
+
+    const config = {
+      type: 'radar' as const,
+      data: data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          r: {
+            beginAtZero: true,
+            max: 100,
+            min: 0,
+            ticks: {
+              stepSize: 20,
+              color: '#ffffff',
+              font: {
+                size: isMobile ? 8 : isTablet ? 9 : 10
+              }
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            angleLines: {
+              color: 'rgba(255, 255, 255, 0.1)'
+            },
+            pointLabels: {
+              color: '#ffffff',
+              font: {
+                size: isMobile ? 9 : isTablet ? 10 : 12,
+                weight: 'bold' as const
+              },
+              callback: function(value: any, index: number) {
+                // Truncate long labels for mobile
+                const label = chartConfig.labels[index];
+                if (isMobile && label.length > 12) {
+                  return label.substring(0, 12) + '...';
+                }
+                return label;
+              }
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            enabled: false // Disable Chart.js tooltips to avoid conflicts with CSS tooltips
+          }
+        }
+      }
+    };
+
+    if (this.skillsChart) {
+      this.skillsChart.destroy();
+    }
+
+    this.skillsChart = new Chart(ctx, config);
+
+    // Add resize listener for better responsiveness
+    window.addEventListener('resize', () => {
+      if (this.skillsChart) {
+        this.skillsChart.resize();
+      }
     });
   }
 

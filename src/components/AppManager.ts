@@ -14,6 +14,7 @@ import { i18n } from '../i18n/i18n';
 import { portfolioConfig } from '../config/portfolio';
 import { AudioPlayer } from './AudioPlayer';
 import { AudioPlayerUI } from './AudioPlayerUI';
+import { SplineBackground } from './SplineBackground';
 
 export interface AppConfig {
   enableParticles: boolean;
@@ -39,6 +40,7 @@ export class AppManager {
   private imageCarousel: ImageCarousel | null = null;
   private audioPlayer: AudioPlayer | null = null;
   private audioPlayerUI: AudioPlayerUI | null = null;
+  private splineBackground: SplineBackground | null = null;
   
   private config: AppConfig;
   private isInitialized: boolean = false;
@@ -82,6 +84,11 @@ export class AppManager {
       
       // Initialize core managers
       await this.initializeCoreManagers();
+      
+      // Configure SplineBackground with ThemeManager
+      if (this.splineBackground && this.themeManager) {
+        this.themeManager.setSplineBackground(this.splineBackground);
+      }
       
       // Initialize visual effects
       await this.initializeVisualEffects();
@@ -176,6 +183,14 @@ export class AppManager {
 
   private async initializeVisualEffects(): Promise<void> {
     console.log('🎨 Initializing visual effects...');
+    
+    // Initialize SplineBackground
+    try {
+      this.splineBackground = new SplineBackground();
+      console.log('✅ SplineBackground initialized');
+    } catch (error) {
+      console.warn('⚠️ Failed to initialize SplineBackground:', error);
+    }
     
     // Initialize particles background
     if (this.config.enableParticles) {
@@ -465,6 +480,13 @@ export class AppManager {
     if (this.particlesBackground) {
       this.particlesBackground.resize();
     }
+  }
+
+  /**
+   * Get audio player instance
+   */
+  public getAudioPlayer(): AudioPlayer | null {
+    return this.audioPlayer;
   }
 
   /**

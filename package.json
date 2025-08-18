@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test-spline": "vite --port 3001 --open spline-test.html",
+    "analyze": "vite build --mode analyze",
+    "check-audio": "node scripts/check-audio.mjs"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
@@ -18,6 +21,8 @@
     "vite": "^7.1.2"
   },
   "dependencies": {
+    "@splinetool/loader": "^1.10.48",
+    "@splinetool/runtime": "^1.10.48",
     "@types/chart.js": "^2.9.41",
     "chart.js": "^4.5.0",
     "particles.js": "^2.0.0"

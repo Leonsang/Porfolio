@@ -61,12 +61,8 @@ export interface Certification {
 }
 
 export interface Achievements {
-  performance_metrics: {
-    [key: string]: string;
-  };
-  technologies_implemented: {
-    [key: string]: number;
-  };
+  performance_metrics: Record<string, string>;
+  technologies_implemented: Record<string, number>;
 }
 
 export interface Theme {
@@ -89,10 +85,37 @@ export interface Meta {
   description: string;
 }
 
+export interface LeadershipStory {
+  title: string;
+  situation: string;
+  task: string;
+  action: string[];
+  result: string;
+  skills: string[];
+}
+
+export interface CertificateLink {
+  title: string;
+  provider: string;
+  url: string;
+  note?: string;
+  date?: string;
+}
+
+export interface Course {
+  id: string;
+  title: string;
+  provider: string;
+  status: 'completed' | 'in-progress' | 'planned';
+  learningObjectives: string[];
+  courseId?: string;
+  certificateUrl?: string;
+}
+
 export interface PortfolioConfig {
   personal: PersonalInfo;
   stats: Stats;
-  skills: Skills;
+  skills: any;
   projects: Project[];
   experience: Experience[];
   education: Education[];
@@ -101,4 +124,7 @@ export interface PortfolioConfig {
   theme: Theme;
   social: Social;
   meta: Meta;
+  leadershipStories?: LeadershipStory[];
+  certificateLinks?: CertificateLink[];
+  courses?: Course[];
 }

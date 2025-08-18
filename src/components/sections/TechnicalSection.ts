@@ -1,5 +1,6 @@
 import { BaseSection } from './BaseSection';
 import { i18n } from '../../i18n/i18n';
+import { portfolioConfig } from '../../config/portfolio';
 
 export class TechnicalSection extends BaseSection {
   constructor() {
@@ -16,8 +17,116 @@ export class TechnicalSection extends BaseSection {
     // Update i18n content
     this.updateContent();
     
+    // Render certificates links block
+    this.renderCertificatesLinks();
+    
+    // Render courses block
+    this.renderCourses();
+    
     // Setup animations and interactions
     this.setupAnimations();
+  }
+
+  private renderCertificatesLinks(): void {
+    if (!this.sectionElement) return;
+    const containerId = 'cert-links-block';
+    let container = this.sectionElement.querySelector(`#${containerId}`) as HTMLElement | null;
+    if (!container) {
+      // Create block at end of technical section grid
+      const grid = this.sectionElement.querySelector('.technical-grid') || this.sectionElement;
+      container = document.createElement('div');
+      container.id = containerId;
+      container.className = 'dashboard-card cert-links-card';
+      container.innerHTML = `
+        <div class="card-header">
+          <h3>Certificates (Links)</h3>
+          <span class="category-tag">Creds</span>
+        </div>
+        <div class="cert-links-list"></div>
+      `;
+      grid.appendChild(container);
+    }
+    const list = container.querySelector('.cert-links-list') as HTMLElement;
+    if (!list) return;
+
+    const links = portfolioConfig.certificateLinks || [];
+    list.innerHTML = links.map(l => `
+      <div class="cert-link-row">
+        <div class="cert-link-title"><strong>${l.title}</strong> <span class="cert-link-provider">${l.provider}${l.date ? ' · ' + l.date : ''}</span></div>
+        <a href="${l.url}" target="_blank" rel="noopener" class="btn btn-secondary">Open</a>
+      </div>
+    `).join('');
+  }
+
+  private renderCourses(): void {
+    if (!this.sectionElement) return;
+    const containerId = 'courses-block';
+    let container = this.sectionElement.querySelector(`#${containerId}`) as HTMLElement | null;
+    if (!container) {
+      // Create block after certificates
+      const grid = this.sectionElement.querySelector('.technical-grid') || this.sectionElement;
+      container = document.createElement('div');
+      container.id = containerId;
+      container.className = 'dashboard-card courses-card';
+      container.innerHTML = `
+        <div class="card-header">
+          <h3>Data Engineering Courses</h3>
+          <span class="category-tag">Learning</span>
+        </div>
+        <div class="courses-list"></div>
+      `;
+      grid.appendChild(container);
+    }
+    const list = container.querySelector('.courses-list') as HTMLElement;
+    if (!list) return;
+
+    const courses = portfolioConfig.courses || [];
+    list.innerHTML = courses.map(course => `
+      <div class="course-item" data-course-id="${course.id}">
+        <div class="course-header">
+          <div class="course-info">
+            <h4 class="course-title">${course.title}</h4>
+            <div class="course-meta">
+              <span class="course-provider">${course.provider}</span>
+              ${course.courseId ? `<span class="course-id">${course.courseId}</span>` : ''}
+              <span class="course-status status-${course.status}">${course.status === 'completed' ? '✓ Completed' : course.status === 'in-progress' ? '🔄 In Progress' : '📅 Planned'}</span>
+            </div>
+          </div>
+          <div class="course-actions">
+            ${course.status === 'completed' && course.certificateUrl ? `<a href="${course.certificateUrl}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View Cert</a>` : ''}
+            <button class="btn btn-secondary btn-sm toggle-objectives" data-course-id="${course.id}">View Objectives</button>
+          </div>
+        </div>
+        <div class="course-objectives" id="objectives-${course.id}" style="display: none;">
+          <h5>Learning Objectives:</h5>
+          <ul>
+            ${course.learningObjectives.map(obj => `<li>${obj}</li>`).join('')}
+          </ul>
+        </div>
+      </div>
+    `).join('');
+
+    // Add toggle functionality
+    this.setupCourseToggles();
+  }
+
+  private setupCourseToggles(): void {
+    const toggles = this.sectionElement?.querySelectorAll('.toggle-objectives');
+    toggles?.forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        const courseId = (e.target as HTMLElement).getAttribute('data-course-id');
+        if (!courseId) return;
+        
+        const objectives = document.getElementById(`objectives-${courseId}`);
+        const button = e.target as HTMLButtonElement;
+        
+        if (objectives) {
+          const isVisible = objectives.style.display !== 'none';
+          objectives.style.display = isVisible ? 'none' : 'block';
+          button.textContent = isVisible ? 'View Objectives' : 'Hide Objectives';
+        }
+      });
+    });
   }
 
   /**
@@ -74,7 +183,7 @@ export class TechnicalSection extends BaseSection {
       });
     }
 
-    // Update Technical Stack card
+    // Update Skills Matrix card
     const chartCard = this.sectionElement.querySelector('.chart-card');
     if (chartCard) {
       const title = chartCard.querySelector('h3[data-i18n]');

@@ -12,12 +12,21 @@ export class ThemeManager {
   private currentTheme: Theme;
   private themes: Map<string, Theme>;
   private root: HTMLElement;
+  private splineBackground: any = null; // SplineBackground instance
 
   constructor() {
     this.root = document.documentElement;
     this.themes = new Map();
     this.initializeThemes();
-    this.currentTheme = this.themes.get('retro')!;
+    
+    // Load saved theme from localStorage or use default
+    const savedTheme = localStorage.getItem('portfolio-theme');
+    if (savedTheme && this.themes.has(savedTheme)) {
+      this.currentTheme = this.themes.get(savedTheme)!;
+    } else {
+      this.currentTheme = this.themes.get('retro')!;
+    }
+    
     this.applyTheme(this.currentTheme);
   }
 
@@ -78,6 +87,14 @@ export class ThemeManager {
     this.root.style.setProperty('--light-color', theme.light_color);
     this.root.style.setProperty('--gray-color', theme.gray_color);
 
+    // Apply SplineBackground theme if available
+    if (this.splineBackground && this.splineBackground.setTheme) {
+      this.splineBackground.setTheme(theme.name);
+    }
+
+    // Cambiar escena de Spline para el tema
+    this.changeSplineSceneForTheme(theme.name);
+
     // Store in localStorage
     localStorage.setItem('portfolio-theme', theme.name);
 
@@ -91,6 +108,35 @@ export class ThemeManager {
 
   public getAvailableThemes(): Theme[] {
     return Array.from(this.themes.values());
+  }
+
+  /**
+   * Configurar SplineBackground
+   */
+  public setSplineBackground(splineBackground: any): void {
+    this.splineBackground = splineBackground;
+  }
+
+  /**
+   * Cambiar escena de Spline para un tema específico
+   */
+  public changeSplineSceneForTheme(themeName: string): void {
+    if (!this.splineBackground || !this.splineBackground.changeSplineScene) return;
+
+    switch (themeName) {
+      case 'cyberpunk':
+        this.splineBackground.changeSplineScene('https://my.spline.design/synthwaveroad-1VHsiEVO3f6ROjJN0a1mrrJN0a1mrrJj/');
+        break;
+      case 'matrix':
+        // Aquí puedes añadir una escena matrix si tienes una
+        break;
+      case 'sunset':
+        // Aquí puedes añadir una escena sunset si tienes una
+        break;
+      default:
+        // Escena por defecto
+        break;
+    }
   }
 
   public switchTheme(themeName: string): void {

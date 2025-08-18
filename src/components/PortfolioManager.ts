@@ -1,6 +1,5 @@
 import { PortfolioNavigation } from './layout/PortfolioNavigation';
-import { AboutSection } from './sections/AboutSection';
-import { OverviewSection } from './sections/OverviewSection';
+import { HomeSection } from './sections/HomeSection';
 import { TechnicalSection } from './sections/TechnicalSection';
 import { ExperienceSection } from './sections/ExperienceSection';
 import { ProjectsSection } from './sections/ProjectsSection';
@@ -74,7 +73,7 @@ export class PortfolioManager {
     console.log('🔍 Checking for sections in DOM...');
     
     // Check if sections exist in DOM
-    const sectionIds = ['about-section', 'overview-section', 'technical-section', 'experience-section', 'projects-section', 'contact-section'];
+    const sectionIds = ['home-section', 'technical-section', 'experience-section', 'projects-section', 'contact-section'];
     
     sectionIds.forEach(sectionId => {
       const element = document.getElementById(sectionId);
@@ -85,26 +84,15 @@ export class PortfolioManager {
       }
     });
 
-    // Initialize About Section
+    // Initialize Home Section (About + Overview + Hero)
     try {
-      console.log('👤 Initializing About Section...');
-      const aboutSection = new AboutSection();
-      aboutSection.init();
-      this.sections.set('about', aboutSection);
-      console.log('✅ About Section initialized');
+      console.log('🏠 Initializing Home Section...');
+      const homeSection = new HomeSection();
+      homeSection.init();
+      this.sections.set('home', homeSection);
+      console.log('✅ Home Section initialized');
     } catch (error) {
-      console.error('❌ Error initializing About Section:', error);
-    }
-
-    // Initialize Overview Section
-    try {
-      console.log('🏠 Initializing Overview Section...');
-      const overviewSection = new OverviewSection();
-      overviewSection.init();
-      this.sections.set('overview', overviewSection);
-      console.log('✅ Overview Section initialized');
-    } catch (error) {
-      console.error('❌ Error initializing Overview Section:', error);
+      console.error('❌ Error initializing Home Section:', error);
     }
 
     // Initialize Technical Section
@@ -186,6 +174,10 @@ export class PortfolioManager {
     const targetSectionElement = document.getElementById(`${sectionId}-section`);
 
     if (targetSectionElement) {
+      // Normalize: ensure only the target will be active after transition
+      // Remove 'active' from all sections pre-transition to avoid stacking
+      this.navigation['enforceSingleActiveSection']?.(sectionId);
+
       // Use animation manager for smooth transitions
       await this.animationManager.animateSectionTransition(
         currentSectionElement,
@@ -193,9 +185,8 @@ export class PortfolioManager {
         this.getTransitionDirection(sectionId)
       );
 
-      // DESPUÉS de que la animación termine, actualizar los estados
+      // After animation, explicitly hide previous and show new
       if (currentSectionElement) {
-        // Quitar la clase active de la sección anterior
         currentSectionElement.classList.remove('active');
         const previousSection = this.sections.get(this.navigation.getActiveSection());
         if (previousSection) {
@@ -302,7 +293,7 @@ export class PortfolioManager {
    * Determine transition direction based on section order
    */
   private getTransitionDirection(targetSectionId: string): 'forward' | 'backward' {
-    const sectionOrder = ['about', 'overview', 'technical', 'experience', 'projects', 'contact'];
+    const sectionOrder = ['home', 'technical', 'experience', 'projects', 'contact'];
     const currentIndex = sectionOrder.indexOf(this.navigation.getActiveSection());
     const targetIndex = sectionOrder.indexOf(targetSectionId);
     

@@ -27,23 +27,24 @@ export const languages: LanguageConfig[] = [
 export const translations: Record<string, Translation> = {
   en: {
     // Navigation
-    nav: {
-      dashboard: 'Dashboard',
-      about: 'About',
-      skills: 'Skills',
-      projects: 'Projects',
-      certifications: 'Certifications',
-      contact: 'Contact',
-      overview: 'Overview',
-      technical: 'Technical',
-      experience: 'Experience'
-    },
+      nav: {
+    dashboard: 'Dashboard',
+    home: 'Home',
+    skills: 'Skills',
+    projects: 'Projects',
+    certifications: 'Certifications',
+    contact: 'Contact',
+    technical: 'Technical',
+    experience: 'Experience',
+    sections: 'Sections'
+  },
 
     // Hero Section
     hero: {
       title: 'ERICK SANG CIFUENTES',
       subtitle: 'Data Engineer',
-      description: 'Building robust data pipelines and transforming raw data into actionable insights'
+      description: 'Building robust data pipelines and transforming raw data into actionable insights',
+      viewResume: 'View Resume'
     },
 
     // Dashboard Stats
@@ -117,19 +118,19 @@ export const translations: Record<string, Translation> = {
       subtitle: 'Core technical skills and expertise across multiple domains',
       excellence: {
         title: 'Technical Excellence Score',
-        category: 'Technical',
+        category: 'Performance',
         cloud: 'Cloud & Infrastructure',
         pipeline: 'Pipeline Design',
         api: 'API & Integration',
         ml: 'Machine Learning'
       },
-      stack: {
-        title: 'Technical Stack',
-        category: 'Stack'
+      skills: {
+        title: 'Data Engineering Objectives',
+        category: 'Core Areas'
       },
       tech: {
         title: 'Technology Stack',
-        category: 'Stack',
+        category: 'Technologies',
         cloud: 'Cloud',
         data: 'Data',
         bi: 'BI Tools'
@@ -139,7 +140,15 @@ export const translations: Record<string, Translation> = {
     // Experience Section
     experience: {
       title: 'Professional Experience',
-      subtitle: 'My journey through different roles and companies'
+      subtitle: 'My journey through different roles and companies',
+      journey: {
+        title: 'Professional Journey',
+        category: 'Journey'
+      },
+      leadership: {
+        title: 'Leadership & Strategy',
+        category: 'Leadership'
+      }
     },
 
     // Skills Section
@@ -252,7 +261,37 @@ export const translations: Record<string, Translation> = {
 
     // Loading Screen
     loading: {
-      title: 'LOADING DASHBOARD...'
+      title: 'LOADING DASHBOARD...',
+      underConstruction: 'Site under construction…',
+      loadingEngineer: 'Loading an engineer…'
+    },
+
+    // Modals
+    modals: {
+      languageSelector: 'Language Selector',
+      chooseLanguage: 'Choose your preferred language:',
+      settings: 'Settings',
+      customizeExperience: 'Customize your portfolio experience:',
+      animations: 'Animations',
+      enableAnimations: 'Enable animations',
+      enableParticles: 'Enable particle effects',
+      audio: 'Audio',
+      enableAudio: 'Enable sound effects',
+      enableMusic: 'Enable music player',
+      masterVolume: 'Master Volume'
+    },
+
+    // CV Modal
+    cv: {
+      title: 'Download CV',
+      subtitle: 'Choose your preferred format',
+      atsTip: 'ATS Tip',
+      atsDescription: 'ATS (Applicant Tracking System) optimized CVs are designed to pass through automated screening systems used by many companies.',
+      atsBadge: 'ATS Optimized',
+      standardBadge: 'Standard',
+      download: 'Download',
+      preview: 'Preview',
+      downloadSuccess: 'CV downloaded successfully!'
     },
 
     // Common
@@ -272,23 +311,24 @@ export const translations: Record<string, Translation> = {
 
   es: {
     // Navigation
-    nav: {
-      dashboard: 'Panel',
-      about: 'Acerca de',
-      skills: 'Habilidades',
-      projects: 'Proyectos',
-      certifications: 'Certificaciones',
-      contact: 'Contacto',
-      overview: 'Vista General',
-      technical: 'Técnica',
-      experience: 'Experiencia'
-    },
+      nav: {
+    dashboard: 'Panel',
+    home: 'Inicio',
+    skills: 'Habilidades',
+    projects: 'Proyectos',
+    certifications: 'Certificaciones',
+    contact: 'Contacto',
+    technical: 'Técnica',
+    experience: 'Experiencia',
+    sections: 'Secciones'
+  },
 
     // Hero Section
     hero: {
       title: 'ERICK SANG CIFUENTES',
       subtitle: 'Ingeniero de Datos',
-      description: 'Construyendo pipelines de datos robustos y transformando datos crudos en insights accionables'
+      description: 'Construyendo pipelines de datos robustos y transformando datos crudos en insights accionables',
+      viewResume: 'Ver Curriculum'
     },
 
     // Dashboard Stats
@@ -368,9 +408,9 @@ export const translations: Record<string, Translation> = {
         api: 'API e Integración',
         ml: 'Machine Learning'
       },
-      stack: {
-        title: 'Stack Técnico',
-        category: 'Stack'
+      skills: {
+        title: 'Objetivos de Ingeniería de Datos',
+        category: 'Áreas Principales'
       },
       tech: {
         title: 'Stack Tecnológico',
@@ -384,7 +424,15 @@ export const translations: Record<string, Translation> = {
     // Experience Section
     experience: {
       title: 'Experiencia Profesional',
-      subtitle: 'Mi camino a través de diferentes roles y empresas'
+      subtitle: 'Mi camino a través de diferentes roles y empresas',
+      journey: {
+        title: 'Trayectoria Profesional',
+        category: 'Trayectoria'
+      },
+      leadership: {
+        title: 'Liderazgo y Estrategia',
+        category: 'Liderazgo'
+      }
     },
 
     // Skills Section
@@ -497,7 +545,37 @@ export const translations: Record<string, Translation> = {
 
     // Loading Screen
     loading: {
-      title: 'CARGANDO PANEL...'
+      title: 'CARGANDO PANEL...',
+      underConstruction: 'Sitio en construcción…',
+      loadingEngineer: 'Cargando un ingeniero…'
+    },
+
+    // Modals
+    modals: {
+      languageSelector: 'Selector de Idioma',
+      chooseLanguage: 'Elige tu idioma preferido:',
+      settings: 'Configuración',
+      customizeExperience: 'Personaliza tu experiencia del portafolio:',
+      animations: 'Animaciones',
+      enableAnimations: 'Habilitar animaciones',
+      enableParticles: 'Habilitar efectos de partículas',
+      audio: 'Audio',
+      enableAudio: 'Habilitar efectos de sonido',
+      enableMusic: 'Habilitar reproductor de música',
+      masterVolume: 'Volumen Principal'
+    },
+
+    // CV Modal
+    cv: {
+      title: 'Descargar CV',
+      subtitle: 'Elige tu formato preferido',
+      atsTip: 'Consejo ATS',
+      atsDescription: 'Los CVs optimizados para ATS (Sistema de Seguimiento de Candidatos) están diseñados para pasar a través de los sistemas de cribado automatizado utilizados por muchas empresas.',
+      atsBadge: 'ATS Optimizado',
+      standardBadge: 'Estándar',
+      download: 'Descargar',
+      preview: 'Vista Previa',
+      downloadSuccess: '¡CV descargado exitosamente!'
     },
 
     // Common

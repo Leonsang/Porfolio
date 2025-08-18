@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplineBackground Test - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Courier New', monospace;
+            background: #0a0a0a;
+            color: #00ff41;
+            overflow-x: hidden;
+        }
+
+        .test-container {
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .test-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #00ff41;
+        }
+
+        .test-subtitle {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .test-controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .test-btn {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .test-btn:hover {
+            background: #00ff41;
+            color: #000;
+            box-shadow: 0 0 20px #00ff41;
+        }
+
+        .test-btn.active {
+            background: #00ff41;
+            color: #000;
+            box-shadow: 0 0 20px #00ff41;
+        }
+
+        .test-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .test-card {
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .test-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.3);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #00ff41;
+        }
+
+        .card-content {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .test-info {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00ff41;
+        }
+
+        .info-list {
+            list-style: none;
+            color: #cccccc;
+        }
+
+        .info-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .info-list li::before {
+            content: '▶';
+            color: #00ff41;
+            position: absolute;
+            left: 0;
+        }
+
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .status-active {
+            background: #00ff41;
+        }
+
+        .status-inactive {
+            background: #ff4444;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .debug-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #00ff41;
+            border-radius: 10px;
+            padding: 1rem;
+            font-size: 0.9rem;
+            max-width: 300px;
+            z-index: 1000;
+        }
+
+        .debug-title {
+            color: #00ff41;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .debug-item {
+            color: #cccccc;
+            margin-bottom: 0.3rem;
+            font-size: 0.8rem;
+        }
+
+        .theme-selector {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .theme-selector select {
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            border-radius: 5px;
+            font-family: inherit;
+            cursor: pointer;
+        }
+
+        .theme-selector select:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        .theme-selector option {
+            background: #000;
+            color: #00ff41;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+        <div class="debug-title">🔍 Debug Info</div>
+        <div class="debug-item" id="debug-status">Status: Loading...</div>
+        <div class="debug-item" id="debug-theme">Theme: None</div>
+        <div class="debug-item" id="debug-fps">FPS: --</div>
+        <div class="debug-item" id="debug-memory">Memory: --</div>
+    </div>
+
+    <!-- Test Container -->
+    <div class="test-container">
+        <!-- Header -->
+        <div class="test-header">
+            <h1 class="test-title">🧪 SplineBackground Test</h1>
+            <p class="test-subtitle">Página de prueba para el fondo de Spline con tema cyberpunk</p>
+            
+            <!-- Theme Selector -->
+            <div class="theme-selector">
+                <label for="theme-select">Tema: </label>
+                <select id="theme-select">
+                    <option value="retro">Retro</option>
+                    <option value="cyberpunk">Cyberpunk</option>
+                    <option value="matrix">Matrix</option>
+                    <option value="sunset">Sunset</option>
+                </select>
+            </div>
+
+            <!-- Spline Scene Selector -->
+            <div class="theme-selector" style="margin-top: 0.5rem;">
+                <label for="scene-select">Escena: </label>
+                <select id="scene-select">
+                    <option value="https://my.spline.design/synthwaveroad-1VHsiEVO3f6ROjJN0a1mrrJj/">Synthwave Road</option>
+                    <option value="https://prod.spline.design/KQqUa8LJZGcctncl/scene.splinecode">Original Scene</option>
+                    <option value="fallback">Efectos Básicos</option>
+                </select>
+            </div>
+
+            <!-- Test Controls -->
+            <div class="test-controls">
+                <button class="test-btn" id="btn-toggle">Toggle Spline</button>
+                <button class="test-btn" id="btn-cyberpunk">Activar Cyberpunk</button>
+                <button class="test-btn" id="btn-reset">Reset</button>
+                <button class="test-btn" id="btn-debug">Debug Mode</button>
+            </div>
+        </div>
+
+        <!-- Test Content -->
+        <div class="test-content">
+            <div class="test-card">
+                <h3 class="card-title">🎨 Efectos Visuales</h3>
+                <div class="card-content">
+                    <p>Esta página prueba todos los efectos visuales del SplineBackground:</p>
+                    <ul style="margin-top: 1rem; padding-left: 1rem;">
+                        <li>Grid en movimiento</li>
+                        <li>Partículas flotantes</li>
+                        <li>Líneas de escaneo</li>
+                        <li>Efectos de glitch</li>
+                        <li>Aura de luz</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3 class="card-title">🎛️ Controles</h3>
+                <div class="card-content">
+                    <p>Usa los botones para probar diferentes funcionalidades:</p>
+                    <ul style="margin-top: 1rem; padding-left: 1rem;">
+                        <li><strong>Toggle:</strong> Activar/desactivar</li>
+                        <li><strong>Cyberpunk:</strong> Modo cyberpunk</li>
+                        <li><strong>Reset:</strong> Reiniciar efectos</li>
+                        <li><strong>Debug:</strong> Información técnica</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="test-card">
+                <h3 class="card-title">📊 Performance</h3>
+                <div class="card-content">
+                    <p>Monitorea el rendimiento en tiempo real:</p>
+                    <ul style="margin-top: 1rem; padding-left: 1rem;">
+                        <li>FPS (Frames por segundo)</li>
+                        <li>Uso de memoria</li>
+                        <li>Estado de la GPU</li>
+                        <li>Latencia de renderizado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Info -->
+        <div class="test-info">
+            <h3 class="info-title">ℹ️ Información de Prueba</h3>
+            <ul class="info-list">
+                <li><span class="status-indicator status-active" id="status-spline"></span>SplineBackground: <span id="status-spline-text">Inicializando...</span></li>
+                <li><span class="status-indicator status-inactive" id="status-theme"></span>Tema Actual: <span id="status-theme-text">Retro</span></li>
+                <li><span class="status-indicator status-inactive" id="status-effects"></span>Efectos Activos: <span id="status-effects-text">0</span></li>
+                <li><span class="status-indicator status-inactive" id="status-performance"></span>Performance: <span id="status-performance-text">Óptimo</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module">
+        // Importar SplineBackgroundTest (versión simplificada)
+        import { SplineBackgroundTest } from './src/components/SplineBackgroundTest.js';
+        
+        // Variables globales
+        let splineBackground = null;
+        let isActive = false;
+        let debugMode = false;
+        let animationId = null;
+        let lastTime = 0;
+        let frameCount = 0;
+
+        // Elementos DOM
+        const btnToggle = document.getElementById('btn-toggle');
+        const btnCyberpunk = document.getElementById('btn-cyberpunk');
+        const btnReset = document.getElementById('btn-reset');
+        const btnDebug = document.getElementById('btn-debug');
+        const themeSelect = document.getElementById('theme-select');
+        const sceneSelect = document.getElementById('scene-select');
+
+        // Inicialización
+        async function init() {
+            try {
+                console.log('🚀 Inicializando SplineBackground Test...');
+                
+                // Crear instancia de SplineBackgroundTest
+                splineBackground = new SplineBackgroundTest();
+                
+                // Esperar a que esté listo
+                await waitForSplineReady();
+                
+                // Configurar controles
+                setupControls();
+                
+                // Iniciar loop de debug
+                startDebugLoop();
+                
+                console.log('✅ SplineBackground Test inicializado correctamente');
+                
+            } catch (error) {
+                console.error('❌ Error inicializando SplineBackground Test:', error);
+                updateStatus('Error en inicialización', 'error');
+            }
+        }
+
+        // Esperar a que SplineBackground esté listo
+        function waitForSplineReady() {
+            return new Promise((resolve) => {
+                const checkReady = () => {
+                    if (splineBackground && splineBackground.isReady()) {
+                        resolve();
+                    } else {
+                        setTimeout(checkReady, 100);
+                    }
+                };
+                checkReady();
+            });
+        }
+
+        // Configurar controles
+        function setupControls() {
+            // Toggle SplineBackground
+            btnToggle.addEventListener('click', () => {
+                if (isActive) {
+                    deactivateSpline();
+                } else {
+                    activateSpline();
+                }
+            });
+
+            // Activar modo cyberpunk
+            btnCyberpunk.addEventListener('click', () => {
+                if (splineBackground) {
+                    splineBackground.setTheme('cyberpunk');
+                    updateStatus('Tema Cyberpunk activado', 'success');
+                }
+            });
+
+            // Reset
+            btnReset.addEventListener('click', () => {
+                resetSpline();
+            });
+
+            // Debug mode
+            btnDebug.addEventListener('click', () => {
+                toggleDebugMode();
+            });
+
+            // Selector de tema
+            themeSelect.addEventListener('change', (e) => {
+                const theme = e.target.value;
+                if (splineBackground) {
+                    splineBackground.setTheme(theme);
+                    updateStatus(`Tema ${theme} activado`, 'success');
+                }
+            });
+
+            // Selector de escena
+            sceneSelect.addEventListener('change', (e) => {
+                const sceneUrl = e.target.value;
+                if (splineBackground && sceneUrl !== 'fallback') {
+                    splineBackground.changeSplineScene(sceneUrl);
+                    updateStatus(`Escena cambiada a: ${sceneUrl}`, 'success');
+                } else if (sceneUrl === 'fallback') {
+                    // Forzar fallback a efectos básicos
+                    if (splineBackground) {
+                        splineBackground.destroy();
+                        splineBackground = new SplineBackgroundTest();
+                        isActive = false;
+                        btnToggle.textContent = 'Activar Spline';
+                        btnToggle.classList.remove('active');
+                    }
+                    updateStatus('Cambiado a efectos básicos', 'info');
+                }
+            });
+        }
+
+        // Activar SplineBackground
+        function activateSpline() {
+            if (splineBackground) {
+                splineBackground.setTheme('cyberpunk');
+                isActive = true;
+                btnToggle.textContent = 'Desactivar Spline';
+                btnToggle.classList.add('active');
+                updateStatus('SplineBackground activado', 'success');
+            }
+        }
+
+        // Desactivar SplineBackground
+        function deactivateSpline() {
+            if (splineBackground) {
+                splineBackground.setTheme('retro');
+                isActive = false;
+                btnToggle.textContent = 'Activar Spline';
+                btnToggle.classList.remove('active');
+                updateStatus('SplineBackground desactivado', 'info');
+            }
+        }
+
+        // Reset SplineBackground
+        function resetSpline() {
+            if (splineBackground) {
+                // Destruir y recrear
+                splineBackground.destroy();
+                splineBackground = new SplineBackgroundTest();
+                isActive = false;
+                btnToggle.textContent = 'Activar Spline';
+                btnToggle.classList.remove('active');
+                updateStatus('SplineBackground reseteado', 'info');
+            }
+        }
+
+        // Toggle debug mode
+        function toggleDebugMode() {
+            debugMode = !debugMode;
+            btnDebug.textContent = debugMode ? 'Debug ON' : 'Debug OFF';
+            btnDebug.classList.toggle('active', debugMode);
+            
+            const debugPanel = document.querySelector('.debug-panel');
+            debugPanel.style.display = debugMode ? 'block' : 'none';
+        }
+
+        // Actualizar estado
+        function updateStatus(message, type = 'info') {
+            const statusText = document.getElementById('status-spline-text');
+            if (statusText) {
+                statusText.textContent = message;
+            }
+            
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        // Loop de debug
+        function startDebugLoop() {
+            function debugLoop(currentTime) {
+                frameCount++;
+                
+                if (currentTime - lastTime >= 1000) {
+                    const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+                    document.getElementById('debug-fps').textContent = `FPS: ${fps}`;
+                    
+                    // Simular uso de memoria
+                    const memory = Math.round(Math.random() * 100 + 50);
+                    document.getElementById('debug-memory').textContent = `Memory: ${memory}MB`;
+                    
+                    frameCount = 0;
+                    lastTime = currentTime;
+                }
+                
+                animationId = requestAnimationFrame(debugLoop);
+            }
+            
+            animationId = requestAnimationFrame(debugLoop);
+        }
+
+        // Limpiar al salir
+        window.addEventListener('beforeunload', () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+            }
+            if (splineBackground) {
+                splineBackground.destroy();
+            }
+        });
+
+        // Iniciar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>

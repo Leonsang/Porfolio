@@ -55,11 +55,11 @@ export const portfolioConfig: PortfolioConfig = {
       impact: "Centralized academic data from multiple sources into unified platform"
     },
     {
-      title: "HR System with Data Warehouse - SohoHumantech",
-      description: "Development of data warehouse for employee data centralization and HR metrics visualization",
-      technologies: ["BigQuery", "LookerML", "React", "Tailwind CSS", "Python"],
-      results: "40% improvement in HR query response times",
-      impact: "Automated HR processes and improved talent management insights"
+      title: "Dashboard Module Integration for GASCO Chile - SohoHumantech",
+      description: "Consulting engagement to integrate a dashboards module inside the company's web application for GASCO Chile, leveraging LookerML endpoints and BigQuery views/design for data delivery and consumption.",
+      technologies: ["LookerML", "BigQuery", "REST Endpoints", "Data Modeling"],
+      results: "Delivered embedded dashboards powered by LookerML APIs with curated BigQuery views supporting application UX",
+      impact: "Enabled productized analytics in-app without context switching; standardized data access via governed views"
     },
     {
       title: "On-Premises to Cloud Data Migration - FACTECH",
@@ -76,12 +76,11 @@ export const portfolioConfig: PortfolioConfig = {
       period: "June 2025 - July 2025",
       location: "Bogotá, Colombia",
       achievements: [
-        "Developed data pipelines for HR information processing",
-        "Designed data warehouse architecture for employee data centralization",
-        "Implemented ETL/ELT solutions using Python and SQL",
-        "Created interactive dashboards with LookerML and BigQuery",
-        "Developed frontend with React and Tailwind CSS",
-        "Optimized BigQuery queries achieving 40% improvement in response times"
+        "Consulting for GASCO Chile: integration of a dashboards module embedded into the company's application",
+        "Modeled datasets and designed curated views in BigQuery to serve analytics workloads",
+        "Published and consumed LookerML endpoints (APIs) to power the in‑app dashboards",
+        "Collaborated with product and dev teams to define KPIs and data contracts",
+        "Implemented versioned data models and deployment workflow for analytics changes"
       ]
     },
     {
@@ -115,15 +114,80 @@ export const portfolioConfig: PortfolioConfig = {
     {
       title: "Data Specialist",
       company: "Teleperformance",
-      period: "December 2021 - March 2025",
+      period: "December 2021 - June 2024",
       location: "Bogotá, Colombia",
       achievements: [
         "Designed and developed data pipelines for ingesting data from various sources",
-        "Transformed and cleaned raw data using Python and SQL",
-        "Maintained monitoring and uptime of all production databases and processes",
+        "Transformed and cleaned raw data using Python and SQL to ensure data quality and consistency",
+        "Ensured monitoring and uptime of all production databases and processes (SQL jobs, .NET executables)",
         "Built data models for data warehousing and analysis",
-        "Implemented data visualization and reporting using Power BI and Excel VBA"
+        "Implemented automated data quality checks and monitoring processes",
+        "Provided data analysis support to stakeholders for data‑informed decisions"
       ]
+    },
+    {
+      title: "Senior Visualization Architect",
+      company: "Nexa BPO",
+      period: "January 2019 - November 2021",
+      location: "Bogotá, Colombia",
+      achievements: [
+        "Implemented comprehensive BI solutions across multiple platforms (SAS VIYA, Power BI, SQL Server)",
+        "Designed data models and reporting layers for operations and management",
+        "Built Excel BI dashboards and VBA automation reducing manual reporting time",
+        "Conducted ad-hoc analytics to support strategic decisions across business units"
+      ]
+    },
+    {
+      title: "Systems Coordinator",
+      company: "Nesagaviria SAS",
+      period: "January 2018 - December 2019",
+      location: "Bogotá, Colombia",
+      achievements: [
+        "Managed 24/7 operations and infrastructure monitoring",
+        "Maintained database control systems and reporting",
+        "Coordinated software implementation and deployments",
+        "Implemented web services for electronic invoicing (facturación electrónica) with integration to ERP/DIAN endpoints",
+        "Centralized internal applications and standardized access, logging and backups",
+        "Led and coordinated cross‑functional projects with stakeholders and vendors"
+      ]
+    },
+    {
+      title: "Support Engineer 1st Level",
+      company: "Wavecomm Corporation",
+      period: "January 2014 - December 2016",
+      location: "Bogotá, Colombia",
+      achievements: [
+        "Provided remote support for 24/7 operations platforms (Zimbra, CRM)",
+        "Performed incident response and platform status control",
+        "Created reports and executed basic database tasks"
+      ]
+    }
+  ],
+  leadershipStories: [
+    {
+      title: "Leading SSOT Migration Under Tight Deadlines (FACTECH → CUN)",
+      situation: "Legacy academic systems with fragmented data sources, strict semester deadlines, and high stakeholder pressure.",
+      task: "Migrate to AWS with SSOT, ensuring zero downtime and measurable performance gains.",
+      action: [
+        "Negotiated scope with stakeholders and created a phased roadmap (quick wins first).",
+        "Established ETL patterns in Airflow, CI/CD for jobs, and data quality checks (Great Expectations style).",
+        "Implemented Glue/Lambda pipelines, partitioned S3 data lake, and Redshift performance tuning.",
+        "Set up metrics telemetry to track access/query time reductions and error rate." 
+      ],
+      result: "60% faster data access, 50% faster queries, 35% fewer errors; delivered on time before semester kickoff.",
+      skills: ["Leadership", "Stakeholder Management", "Prioritization", "Delivery under pressure", "Data Governance"]
+    },
+    {
+      title: "HR Analytics Enablement (SohoHumantech)",
+      situation: "Fragmented HR systems; leadership needed unified analytics for decision making.",
+      task: "Deliver a working HR data warehouse and dashboards with near‑real‑time updates.",
+      action: [
+        "Modeled HR entities and created ingestion with Python to BigQuery.",
+        "Built LookerML models and Power BI dashboards with role-based access.",
+        "Coached non-technical stakeholders to define KPIs and validation rules."
+      ],
+      result: "40% improvement in HR query response times and adoption across managers.",
+      skills: ["Communication", "Coaching", "Data Modeling", "BI Enablement"]
     }
   ],
   education: [
@@ -180,6 +244,18 @@ export const portfolioConfig: PortfolioConfig = {
       "visualization_tools": 2
     }
   },
+  certificateLinks: [
+    { title: 'PHP Certify', provider: 'SoloLearn', url: 'https://www.sololearn.com/certificates/CT-LOCLLFMS' },
+    { title: 'SQL Basics', provider: 'SoloLearn', url: 'https://www.sololearn.com/certificates/CT-DCUFFWUY' },
+    { title: 'SQL Intermediate', provider: 'SoloLearn', url: 'https://www.sololearn.com/certificates/CC-BVGV3l3HQ' },
+    { title: 'HTML Certify', provider: 'SoloLearn', url: 'https://www.sololearn.com/certificates/CT-QXQBKJQV', date: 'Nov 2017' },
+    { title: 'Python Essential', provider: 'LinkedIn Learning', url: 'https://www.linkedin.com/learning/certificates/a70a64df25bd12e1634f1588b3d93d14fe69cf52b96703182adf0ef27dbe7c5' },
+    { title: 'Python', provider: 'ProgrammingHub', url: 'https://storage.googleapis.com/programminghub/certificate%2F1274412479407.jpg' },
+    { title: 'Java', provider: 'SoloLearn', url: 'https://www.sololearn.com/certificates/CT-T78OK721' },
+    { title: 'Power BI', provider: 'LinkedIn', url: 'https://www.linkedin.com/learning/certificates/2733eaff55c5b582881df1363a3b32ef80f31bad79e2fb395701330357568657?trk=share_certificate' },
+    { title: 'Scrum Fundamentals Certified (SFC™)', provider: 'SCRUMstudy', url: 'https://www.scrumstudy.com/certification/verify?type=SFC&number=883473', note: 'Agile Scrum Framework' },
+    { title: 'Análisis de Datos', provider: 'Universidad de los Andes', url: '/docs/certificates/Andes%20Analisis%20de%20datos.pdf', note: 'Data Analysis Course' }
+  ],
   theme: {
     primary_color: "#00ff41",
     secondary_color: "#ff6b35",
@@ -196,5 +272,54 @@ export const portfolioConfig: PortfolioConfig = {
   meta: {
     keywords: "Data Engineer, ETL, Apache Spark, Python, AWS, Data Pipeline, Big Data, Colombia",
     description: "Erick Sang Cifuentes - Professional Data Engineer with 5+ years experience in building scalable data pipelines and cloud infrastructure"
-  }
+  },
+  courses: [
+    {
+      id: 'de101-sql',
+      title: 'Associate Data Engineer in SQL',
+      provider: 'DataCamp',
+      status: 'completed',
+      courseId: 'DE101',
+      certificateUrl: 'https://www.datacamp.com/certificate/SQA0014156722444',
+      learningObjectives: [
+        'Interpret a database schema and explain database design concepts (such as normalization, design, schemas, data storage options)',
+        'Perform data extraction, joining, and aggregation tasks',
+        'Perform cleaning tasks to prepare data for analysis',
+        'Assess data quality and perform validation tasks',
+        'Use data visualization tools to demonstrate characteristics of data',
+        'Read and analyze data visualizations to represent the relationships between features'
+      ]
+    },
+    {
+      id: 'de201-python',
+      title: 'Data Engineer in Python',
+      provider: 'DataCamp',
+      status: 'completed',
+      courseId: 'DE201',
+      certificateUrl: 'https://www.datacamp.com/certificate/DEA0011743578235',
+      learningObjectives: [
+        'Identify different cloud tools that can be used for storing data and creating and maintaining data pipelines',
+        'Perform standard data import, joining, and aggregation tasks',
+        'Perform cleaning tasks to prepare data for analysis',
+        'Assess data quality and perform validation tasks',
+        'Collect data from non-standard formats (e.g., JSON) by modifying existing code',
+        'Use common programming constructs to write repeatable production quality code for analysis',
+        'Demonstrate best practices in production code including version control, testing, and package development'
+      ]
+    },
+    {
+      id: 'sql-associate',
+      title: 'SQL Associate',
+      provider: 'DataCamp',
+      status: 'completed',
+      courseId: 'SQA',
+      certificateUrl: 'https://www.datacamp.com/certificate/SQA0014156722444',
+      learningObjectives: [
+        'Advanced SQL querying and optimization',
+        'Database design and normalization',
+        'Data manipulation and analysis',
+        'Performance tuning and best practices'
+      ]
+    }
+  ]
 };

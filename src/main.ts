@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       appManager,
       getStatus: () => appManager?.getStatus(),
       refresh: () => appManager?.refresh(),
-      destroy: () => appManager?.destroy()
+      destroy: () => appManager?.destroy(),
+      audioPlayer: appManager?.getAudioPlayer()
     };
     
     console.log('✅ Portfolio Application ready!');
