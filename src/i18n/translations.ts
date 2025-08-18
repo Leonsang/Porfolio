@@ -109,7 +109,48 @@ export const translations: Record<string, Translation> = {
     // Overview Section
     overview: {
       title: 'Portfolio Overview',
-      subtitle: 'Welcome to my engineering portfolio - showcasing technical excellence and innovative solutions'
+      subtitle: 'Welcome to my engineering portfolio - showcasing technical excellence and innovative solutions',
+      experience: {
+        title: 'Experience',
+        category: 'Journey',
+        companies: 'Companies',
+        years: 'Years',
+        countries: 'Countries'
+      },
+      skills: {
+        title: 'Skills',
+        category: 'Areas'
+      },
+      certifications: {
+        title: 'Certifications',
+        category: 'Credentials',
+        professional: 'Professional',
+        academic: 'Academic',
+        inProgress: 'In Progress'
+      },
+      projects: {
+        title: 'Projects',
+        category: 'Delivery',
+        pipelines: 'Pipelines',
+        clouds: 'Clouds',
+        data: 'Data'
+      },
+      tech: {
+        title: 'Technology Stack',
+        category: 'Stack',
+        cloud: 'Cloud',
+        data: 'Data',
+        biTools: 'BI Tools',
+        aws: 'AWS',
+        azure: 'Azure',
+        gcp: 'GCP',
+        python: 'Python',
+        sql: 'SQL',
+        spark: 'Spark',
+        powerBI: 'Power BI',
+        lookerML: 'LookerML',
+        bigQuery: 'BigQuery'
+      }
     },
 
     // Technical Section
@@ -393,7 +434,48 @@ export const translations: Record<string, Translation> = {
     // Overview Section
     overview: {
       title: 'Vista General del Portfolio',
-      subtitle: 'Bienvenido a mi portfolio de ingeniería - mostrando excelencia técnica y soluciones innovadoras'
+      subtitle: 'Bienvenido a mi portfolio de ingeniería - mostrando excelencia técnica y soluciones innovadoras',
+      experience: {
+        title: 'Experiencia',
+        category: 'Trayectoria',
+        companies: 'Empresas',
+        years: 'Años',
+        countries: 'Países'
+      },
+      skills: {
+        title: 'Habilidades',
+        category: 'Áreas'
+      },
+      certifications: {
+        title: 'Certificaciones',
+        category: 'Credenciales',
+        professional: 'Profesionales',
+        academic: 'Académicas',
+        inProgress: 'En Progreso'
+      },
+      projects: {
+        title: 'Proyectos',
+        category: 'Entrega',
+        pipelines: 'Pipelines',
+        clouds: 'Nubes',
+        data: 'Datos'
+      },
+      tech: {
+        title: 'Stack Tecnológico',
+        category: 'Stack',
+        cloud: 'Nube',
+        data: 'Datos',
+        biTools: 'Herramientas BI',
+        aws: 'AWS',
+        azure: 'Azure',
+        gcp: 'GCP',
+        python: 'Python',
+        sql: 'SQL',
+        spark: 'Spark',
+        powerBI: 'Power BI',
+        lookerML: 'LookerML',
+        bigQuery: 'BigQuery'
+      }
     },
 
     // Technical Section

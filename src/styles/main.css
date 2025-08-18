@@ -5362,8 +5362,427 @@ textarea:focus-visible {
 /* Remove circular loader visuals */
 .loading-circle, .loading-circle-inner { display: none !important; }
 
+/* Overview Grid */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
 
+/* Experience Overview Card */
+.experience-overview-card .experience-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
+.experience-highlight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    background: var(--card-bg-secondary);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
 
+.experience-highlight:hover {
+    background: var(--card-bg-hover);
+    transform: translateY(-2px);
+}
 
+.highlight-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    border-radius: 50%;
+    color: white;
+}
+
+.highlight-content h4 {
+    margin: 0 0 0.25rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.highlight-content p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Skills Preview Card */
+.skills-preview-card .skills-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.skill-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+}
+
+.skill-name {
+    min-width: 100px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.skill-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--card-bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+    border-radius: 4px;
+    transition: width 0.8s ease;
+}
+
+.skill-score {
+    min-width: 40px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    text-align: right;
+}
+
+/* Certifications Preview Card */
+.certifications-preview-card .certifications-summary {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cert-category h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.cert-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cert-tag {
+    padding: 0.25rem 0.75rem;
+    background: var(--accent-color-light);
+    color: var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.cert-tag:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Metric Cards - Compact Overview */
+.metric-card {
+min-height: 200px;
+display: flex;
+flex-direction: column;
+}
+
+.metric-card .card-header h3 {
+font-size: 1.1rem;
+margin-bottom: 0.5rem;
+}
+
+.metric-content {
+flex: 1;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+padding: 1rem 0;
+}
+
+.metric-item {
+display: flex;
+align-items: center;
+gap: 1rem;
+padding: 0.75rem;
+background: var(--card-bg-secondary);
+border-radius: 8px;
+transition: all 0.3s ease;
+}
+
+.metric-item:hover {
+background: var(--card-bg-hover);
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.metric-icon {
+font-size: 1.5rem;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--accent-color);
+border-radius: 50%;
+color: white;
+flex-shrink: 0;
+}
+
+.metric-info {
+display: flex;
+flex-direction: column;
+gap: 0.25rem;
+flex: 1;
+}
+
+.metric-number {
+font-size: 1.5rem;
+font-weight: 700;
+color: var(--accent-color);
+line-height: 1;
+}
+
+.metric-label {
+font-size: 0.8rem;
+color: var(--text-secondary);
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+/* Widget Indicators */
+.pulse-dot {
+width: 8px;
+height: 8px;
+background: var(--accent-color);
+border-radius: 50%;
+animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+0% { transform: scale(1); opacity: 1; }
+50% { transform: scale(1.5); opacity: 0.5; }
+100% { transform: scale(1); opacity: 1; }
+}
+
+.radar-indicator {
+width: 12px;
+height: 12px;
+background: var(--accent-color);
+border-radius: 50%;
+animation: radar 3s infinite;
+}
+
+@keyframes radar {
+0% { transform: scale(1); opacity: 1; }
+50% { transform: scale(1.2); opacity: 0.7; }
+100% { transform: scale(1); opacity: 1; }
+}
+
+.trend-indicator {
+font-size: 1.2rem;
+font-weight: bold;
+color: #10b981;
+animation: trend 2s ease-in-out infinite;
+}
+
+@keyframes trend {
+0%, 100% { transform: translateY(0); }
+50% { transform: translateY(-3px); }
+}
+
+.activity-indicator {
+display: flex;
+gap: 3px;
+}
+
+.activity-dot {
+width: 4px;
+height: 4px;
+background: var(--accent-color);
+border-radius: 50%;
+animation: activity 1.5s ease-in-out infinite;
+}
+
+.activity-dot:nth-child(2) { animation-delay: 0.2s; }
+.activity-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes activity {
+0%, 100% { transform: scale(1); opacity: 0.5; }
+50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* KPIs Dashboard */
+.kpis-dashboard .kpis-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 1rem;
+}
+
+.kpi-item {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+padding: 1rem;
+background: var(--card-bg-secondary);
+border-radius: 12px;
+transition: all 0.3s ease;
+}
+
+.kpi-item:hover {
+background: var(--card-bg-hover);
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.kpi-icon {
+font-size: 1.5rem;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--accent-color);
+border-radius: 50%;
+color: white;
+flex-shrink: 0;
+}
+
+.kpi-content {
+display: flex;
+flex-direction: column;
+gap: 0.25rem;
+flex: 1;
+}
+
+.kpi-value {
+font-size: 1.3rem;
+font-weight: 700;
+color: var(--accent-color);
+line-height: 1;
+}
+
+.kpi-label {
+font-size: 0.75rem;
+color: var(--text-secondary);
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+line-height: 1.2;
+}
+
+.kpi-indicator {
+font-size: 1.2rem;
+animation: kpiPulse 2s ease-in-out infinite;
+}
+
+@keyframes kpiPulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.1); }
+}
+
+@keyframes kpiPulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.1); }
+}
+
+/* Technology Stack Dashboard */
+.tech-stack-dashboard .tech-categories {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+}
+
+.tech-category {
+padding: 1rem;
+background: var(--card-bg-secondary);
+border-radius: 12px;
+transition: all 0.3s ease;
+}
+
+.tech-category:hover {
+background: var(--card-bg-hover);
+transform: translateX(8px);
+}
+
+.category-header {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-bottom: 1rem;
+}
+
+.category-icon {
+font-size: 1.2rem;
+width: 32px;
+height: 32px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: var(--accent-color);
+border-radius: 50%;
+color: white;
+}
+
+.category-header h4 {
+margin: 0;
+font-size: 1rem;
+font-weight: 600;
+color: var(--text-primary);
+text-transform: uppercase;
+letter-spacing: 0.5px;
+}
+
+.tech-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 0.5rem;
+}
+
+.tech-tag {
+padding: 0.5rem 0.75rem;
+background: var(--accent-color);
+color: white;
+border-radius: 20px;
+font-size: 0.8rem;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+background: var(--accent-color-light);
+transform: translateY(-2px);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tech-indicator {
+font-size: 1.2rem;
+animation: techPulse 2s ease-in-out infinite;
+}
+
+@keyframes techPulse {
+0%, 100% { transform: scale(1) rotate(0deg); }
+50% { transform: scale(1.1) rotate(180deg); }
+}
 

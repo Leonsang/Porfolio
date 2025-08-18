@@ -25,6 +25,7 @@ export class RetroChatDog {
   private typing = false;
   private audioCtx: AudioContext | null = null;
   private langResolver: () => 'en' | 'es';
+  private initialized = false;
 
   constructor(langResolver: () => 'en' | 'es' = () => 'en') {
     this.bubble = document.getElementById('retro-chat-bubble');
@@ -34,6 +35,8 @@ export class RetroChatDog {
   }
 
   init() {
+    if (this.initialized) return;
+    this.initialized = true;
     if (!this.bubble || !this.dog) return;
     // Bounce the dog a little
     this.dog.style.animation = 'floating 6s ease-in-out infinite';
@@ -114,6 +117,45 @@ export class RetroChatDog {
 
   private sleep(ms: number) {
     return new Promise((res) => setTimeout(res, ms));
+  }
+
+  /**
+   * Cleanup method to destroy the chat dog instance
+   */
+  destroy() {
+    // Stop typing animation
+    this.typing = false;
+    
+    // Remove event listeners
+    window.removeEventListener('languageChanged', () => {
+      this.phrases = this.pickPhrases();
+      this.idx = 0;
+    });
+    
+    // Hide bubble
+    if (this.bubble) {
+      this.bubble.classList.remove('show');
+      this.bubble.textContent = '';
+    }
+    
+    // Stop dog animation
+    if (this.dog) {
+      this.dog.style.animation = '';
+    }
+    
+    // Close audio context
+    if (this.audioCtx) {
+      try {
+        this.audioCtx.close();
+      } catch (e) {
+        // Ignore errors on close
+      }
+      this.audioCtx = null;
+    }
+    
+    // Reset state
+    this.idx = 0;
+    this.phrases = [];
   }
 }
 
