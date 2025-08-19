@@ -189,6 +189,10 @@ export class AudioPlayer {
     return this.playlist[this.currentTrackIndex];
   }
 
+  public getCurrentTrackIndex(): number {
+    return this.currentTrackIndex;
+  }
+
   public getPlaylist(): Track[] {
     return [...this.playlist];
   }

@@ -11,6 +11,8 @@ export class UIController {
   private musicToggle: HTMLElement | null = null;
   private isInitialized: boolean = false;
   private isMusicEnabled: boolean = true; // Control para habilitar/deshabilitar música
+  private originalBodyOverflow: string = '';
+  private originalBodyPaddingRight: string = '';
 
   // Static Settings Modal elements (if present in DOM)
   private settingsModal: HTMLElement | null = null;
@@ -22,6 +24,27 @@ export class UIController {
   constructor(themeManager: ThemeManager, animationManager: AnimationManager) {
     this.themeManager = themeManager;
     this.animationManager = animationManager;
+  }
+
+  /**
+   * Lock body scroll
+   */
+  private _lockBodyScroll(): void {
+    this.originalBodyOverflow = document.body.style.overflow;
+    this.originalBodyPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+  }
+
+  /**
+   * Unlock body scroll
+   */
+  private _unlockBodyScroll(): void {
+    document.body.style.overflow = this.originalBodyOverflow;
+    document.body.style.paddingRight = this.originalBodyPaddingRight;
   }
 
   /**
@@ -136,6 +159,7 @@ export class UIController {
     const cvModal = document.getElementById('cv-modal');
     if (!cvModal) return;
 
+    this._lockBodyScroll();
     cvModal.style.display = 'flex';
     this.animationManager.animateModalEntrance(cvModal);
   }
@@ -149,6 +173,7 @@ export class UIController {
 
     this.animationManager.animateModalExit(cvModal).then(() => {
       cvModal.style.display = 'none';
+      this._unlockBodyScroll();
     });
   }
 
@@ -323,6 +348,7 @@ export class UIController {
   /** Open/Close static settings modal */
   private openStaticSettingsModal(): void {
     if (!this.settingsModal) return;
+    this._lockBodyScroll();
     this.syncStaticSettingsUI();
     this.settingsModal.style.display = 'flex';
     this.animationManager.animateModalEntrance(this.settingsModal);
@@ -336,6 +362,7 @@ export class UIController {
     if (!this.settingsModal) return;
     await this.animationManager.animateModalExit(this.settingsModal);
     this.settingsModal.style.display = 'none';
+    this._unlockBodyScroll();
   }
 
   /** Sync current values to static settings UI */
@@ -394,6 +421,7 @@ export class UIController {
     modal.querySelector('.modal-content')?.appendChild(themeList);
     document.body.appendChild(modal);
     
+    this._lockBodyScroll();
     // Animate modal entrance
     this.animationManager.animateModalEntrance(modal);
   }
@@ -434,6 +462,7 @@ export class UIController {
     modal.querySelector('.modal-content')?.appendChild(languageList);
     document.body.appendChild(modal);
     
+    this._lockBodyScroll();
     // Animate modal entrance
     this.animationManager.animateModalEntrance(modal);
   }
@@ -498,6 +527,7 @@ export class UIController {
     modal.querySelector('.modal-content')?.appendChild(settingsContent);
     document.body.appendChild(modal);
     
+    this._lockBodyScroll();
     // Animate modal entrance
     this.animationManager.animateModalEntrance(modal);
     
@@ -548,6 +578,7 @@ export class UIController {
     // Animate modal exit
     await this.animationManager.animateModalExit(modal);
     modal.remove();
+    this._unlockBodyScroll();
   }
 
   /**
@@ -919,7 +950,7 @@ export class UIController {
       const currentTime = audioPlayer.getCurrentTime();
       const duration = audioPlayer.getDuration();
       const progress = duration > 0 ? (currentTime / duration) * 100 : 0;
-      progressFill.style.width = `${progress}%`;
+      (progressFill as HTMLElement).style.width = `${progress}%`;
     }
 
     if (playBtn) {
@@ -929,6 +960,19 @@ export class UIController {
         icon.className = isPlaying ? 'fas fa-pause' : 'fas fa-play';
       }
       playBtn.title = isPlaying ? 'Pause' : 'Play';
+    }
+
+    const playlistContainer = document.getElementById('settings-playlist-tracks');
+    if (playlistContainer) {
+        const currentTrackIndex = audioPlayer.getCurrentTrackIndex();
+        const trackElements = playlistContainer.querySelectorAll('.playlist-track');
+        trackElements.forEach((trackElement, index) => {
+            if (index === currentTrackIndex) {
+                trackElement.classList.add('active');
+            } else {
+                trackElement.classList.remove('active');
+            }
+        });
     }
   }
 
