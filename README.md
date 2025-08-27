@@ -1,4 +1,4 @@
-# 🎮 Data Engineer Portfolio - Erick Sang Cifuentes
+# 🎮 Data Engineer  - Erick Sang Cifuentes
 
 <div align="center">
   <img src="https://img.shields.io/badge/Data%20Engineer-Python-blue?style=for-the-badge&logo=python" alt="Data Engineer">
