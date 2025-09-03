@@ -62,11 +62,4 @@ Blending over 5+ years of experience in Data Engineering, Cloud Architecture, an
 
 ---
 
-## Pinned Loading
 
-1. **Portfolio** - Personal website with data engineering case studies and interactive visualizations
-2. **Data Quality Validator** - Streamlit app for automated data quality checks and validation  
-3. **CV Generation Tools** - RenderCV and Reactive Resume templates for data professionals
-4. **Data Engineering Projects** - ETL/ELT pipelines, cloud architectures, and data solutions
-5. **BI & Visualization** - Power BI dashboards, Looker implementations, and analytics tools
-6. **Cloud & Infrastructure** - AWS, Azure, GCP implementations and automation scripts
