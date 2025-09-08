@@ -1,19 +1,17 @@
 <div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=30&duration=3000&pause=1000&color=00FF41&center=true&vCenter=true&width=600&lines=Data+Engineer+%7C+Cloud+Architect;Building+Scalable+Data+Solutions;Transforming+Data+into+Insights" alt="Typing SVG" />
-</div>
 
-<div align="center">
-  <img src="https://img.shields.io/badge/Data_Engineer-5%2B_Years-00ff41?style=for-the-badge&logo=databricks&logoColor=white" alt="Experience">
-  <img src="https://img.shields.io/badge/Cloud_Platforms-AWS%20%7C%20Azure%20%7C%20GCP-ff6b35?style=for-the-badge&logo=amazonaws&logoColor=white" alt="Cloud">
-  <img src="https://img.shields.io/badge/Pipelines_Built-50%2B-4ecdc4?style=for-the-badge&logo=apache-airflow&logoColor=white" alt="Pipelines">
-</div>
+# 👋 ¡Hola! Soy Erick Yang Narváez
 
-<br>
+### 🚀 Data Engineer | Analytics Specialist | Cloud Solutions Architect
 
-<div align="center">
-  <h2>🚀 Erick Manuel Sang Cifuentes</h2>
-  <h3>Data Engineer | Cloud Solutions Architect | ETL/ELT Specialist</h3>
-  <p><em>Building robust data pipelines and transforming raw data into actionable insights</em></p>
+*Transformando datos en insights estratégicos con más de 4 años de experiencia*
+
+---
+
+![Experience](https://img.shields.io/badge/Experience-4%2B%20Years-brightgreen?style=for-the-badge&logo=calendar&logoColor=white)
+![Data Engineering](https://img.shields.io/badge/Specialization-Data%20Engineering-blue?style=for-the-badge&logo=databricks&logoColor=white)
+![Cloud Platforms](https://img.shields.io/badge/Cloud-AWS%20%7C%20Azure%20%7C%20GCP-orange?style=for-the-badge&logo=amazon-aws&logoColor=white)
+
 </div>
 
 ## 🎯 About Me
