@@ -458,3 +458,18 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   z-index: 1;
 }
+
+/* ===== SECTION SCROLL POSITIONING ===== */
+/* Ensure smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Specific scroll positioning for sections */
+section#home {
+  scroll-margin-top: 0;
+}
+
+section:not(#home) {
+  scroll-margin-top: calc(var(--header-height) + 0.5rem);
+}

@@ -30,7 +30,38 @@
     "downloadCV": "Download CV",
     "viewWork": "View My Work",
     "scrollDown": "Scroll Down",
-
+    "expertise": [
+      {
+        "title": "Data Engineering Excellence",
+        "description": "Strong experience building ETL pipelines, data warehouses, and automated data workflows using Python, SQL, and modern data stack tools.",
+        "icon": "⚙️"
+      },
+      {
+        "title": "Cloud Platform Fundamentals", 
+        "description": "Working knowledge of AWS and Azure services with hands-on experience in basic cloud storage, compute, and database solutions.",
+        "icon": "☁️"
+      },
+      {
+        "title": "Analytics & BI Development",
+        "description": "Practical experience creating dashboards and reports using Power BI, with skills in data visualization and business intelligence implementation.",
+        "icon": "📊"
+      },
+      {
+        "title": "Machine Learning Implementation",
+        "description": "Applied experience integrating ML models into data pipelines, with familiarity in Python ML libraries and basic model deployment.",
+        "icon": "🤖"
+      },
+      {
+        "title": "Data Quality & Governance",
+        "description": "Hands-on experience implementing data validation, quality checks, and documentation practices in real-world data projects.",
+        "icon": "🛡️"
+      },
+      {
+        "title": "Automation & Basic DevOps",
+        "description": "Working knowledge of CI/CD tools, basic containerization with Docker, and automation scripting for data workflows.",
+        "icon": "🔄"
+      }
+    ],
     "stats": {
       "experience": "Years Experience",
       "projects": "Projects Completed",
@@ -78,39 +109,62 @@
   },
   "about": {
     "title": "About Me",
-    "description": "Passionate Data Engineer with expertise in building scalable data solutions and transforming complex data into actionable insights. I specialize in creating robust data pipelines, implementing cloud-based architectures, and developing innovative solutions that drive business growth.",
-    "expertiseTitle": "Key Areas of Expertise",
-    "expertise": {
-      "dataEngineering": {
-        "title": "Data Engineering Excellence",
-        "description": "Specialized in building scalable data pipelines, ETL processes, and data warehouses using modern cloud technologies."
+    "description": "I'm a passionate Data Engineer and lifelong learner who thrives at the intersection of data, programming, and continuous innovation. What drives me isn't just building solutions – it's the constant pursuit of knowledge, the elegance of clean code, and the thrill of transforming complex challenges into scalable, impactful systems.",
+    "professionalValue": {
+      "title": "What I Bring to Your Team",
+      "content": "I deliver end-to-end data solutions with a focus on scalability, maintainability, and business impact. My approach combines strong technical fundamentals with a growth mindset, ensuring I not only solve today's challenges but also adapt quickly to tomorrow's opportunities."
+    },
+    "coreStrengths": {
+      "title": "Core Strengths",
+      "items": [
+        {
+          "title": "Data Engineering Excellence",
+          "description": "Building robust ETL pipelines, data warehouses, and real-time processing systems that scale with your business needs.",
+          "icon": "🏗️"
+        },
+        {
+          "title": "Programming Craftsmanship",
+          "description": "Writing clean, maintainable code in Python, SQL, and modern frameworks. I believe code should tell a story and be built to last.",
+          "icon": "⚡"
+        },
+        {
+          "title": "Continuous Learning",
+          "description": "Staying ahead of industry trends, rapidly adopting new technologies, and sharing knowledge with the team to drive collective growth.",
+          "icon": "📈"
+        }
+      ]
+    },
+    "problemSolver": {
+      "title": "Problem-Solving Approach",
+      "content": "I approach every challenge with curiosity and systematic thinking. Whether it's optimizing a pipeline that processes millions of records, debugging complex data quality issues, or architecting solutions for future scalability, I combine analytical rigor with creative problem-solving to deliver results that matter."
+    },
+    "learningDriven": {
+      "title": "Learning & Growth Mindset",
+      "content": "Technology evolves rapidly, and so do I. I'm constantly exploring new tools, techniques, and methodologies. From cloud technologies to machine learning frameworks, I embrace change as an opportunity to grow and bring fresh perspectives to every project."
+    },
+    "beyondWork": {
+      "title": "Beyond the Code",
+      "content": "When I'm not coding or designing data systems, you'll find me exploring emerging technologies, contributing to open-source projects, or enjoying life's simple pleasures.",
+      "interests": {
+        "coffee": "Coffee",
+        "dogs": "Dog Lover", 
+        "music": "Music",
+        "sports": "Sports",
+        "anime": "Anime",
+        "scifi": "Sci-Fi",
+        "arts": "Arts",
+        "learning": "Continuous Learning"
       },
-      "cloudPlatform": {
-        "title": "Cloud Platform Expertise",
-        "description": "Proficient in AWS, Azure, and GCP with hands-on experience in serverless architectures and cloud-native solutions."
-      },
-      "analytics": {
-        "title": "Analytics & BI",
-        "description": "Expert in creating business intelligence dashboards and implementing data visualization solutions using Power BI, Tableau, and custom tools."
-      },
-      "databaseDesign": {
-        "title": "Database Design",
-        "description": "Designing efficient database schemas and optimization"
-      },
-      "machineLearning": {
-        "title": "Machine Learning",
-        "description": "Implementing ML models and data science solutions"
-      },
-      "cloudArchitecture": {
-        "title": "Cloud Architecture",
-        "description": "Deploying and managing cloud-based data solutions"
-      }
+      "quote": "Code with purpose, learn without limits, build for the future"
     },
     "personalInfo": {
-      "title": "Personal Information",
+      "title": "Professional Profile",
       "name": "Name",
       "location": "Location",
-      "role": "Role"
+      "role": "Role",
+      "status": "Availability",
+      "experience": "Experience Level",
+      "focus": "Current Focus"
     },
     "stats": {
       "experience": "Years Experience",

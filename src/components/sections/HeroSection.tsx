@@ -7,13 +7,201 @@ import { useTranslations } from 'next-intl';
 import { portfolioConfig } from '@/config/portfolio';
 import { CVDownloadModal } from '@/components/modals/CVDownloadModal';
 import { DynamicTitleSlider } from '@/components/ui/DynamicTitleSlider';
+import { ChevronLeft, ChevronRight, TrendingUp, Target, Database, Settings, BarChart, GitBranch, Zap, Activity, Brain, Layers, FileText, Clock, Users, Award, CheckCircle, Download as DownloadIcon } from 'lucide-react';
 
+// Contextual Key Performance Component
+interface KeyPerformanceSliderProps {
+  stats: any;
+  achievements: any;
+  currentTitleIndex?: number;
+}
+
+function KeyPerformanceSlider({ stats, achievements, currentTitleIndex = 0 }: KeyPerformanceSliderProps) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Define contextual metrics for each professional title
+  const contextualMetrics = {
+    0: { // Data Engineer
+      title: "Data Engineering",
+      color: "primary",
+      metrics: [
+        { value: stats.data_pipelines_built, label: 'Data Pipelines Built', icon: Database, description: 'Production-ready pipelines' },
+        { value: `${achievements.performance_metrics.data_processing_tb || '50+'}TB`, label: 'Data Processed', icon: Activity, description: 'Monthly data volume' },
+        { value: stats.years_experience, label: 'Years Experience', icon: TrendingUp, description: 'Industry expertise' },
+        { value: `${achievements.performance_metrics.uptime_percentage || '99.9'}%`, label: 'System Uptime', icon: CheckCircle, description: 'Reliability achieved' }
+      ]
+    },
+    1: { // Data Modeler
+      title: "Data Modeling",
+      color: "secondary",
+      metrics: [
+        { value: `${stats.technologies_mastered || 15}+`, label: 'Data Models Built', icon: Layers, description: 'Schema designs' },
+        { value: `${achievements.performance_metrics.query_optimization || '80'}%`, label: 'Query Optimization', icon: Zap, description: 'Performance improvement' },
+        { value: stats.projects_completed, label: 'Projects Completed', icon: Target, description: 'Successful deliveries' },
+        { value: `${achievements.performance_metrics.data_quality || '98'}%`, label: 'Data Quality Score', icon: Award, description: 'Accuracy maintained' }
+      ]
+    },
+    2: { // ETL Developer
+      title: "ETL Development",
+      color: "accent",
+      metrics: [
+        { value: stats.data_pipelines_built, label: 'ETL Processes Built', icon: GitBranch, description: 'Data transformation flows' },
+        { value: `${achievements.performance_metrics.batch_processing || '1M+'}`, label: 'Records/Hour', icon: Clock, description: 'Processing capacity' },
+        { value: `${achievements.performance_metrics.error_reduction || '95'}%`, label: 'Error Reduction', icon: CheckCircle, description: 'Quality improvement' },
+        { value: stats.technologies_mastered, label: 'ETL Tools Mastered', icon: Settings, description: 'Technical expertise' }
+      ]
+    },
+    3: { // Data Automation Specialist
+      title: "Data Automation",
+      color: "primary",
+      metrics: [
+        { value: `${achievements.performance_metrics.automation_processes || '25+'}`, label: 'Automated Processes', icon: Zap, description: 'Workflow automation' },
+        { value: `${achievements.performance_metrics.time_saved || '60'}%`, label: 'Time Saved', icon: Clock, description: 'Efficiency gains' },
+        { value: stats.projects_completed, label: 'Automation Projects', icon: Target, description: 'Successful implementations' },
+        { value: `${achievements.performance_metrics.cost_reduction || '40'}%`, label: 'Cost Reduction', icon: TrendingUp, description: 'Operational savings' }
+      ]
+    },
+    4: { // Analytics Developer
+      title: "Analytics Development",
+      color: "secondary",
+      metrics: [
+        { value: `${achievements.performance_metrics.dashboards_created || '30+'}`, label: 'Dashboards Created', icon: BarChart, description: 'Business intelligence' },
+        { value: stats.projects_completed, label: 'Analytics Projects', icon: Brain, description: 'Insight generation' },
+        { value: `${achievements.performance_metrics.user_adoption || '85'}%`, label: 'User Adoption', icon: Users, description: 'Solution acceptance' },
+        { value: `${achievements.performance_metrics.insights_delivered || '100+'}`, label: 'Insights Delivered', icon: FileText, description: 'Actionable recommendations' }
+      ]
+    }
+  };
+
+  const currentContext = contextualMetrics[currentTitleIndex] || contextualMetrics[0];
+  const contextMetrics = currentContext.metrics.slice(0, 4); // Max 4 metrics
+
+  // Sync with title changes
+  useEffect(() => {
+    setCurrentSlide(0); // Reset to first slide when context changes
+  }, [currentTitleIndex]);
+
+  return (
+    <div className="relative">
+      {/* Contextual Title - Compact */}
+      <motion.div
+        key={currentTitleIndex}
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="mb-4"
+      >
+        <h3 className={`text-lg font-semibold text-center text-${currentContext.color} mb-3`}>
+          {currentContext.title} Metrics
+        </h3>
+      </motion.div>
+
+      {/* Contextual Metrics Display - Clean & Minimalist */}
+      <div className="flex flex-col">
+        {contextMetrics.map((metric, index) => {
+          const Icon = metric.icon;
+          const isLast = index === contextMetrics.length - 1;
+          return (
+            <div key={`${currentTitleIndex}-${index}`}>
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ x: 2 }}
+                className={`
+                  group cursor-pointer py-3 px-2 bg-transparent 
+                  hover:bg-${currentContext.color}/5 transition-all duration-300
+                  min-h-[65px] flex items-center relative
+                `}
+              >
+                <div className="flex items-center justify-between w-full">
+                  <div className="flex items-center gap-3 flex-1">
+                    <div className={`
+                      p-1.5 rounded-lg bg-${currentContext.color}/8 
+                      group-hover:bg-${currentContext.color}/15 transition-colors duration-300
+                      flex-shrink-0
+                    `}>
+                      <Icon className={`w-4 h-4 text-${currentContext.color} group-hover:text-accent transition-colors duration-300`} />
+                    </div>
+                    <div className="text-left flex-1 min-w-0">
+                      <div className="text-xs text-light group-hover:text-light transition-colors duration-300 font-medium truncate">
+                        {metric.label}
+                      </div>
+                      <div className="text-xs text-gray/60 group-hover:text-gray/80 transition-colors duration-300 mt-0.5 truncate">
+                        {metric.description}
+                      </div>
+                    </div>
+                  </div>
+                  <div className={`
+                    text-xl font-bold text-${currentContext.color} 
+                    group-hover:text-accent transition-colors duration-300 text-right
+                    flex-shrink-0 ml-2
+                  `}>
+                    {metric.value}
+                  </div>
+                </div>
+              </motion.div>
+              
+              {/* Separator Line - Only between items, not after last */}
+              {!isLast && (
+                <motion.div 
+                  className={`h-px bg-gradient-to-r from-transparent via-${currentContext.color}/20 to-transparent mx-2`}
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
+                />
+              )}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Context Indicator - Smaller & Elegant */}
+      <motion.div
+        className="flex justify-center mt-3"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+      >
+        <div className="flex gap-1">
+          {Object.keys(contextualMetrics).map((_, index) => (
+            <motion.div
+              key={index}
+              className={`
+                w-1.5 h-1.5 rounded-full transition-all duration-300
+                ${currentTitleIndex === index ? `bg-${currentContext.color} scale-125` : 'bg-gray/25 hover:bg-gray/40'}
+              `}
+              whileHover={{ scale: 1.2 }}
+            />
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
+}
 
 export function HeroSection() {
   const t = useTranslations('hero');
   const { stats, achievements } = portfolioConfig;
   const [isCVModalOpen, setIsCVModalOpen] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+
+  // Sync with title changes - create our own title slider logic
+  const titles = t.raw('dynamicTitles') as string[];
+  const descriptions = t.raw('dynamicDescriptions') as string[];
+
+  useEffect(() => {
+    if (!titles?.length) return;
+
+    const timer = setInterval(() => {
+      setCurrentTitleIndex((prevIndex) => 
+        prevIndex === titles.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 6000); // Match DynamicTitleSlider interval
+
+    return () => clearInterval(timer);
+  }, [titles?.length]);
 
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 300], [0, -50]);
@@ -33,7 +221,7 @@ export function HeroSection() {
 
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-28">
       {/* Dynamic Background */}
       <div className="absolute inset-0">
         {/* Animated gradient background */}
@@ -133,88 +321,107 @@ export function HeroSection() {
               transition={{ duration: 0.8, delay: 0.4 }}
                 className="mb-6"
             >
-                <DynamicTitleSlider className="max-w-2xl mx-auto lg:mx-0 mb-6" />
-          </motion.div>
-            </div>
-
-            {/* Hero Stats - Right Column (Legacy Style) */}
-            <div className="flex flex-col gap-4">
-              {[
-                { value: stats.years_experience, label: 'Years Experience', icon: '📊' },
-                { value: stats.projects_completed, label: 'Projects Completed', icon: '🚀' },
-                { value: stats.data_pipelines_built, label: 'Data Pipelines Built', icon: '⚡' },
-                { value: stats.technologies_mastered, label: 'Technologies Mastered', icon: '💻' }
-            ].map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                  className="group cursor-pointer p-4 rounded-xl bg-gradient-to-br from-dark/50 to-dark/30 backdrop-blur-md border-2 border-primary/30 hover:border-primary/60 transition-all duration-500 hover:shadow-xl hover:shadow-primary/20 text-center min-w-[120px] relative overflow-hidden"
-                >
+                {/* Custom synchronized title slider */}
+                <div className="max-w-2xl mx-auto lg:mx-0 mb-8">
                   <motion.div
-                    className="text-2xl mb-2"
-                    whileHover={{ rotate: 15, scale: 1.2 }}
-                    transition={{ duration: 0.3 }}
+                    key={currentTitleIndex}
+                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                    className="relative"
                   >
-                    {stat.icon}
-                  </motion.div>
-                  <div className="text-2xl font-bold text-primary mb-1 group-hover:text-secondary transition-colors duration-300 relative">
-                    {stat.value}
-                    {/* Glow effect */}
-                    <motion.div
-                      className="absolute inset-0 text-primary/20 blur-sm"
-                      animate={{ 
-                        opacity: [0.3, 0.6, 0.3],
-                        scale: [1, 1.1, 1]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                    {/* Title text */}
+                    <motion.h2
+                      className="relative text-xl md:text-2xl lg:text-3xl font-semibold text-left mb-3 text-secondary"
                     >
-                  {stat.value}
-                    </motion.div>
+                      {titles[currentTitleIndex]}
+                    </motion.h2>
+                    
+                    {/* Description text */}
+                    <motion.p
+                      className="relative text-lg text-gray max-w-2xl leading-relaxed font-light"
+                    >
+                      {descriptions[currentTitleIndex]}
+                    </motion.p>
+                  </motion.div>
                 </div>
-                  <div className="text-xs text-gray group-hover:text-light transition-colors duration-300 font-medium">
-                  {stat.label}
-                      </div>
-                </motion.div>
-              ))}
-                    </div>
-          </div>
-
-          {/* Performance Metrics Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
-            className="mt-16"
-          >
-            <h3 className="text-2xl font-bold text-light text-center mb-8">
-              <span className="text-secondary">Performance Metrics</span>
-            </h3>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-              {Object.entries(achievements.performance_metrics).map(([metric, value], index) => (
+                
+                {/* View Resume Button - Moved to better location */}
                 <motion.div
-                  key={metric}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.9 + index * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  className="group cursor-pointer p-4 rounded-xl bg-gradient-to-br from-dark/50 to-dark/30 backdrop-blur-md border-2 border-secondary/30 hover:border-secondary/60 transition-all duration-500 hover:shadow-xl hover:shadow-secondary/20 text-center"
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="flex justify-center lg:justify-start"
                 >
-                  <div className="text-2xl font-bold text-secondary mb-2 group-hover:text-accent transition-colors duration-300">
-                    {value}
-                  </div>
-                  <div className="text-xs text-gray group-hover:text-light transition-colors duration-300 font-medium">
-                    {metric}
-                </div>
-              </motion.div>
-            ))}
-            </div>
+                  <motion.button 
+                    onClick={() => setIsCVModalOpen(true)}
+                    whileHover={{ 
+                      y: -5, 
+                      scale: 1.05,
+                      boxShadow: "0 25px 50px -12px rgba(0, 255, 65, 0.5)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    className="btn btn-primary group relative overflow-hidden min-w-[140px] inline-flex items-center gap-3 px-6 py-3 border-2 border-primary rounded-lg font-semibold text-sm cursor-pointer transition-all duration-300 bg-primary text-dark hover:bg-transparent hover:text-primary"
+                  >
+                    {/* Animated background effect */}
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      animate={{
+                        x: ['-100%', '100%'],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        ease: 'linear'
+                      }}
+                    />
+                    
+                    {/* Icon with enhanced animation */}
+                    <motion.div
+                      whileHover={{ 
+                        rotate: [0, -10, 10, -10, 0],
+                        scale: [1, 1.1, 1]
+                      }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <Download className="w-4 h-4 group-hover:animate-pulse relative z-10" />
+                    </motion.div>
+                    
+                    {/* Text with glow effect */}
+                    <span className="relative z-10 group-hover:drop-shadow-[0_0_8px_rgba(0,255,65,0.8)] transition-all duration-300">
+                      View Resume
+                    </span>
+                    
+                    {/* Ripple effect */}
+                    <motion.div
+                      className="absolute inset-0 rounded-lg border-2 border-primary/50 opacity-0 group-hover:opacity-100"
+                      animate={{
+                        scale: [1, 1.1, 1.2],
+                        opacity: [0.5, 0.3, 0]
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        ease: 'easeOut'
+                      }}
+                    />
+                  </motion.button>
+                </motion.div>
           </motion.div>
+            </div>
 
-          {/* Key Areas of Expertise */}
+            {/* Hero Stats - Right Column (Key Performance Metrics Slider) */}
+            <div className="mt-4 lg:mt-8">
+              <KeyPerformanceSlider 
+                stats={stats} 
+                achievements={achievements} 
+                currentTitleIndex={currentTitleIndex}
+              />
+            </div>
+          </div>
+
+
+          {/* Key Areas of Expertise - 3 Columns Rotating */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -225,97 +432,104 @@ export function HeroSection() {
               <span className="text-accent">Key Areas of Expertise</span>
             </h3>
             
-            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-              {[
-                {
-                  title: "Data Engineering Excellence",
-                  description: "Specialized in building scalable data pipelines, ETL processes, and data warehouses using modern cloud technologies.",
-                  icon: "⚙️"
-                },
-                {
-                  title: "Cloud Platform Expertise", 
-                  description: "Proficient in AWS, Azure, and GCP with hands-on experience in serverless architectures and cloud-native solutions.",
-                  icon: "☁️"
-                },
-                {
-                  title: "Analytics & BI",
-                  description: "Expert in creating business intelligence dashboards and implementing data visualization solutions using Power BI, Tableau, and custom tools.",
-                  icon: "📊"
-                }
-              ].map((expertise, index) => (
-                <motion.div
-                  key={expertise.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
-                  whileHover={{ scale: 1.02, y: -5 }}
-                  className="group cursor-pointer p-6 rounded-xl bg-gradient-to-br from-dark/50 to-dark/30 backdrop-blur-md border-2 border-accent/30 hover:border-accent/60 transition-all duration-500 hover:shadow-xl hover:shadow-accent/20"
-                >
-                  <div className="text-3xl mb-4 text-center">{expertise.icon}</div>
-                  <h4 className="text-lg font-semibold text-light mb-3 group-hover:text-accent transition-colors duration-300 text-center">
-                    {expertise.title}
-                  </h4>
-                  <p className="text-gray text-sm leading-relaxed group-hover:text-light transition-colors duration-300 text-center">
-                    {expertise.description}
-                  </p>
-                </motion.div>
-              ))}
+            {/* 3 Columns Rotating Expertise */}
+            <div className="max-w-6xl mx-auto">
+              <motion.div
+                key={currentTitleIndex}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+                className="grid grid-cols-1 md:grid-cols-3 gap-6"
+              >
+                {/* Show 3 expertise areas based on current title index */}
+                {(() => {
+                  const expertiseAreasFromTranslations = t.raw('expertise') as Array<{title: string, description: string, icon: string}>;
+                  const expertiseAreas = expertiseAreasFromTranslations || [
+                    {
+                      title: "Data Engineering Excellence",
+                      description: "Strong experience building ETL pipelines, data warehouses, and automated data workflows using Python, SQL, and modern data stack tools.",
+                      icon: "⚙️"
+                    },
+                    {
+                      title: "Cloud Platform Fundamentals", 
+                      description: "Working knowledge of AWS and Azure services with hands-on experience in basic cloud storage, compute, and database solutions.",
+                      icon: "☁️"
+                    },
+                    {
+                      title: "Analytics & BI Development",
+                      description: "Practical experience creating dashboards and reports using Power BI, with skills in data visualization and business intelligence implementation.",
+                      icon: "📊"
+                    },
+                    {
+                      title: "Machine Learning Implementation",
+                      description: "Applied experience integrating ML models into data pipelines, with familiarity in Python ML libraries and basic model deployment.",
+                      icon: "🤖"
+                    },
+                    {
+                      title: "Data Quality & Governance",
+                      description: "Hands-on experience implementing data validation, quality checks, and documentation practices in real-world data projects.",
+                      icon: "🛡️"
+                    },
+                    {
+                      title: "Automation & Basic DevOps",
+                      description: "Working knowledge of CI/CD tools, basic containerization with Docker, and automation scripting for data workflows.",
+                      icon: "🔄"
+                    }
+                  ];
+                  
+                  // Show 3 consecutive areas starting from current index
+                  const startIndex = currentTitleIndex % expertiseAreas.length;
+                  const displayAreas = [];
+                  for (let i = 0; i < 3; i++) {
+                    displayAreas.push(expertiseAreas[(startIndex + i) % expertiseAreas.length]);
+                  }
+                  
+                  return displayAreas.map((expertise, index) => (
+                    <motion.div
+                      key={`${currentTitleIndex}-${index}`}
+                      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      transition={{ duration: 0.6, delay: index * 0.1 }}
+                      whileHover={{ scale: 1.02, y: -5 }}
+                      className="group cursor-pointer p-6 rounded-xl bg-gradient-to-br from-dark/50 to-dark/30 backdrop-blur-md border-2 border-accent/30 hover:border-accent/60 transition-all duration-500 hover:shadow-xl hover:shadow-accent/20"
+                    >
+                      <div className="text-3xl mb-4 text-center">{expertise.icon}</div>
+                      <h4 className="text-lg font-semibold text-light mb-3 group-hover:text-accent transition-colors duration-300 text-center">
+                        {expertise.title}
+                      </h4>
+                      <p className="text-gray text-sm leading-relaxed group-hover:text-light transition-colors duration-300 text-center">
+                        {expertise.description}
+                      </p>
+                    </motion.div>
+                  ));
+                })()}
+              </motion.div>
+
+              {/* Expertise Indicators - Show rotation progress */}
+              <motion.div
+                className="flex justify-center mt-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <div className="flex gap-1">
+                  {[0, 1, 2, 3, 4, 5].map((index) => (
+                    <motion.div
+                      key={index}
+                      className={`
+                        w-1.5 h-1.5 rounded-full transition-all duration-300
+                        ${currentTitleIndex === index ? 'bg-accent scale-125' : 'bg-gray/25 hover:bg-gray/40'}
+                      `}
+                      whileHover={{ scale: 1.2 }}
+                    />
+                  ))}
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* CTA Buttons and Social Links - Legacy Style */}
-          <div className="text-center space-y-8">
-            {/* CTA Buttons with Legacy Styling */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <motion.button 
-                onClick={() => setIsCVModalOpen(true)}
-                whileHover={{ y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="btn btn-primary group relative overflow-hidden min-w-[140px]"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  padding: '0.75rem 1.5rem',
-                  border: '2px solid var(--primary-color)',
-                  borderRadius: '8px',
-                  fontFamily: 'var(--font-secondary)',
-                  fontWeight: '600',
-                  fontSize: '0.9rem',
-                  cursor: 'pointer',
-                  transition: 'all 0.3s ease-in-out',
-                  textDecoration: 'none',
-                  textAlign: 'center',
-                  background: 'var(--primary-color)',
-                  color: 'var(--dark-color)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'transparent';
-                  e.currentTarget.style.color = 'var(--primary-color)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 255, 65, 0.3)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'var(--primary-color)';
-                  e.currentTarget.style.color = 'var(--dark-color)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <Download className="w-4 h-4 group-hover:animate-bounce" />
-                <span>View Resume</span>
-            </motion.button>
-            
-
-          </motion.div>
-
-
-          </div>
+          {/* Additional space for visual balance */}
+          <div className="mt-16"></div>
 
 
         </div>

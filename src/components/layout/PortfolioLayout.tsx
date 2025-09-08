@@ -21,7 +21,7 @@ export function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [isAudioPlayerOpen, setIsAudioPlayerOpen] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [showAssistant, setShowAssistant] = useState(true);
+  const [showAssistant, setShowAssistant] = useState(false);
   
   // Assistant messages hook
   const { getAllTips } = useAssistantMessages();

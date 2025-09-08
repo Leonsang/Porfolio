@@ -30,7 +30,38 @@
     "downloadCV": "Descargar CV",
     "viewWork": "Ver Mi Trabajo",
     "scrollDown": "Desplázate hacia abajo",
-
+    "expertise": [
+      {
+        "title": "Excelencia en Ingeniería de Datos",
+        "description": "Sólida experiencia construyendo pipelines ETL, almacenes de datos y flujos de trabajo automatizados usando Python, SQL y herramientas modernas del stack de datos.",
+        "icon": "⚙️"
+      },
+      {
+        "title": "Fundamentos de Plataformas Cloud", 
+        "description": "Conocimiento práctico de servicios de AWS y Azure con experiencia hands-on en almacenamiento, cómputo y soluciones básicas de bases de datos en la nube.",
+        "icon": "☁️"
+      },
+      {
+        "title": "Desarrollo de Analytics y BI",
+        "description": "Experiencia práctica creando dashboards y reportes usando Power BI, con habilidades en visualización de datos e implementación de business intelligence.",
+        "icon": "📊"
+      },
+      {
+        "title": "Implementación de Machine Learning",
+        "description": "Experiencia aplicada integrando modelos de ML en pipelines de datos, con familiaridad en librerías de Python ML y despliegue básico de modelos.",
+        "icon": "🤖"
+      },
+      {
+        "title": "Calidad de Datos y Governance",
+        "description": "Experiencia hands-on implementando validación de datos, verificaciones de calidad y prácticas de documentación en proyectos reales de datos.",
+        "icon": "🛡️"
+      },
+      {
+        "title": "Automatización y DevOps Básico",
+        "description": "Conocimiento práctico de herramientas CI/CD, containerización básica con Docker y scripting de automatización para flujos de trabajo de datos.",
+        "icon": "🔄"
+      }
+    ],
     "stats": {
       "experience": "Años de Experiencia",
       "projects": "Proyectos Completados",
@@ -78,34 +109,71 @@
   },
   "about": {
     "title": "Acerca de Mí",
-    "description": "Ingeniero de Datos apasionado con experiencia en la construcción de soluciones de datos escalables y la transformación de datos complejos en insights accionables. Me especializo en crear pipelines de datos robustos, implementar arquitecturas basadas en la nube y desarrollar soluciones innovadoras que impulsan el crecimiento empresarial.",
-    "expertiseTitle": "Áreas Clave de Experiencia",
-    "expertise": {
-      "dataEngineering": {
-        "title": "Excelencia en Ingeniería de Datos",
-        "description": "Especializado en construir pipelines de datos escalables, procesos ETL y almacenes de datos usando tecnologías modernas en la nube."
+    "description": "Soy un Ingeniero de Datos apasionado y eterno aprendiz que prospera en la intersección entre datos, programación e innovación continua. Lo que me motiva no es solo construir soluciones, sino la búsqueda constante del conocimiento, la elegancia del código limpio, y la emoción de transformar desafíos complejos en sistemas escalables e impactantes.",
+    "professionalValue": {
+      "title": "Lo Que Aporto a Tu Equipo",
+      "content": "Entrego soluciones de datos end-to-end con enfoque en escalabilidad, mantenibilidad e impacto empresarial. Mi enfoque combina fundamentos técnicos sólidos con una mentalidad de crecimiento, asegurando que no solo resuelvo los desafíos de hoy sino que me adapto rápidamente a las oportunidades del mañana."
+    },
+    "coreStrengths": {
+      "title": "Fortalezas Principales",
+      "items": [
+        {
+          "title": "Excelencia en Ingeniería de Datos",
+          "description": "Construyendo pipelines ETL robustos, almacenes de datos y sistemas de procesamiento en tiempo real que escalan con las necesidades de tu negocio.",
+          "icon": "🏗️"
+        },
+        {
+          "title": "Maestría en Programación",
+          "description": "Escribiendo código limpio y mantenible en Python, SQL y frameworks modernos. Creo que el código debe contar una historia y estar construido para durar.",
+          "icon": "⚡"
+        },
+        {
+          "title": "Aprendizaje Continuo",
+          "description": "Manteniéndome al día con tendencias de la industria, adoptando rápidamente nuevas tecnologías y compartiendo conocimiento con el equipo para impulsar el crecimiento colectivo.",
+          "icon": "📈"
+        }
+      ]
+    },
+    "problemSolver": {
+      "title": "Enfoque de Resolución de Problemas",
+      "content": "Abordo cada desafío con curiosidad y pensamiento sistemático. Ya sea optimizando un pipeline que procesa millones de registros, depurando problemas complejos de calidad de datos, o arquitecturando soluciones para escalabilidad futura, combino rigor analítico con resolución creativa de problemas para entregar resultados que importan."
+    },
+    "learningDriven": {
+      "title": "Mentalidad de Aprendizaje y Crecimiento",
+      "content": "La tecnología evoluciona rápidamente, y yo también. Constantemente exploro nuevas herramientas, técnicas y metodologías. Desde tecnologías en la nube hasta frameworks de machine learning, abrazo el cambio como una oportunidad para crecer y aportar perspectivas frescas a cada proyecto."
+    },
+    "beyondWork": {
+      "title": "Más Allá del Código",
+      "content": "Cuando no estoy programando o diseñando sistemas de datos, me encontrarás explorando tecnologías emergentes, contribuyendo a proyectos open-source, o disfrutando los placeres simples de la vida.",
+      "interests": {
+        "coffee": "Café",
+        "dogs": "Amante de Perros", 
+        "music": "Música",
+        "sports": "Deportes",
+        "anime": "Anime",
+        "scifi": "Ciencia Ficción",
+        "arts": "Artes",
+        "learning": "Aprendizaje Continuo"
       },
-      "cloudPlatform": {
-        "title": "Experiencia en Plataformas Cloud",
-        "description": "Competente en AWS, Azure y GCP con experiencia práctica en arquitecturas serverless y soluciones cloud-native."
-      },
-      "analytics": {
-        "title": "Analítica e Inteligencia de Negocios",
-        "description": "Experto en crear dashboards de inteligencia de negocios e implementar soluciones de visualización de datos usando Power BI, Tableau y herramientas personalizadas."
-      },
-      "databaseDesign": {
-        "title": "Diseño de Bases de Datos",
-        "description": "Diseñando esquemas de bases de datos eficientes y optimización"
-      },
-      "machineLearning": {
-        "title": "Aprendizaje Automático",
-        "description": "Implementando modelos de ML y soluciones de ciencia de datos"
-      },
-      "cloudArchitecture": {
-        "title": "Arquitectura en la Nube",
-        "description": "Desplegando y gestionando soluciones de datos basadas en la nube"
-      }
-    }
+      "quote": "Programar con propósito, aprender sin límites, construir para el futuro"
+    },
+    "personalInfo": {
+      "title": "Perfil Profesional",
+      "name": "Nombre",
+      "location": "Ubicación",
+      "role": "Rol",
+      "status": "Disponibilidad",
+      "experience": "Nivel de Experiencia",
+      "focus": "Enfoque Actual"
+    },
+    "stats": {
+      "experience": "Años de Experiencia",
+      "projects": "Proyectos Completados",
+      "pipelines": "Pipelines de Datos Construidos",
+      "certifications": "Tecnologías Dominadas"
+    },
+    "downloadCV": "Descargar CV",
+    "contactMe": "Contáctame"
   },
   "technical": {
     "title": "Excelencia Técnica",
