@@ -1,6 +1,6 @@
 <div align="center">
 
-# 👋 ¡Hola! Soy Erick Yang Narváez
+# 👋 ¡Hola! Soy Erick Sang
 
 ### 🚀 Data Engineer | Analytics Specialist | Cloud Solutions Architect
 
@@ -198,7 +198,7 @@ class DataEngineer:
 <td align="center" width="33%">
 
 ### 💼 Professional
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/erick-yang-narvaez)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/erick-sang)
 
 *Let's discuss opportunities*
 
