@@ -1,0 +1,89 @@
+{
+  "virtualAssistant": {
+    "welcome": ">>> SYSTEM INITIALIZED <<< Greetings! I'm Athena, your personal AI assistant. I'm here to guide you through this digital portfolio experience!",
+    "contextual": {
+      "home": {
+        "title": ">>> WELCOME PROTOCOL <<<",
+        "message": "Welcome to the main hub! Here you'll discover my core capabilities as a Data Engineer. I specialize in transforming complex data challenges into elegant, scalable solutions that drive business growth."
+      },
+      "about": {
+        "title": ">>> PERSONAL PROFILE <<<",
+        "message": "This is where you'll learn about my journey and passion for data engineering. I'm driven by the challenge of turning raw data into actionable insights that make a real difference."
+      },
+      "technical": {
+        "title": ">>> SKILL MATRIX <<<",
+        "message": "Accessing my technical database... I've mastered cloud platforms, machine learning frameworks, and modern data engineering tools. Each skill has been battle-tested in real-world scenarios."
+      },
+      "experience": {
+        "title": ">>> CAREER LOG <<<",
+        "message": "Reviewing my professional timeline... Every role has been a stepping stone in mastering the art of data engineering. From startups to enterprise solutions, I've tackled diverse challenges."
+      },
+      "projects": {
+        "title": ">>> PROJECT ARCHIVE <<<",
+        "message": "Scanning project database... These are my digital creations! Each project solves real-world problems and demonstrates my ability to transform data into powerful insights and solutions."
+      },
+      "certifications": {
+        "title": ">>> CREDENTIAL VERIFICATION <<<",
+        "message": "Validating certifications... My credentials prove expertise across cloud platforms, data engineering frameworks, and analytics technologies. Continuous learning is my core protocol."
+      },
+      "contact": {
+        "title": ">>> COMMUNICATION CHANNEL <<<",
+        "message": "Establishing connection protocol... Ready to collaborate? This is your direct line to discuss how we can work together on your next data engineering challenge."
+      }
+    },
+    "tips": [
+      {
+        "id": "navigation",
+        "title": "NAVIGATION PROTOCOL",
+        "message": "Use the top navigation bar to move between different sections of the portfolio.",
+        "image": "/images/1/00_1.png",
+        "frames": ["/images/1/00_1.png", "/images/1/01_1.png", "/images/1/02_1.png"]
+      },
+      {
+        "id": "portfolio",
+        "title": "PROJECT DATABASE",
+        "message": "Explore my featured projects in the portfolio section. Each project includes technical details and live links.",
+        "image": "/images/2/Gemini_Generated_Image_797sv0797sv0797s_00.png",
+        "frames": ["/images/2/Gemini_Generated_Image_797sv0797sv0797s_00.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_01.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_02.png"]
+      },
+      {
+        "id": "contact",
+        "title": "COMMUNICATION CHANNEL",
+        "message": "Interested in collaborating? Find my contact information and social networks at the bottom of the page.",
+        "image": "/images/3/Gemini_Generated_Image_797sv0797sv0797s_00.png",
+        "frames": ["/images/3/Gemini_Generated_Image_797sv0797sv0797s_00.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_01.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_02.png"]
+      },
+      {
+        "id": "skills",
+        "title": "SKILL ASSESSMENT",
+        "message": "Check out my technical skills and professional experience in the corresponding section.",
+        "image": "/images/1/03_1.png",
+        "frames": ["/images/1/03_1.png", "/images/1/04_1.png", "/images/1/05_1.png"]
+      },
+      {
+        "id": "theme",
+        "title": "VISUAL PROTOCOL",
+        "message": "You can switch between light and dark themes using the button in the top right corner.",
+        "image": "/images/2/Gemini_Generated_Image_797sv0797sv0797s_03.png",
+        "frames": ["/images/2/Gemini_Generated_Image_797sv0797sv0797s_03.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_04.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_05.png"]
+      },
+      {
+        "id": "download",
+        "title": "DATA DOWNLOAD",
+        "message": "Download my updated CV in PDF format from the contact section.",
+        "image": "/images/3/Gemini_Generated_Image_797sv0797sv0797s_03.png",
+        "frames": ["/images/3/Gemini_Generated_Image_797sv0797sv0797s_03.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_04.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_05.png"]
+      }
+    ],
+    "states": {
+      "idle": "Idle",
+      "talking": "Talking",
+      "thinking": "Thinking"
+    },
+    "actions": {
+      "close": "Close assistant",
+      "nextTip": "Next tip",
+      "skipAnimation": "Skip animation"
+    }
+  }
+}

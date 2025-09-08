@@ -1,0 +1,196 @@
+# Portfolio Next.js - Synthwave/Cyberpunk Theme
+
+## Project Overview
+This is a Next.js 15.5.2 portfolio project with a synthwave/cyberpunk aesthetic, featuring:
+- Virtual Assistant (Athena) with chat functionality
+- 3D effects and animations
+- Internationalization (i18n) support
+- Responsive design with mobile optimization
+
+## Tech Stack
+- **Framework**: Next.js 15.5.2 with Turbopack
+- **Language**: TypeScript 5
+- **Styling**: Tailwind CSS 4
+- **Package Manager**: pnpm (NOT npm)
+- **Animations**: Framer Motion
+- **3D Graphics**: Three.js, React Three Fiber
+- **Charts**: Chart.js, React Chart.js 2
+- **Chat UI**: @chatscope/chat-ui-kit-react
+- **Icons**: Lucide React
+- **Internationalization**: next-intl
+
+## Package Manager Rules
+- **ALWAYS use pnpm** for package management
+- Commands: `pnpm add`, `pnpm remove`, `pnpm install`
+- Never use npm or yarn commands
+
+## File Structure
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── [locale]/          # Internationalized routes
+│   ├── api/               # API routes
+│   └── globals.css        # Global styles
+├── components/            # React components
+│   ├── effects/           # Visual effects (particles, 3D, etc.)
+│   ├── layout/            # Layout components
+│   ├── sections/          # Page sections
+│   └── ui/                # UI components
+├── config/                # Configuration files
+├── contexts/              # React contexts
+├── hooks/                 # Custom React hooks
+├── i18n/                  # Internationalization
+├── messages/              # Translation files
+├── styles/                # Additional CSS files
+├── types/                 # TypeScript type definitions
+└── utils/                 # Utility functions
+```
+
+## Coding Standards
+
+### TypeScript
+- Use strict TypeScript configuration
+- Define interfaces for all props and data structures
+- Use proper type annotations
+- Prefer `interface` over `type` for object shapes
+- Use `const` assertions for literal types
+
+### React Components
+- Use functional components with hooks
+- Use `'use client'` directive for client components
+- Prefer named exports over default exports
+- Use proper prop typing with interfaces
+- Implement proper error boundaries
+
+### Styling
+- Use Tailwind CSS classes primarily
+- Custom CSS for complex animations and effects
+- CSS variables for theme colors (defined in globals.css)
+- Responsive design with mobile-first approach
+- Maintain synthwave/cyberpunk aesthetic
+
+### Color Palette (Synthwave Theme)
+```css
+--primary-color: #00ff41;    /* Neon green */
+--secondary-color: #ff6b35;  /* Orange accent */
+--accent-color: #4ecdc4;     /* Cyan accent */
+--dark-color: #1a1a1a;       /* Dark background */
+--light-color: #ffffff;      /* Light text */
+--gray-color: #888888;       /* Gray text */
+```
+
+### Fonts
+- Primary: 'Press Start 2P' (pixel font)
+- Secondary: 'Orbitron' (futuristic)
+- Body: 'Segoe UI', system fonts
+
+## Component Guidelines
+
+### Virtual Assistant (Athena)
+- Located in `src/components/effects/VirtualAssistant.tsx`
+- Uses chat UI with @chatscope/chat-ui-kit-react
+- Maintains RPG/synthwave aesthetic
+- Integrates with API at `/api/athena-chat`
+- Supports both AI responses and demo fallbacks
+
+### Chat Integration
+- Custom SynthwaveChat component with synthwave styling
+- Maintains neon green (#00ff41) color scheme
+- Typing indicators with custom animations
+- Responsive design for all screen sizes
+- Avatar integration with character frames
+
+### Animations
+- Use Framer Motion for complex animations
+- CSS animations for simple effects
+- Maintain 60fps performance
+- Respect `prefers-reduced-motion` accessibility setting
+- Synthwave-specific effects: glow, scanlines, pixelated borders
+
+## API Guidelines
+- Use Next.js API routes in `src/app/api/`
+- Implement proper error handling
+- Use TypeScript for request/response types
+- Support both development and production environments
+- Include fallback responses for demo mode
+
+## Internationalization
+- Use next-intl for i18n
+- Translation files in `src/messages/`
+- Support for Spanish (es) and English (en)
+- Use proper locale routing with `[locale]` dynamic segment
+
+## Performance
+- Use Next.js Image component for optimized images
+- Implement proper loading states
+- Use React.memo for expensive components
+- Optimize bundle size with dynamic imports
+- Use Turbopack for faster development builds
+
+## Accessibility
+- Implement proper ARIA labels
+- Support keyboard navigation
+- Respect reduced motion preferences
+- Use semantic HTML elements
+- Ensure proper color contrast
+
+## Development Commands
+```bash
+# Development server with Turbopack
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Start production server
+pnpm start
+
+# Lint code
+pnpm lint
+
+# Type check
+pnpm type-check
+```
+
+## File Naming Conventions
+- Components: PascalCase (e.g., `VirtualAssistant.tsx`)
+- Hooks: camelCase starting with 'use' (e.g., `useActiveSection.ts`)
+- Utilities: camelCase (e.g., `themeManager.ts`)
+- Types: PascalCase (e.g., `portfolio.ts`)
+- CSS files: kebab-case (e.g., `virtual-assistant.css`)
+
+## Import Guidelines
+- Use absolute imports with `@/` prefix
+- Group imports: React, third-party, local
+- Use named imports when possible
+- Import types with `type` keyword
+
+## Error Handling
+- Use try-catch blocks for async operations
+- Implement proper error boundaries
+- Provide fallback UI for errors
+- Log errors appropriately
+- Use TypeScript for compile-time error prevention
+
+## Testing Considerations
+- Write testable components
+- Use proper prop interfaces
+- Avoid side effects in render functions
+- Implement proper cleanup in useEffect
+- Use proper dependency arrays
+
+## Deployment
+- Optimize for Vercel deployment
+- Use environment variables for configuration
+- Implement proper error pages
+- Use Next.js Image optimization
+- Configure proper caching headers
+
+## Special Notes
+- Maintain synthwave/cyberpunk aesthetic throughout
+- Use neon colors and glow effects consistently
+- Implement proper loading states for 3D content
+- Support both desktop and mobile experiences
+- Keep the virtual assistant (Athena) as a central feature
+- Maintain the RPG-style chat interface
+- Use proper TypeScript types for all data structures

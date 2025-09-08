@@ -1,0 +1,89 @@
+{
+  "virtualAssistant": {
+    "welcome": ">>> SISTEMA INICIALIZADO <<< ¡Saludos! Soy Athena, tu asistente personal de IA. ¡Estoy aquí para guiarte a través de esta experiencia de portfolio digital!",
+    "contextual": {
+      "home": {
+        "title": ">>> PROTOCOLO DE BIENVENIDA <<<",
+        "message": "¡Bienvenido al centro principal! Aquí descubrirás mis capacidades principales como Ingeniero de Datos. Me especializo en transformar desafíos complejos de datos en soluciones elegantes y escalables que impulsan el crecimiento empresarial."
+      },
+      "about": {
+        "title": ">>> PERFIL PERSONAL <<<",
+        "message": "Aquí aprenderás sobre mi trayectoria y pasión por la ingeniería de datos. Me motiva el desafío de convertir datos en bruto en insights accionables que marquen una diferencia real."
+      },
+      "technical": {
+        "title": ">>> MATRIZ DE HABILIDADES <<<",
+        "message": "Accediendo a mi base de datos técnica... He dominado plataformas en la nube, frameworks de machine learning y herramientas modernas de ingeniería de datos. Cada habilidad ha sido probada en escenarios del mundo real."
+      },
+      "experience": {
+        "title": ">>> REGISTRO PROFESIONAL <<<",
+        "message": "Revisando mi línea de tiempo profesional... Cada rol ha sido un escalón en dominar el arte de la ingeniería de datos. Desde startups hasta soluciones empresariales, he enfrentado desafíos diversos."
+      },
+      "projects": {
+        "title": ">>> ARCHIVO DE PROYECTOS <<<",
+        "message": "Escaneando base de datos de proyectos... ¡Estas son mis creaciones digitales! Cada proyecto resuelve problemas del mundo real y demuestra mi capacidad para transformar datos en insights y soluciones poderosas."
+      },
+      "certifications": {
+        "title": ">>> VERIFICACIÓN DE CREDENCIALES <<<",
+        "message": "Validando certificaciones... Mis credenciales demuestran experiencia en plataformas en la nube, frameworks de ingeniería de datos y tecnologías de análisis. El aprendizaje continuo es mi protocolo central."
+      },
+      "contact": {
+        "title": ">>> CANAL DE COMUNICACIÓN <<<",
+        "message": "Estableciendo protocolo de conexión... ¿Listo para colaborar? Esta es tu línea directa para discutir cómo podemos trabajar juntos en tu próximo desafío de ingeniería de datos."
+      }
+    },
+    "tips": [
+      {
+        "id": "navigation",
+        "title": "Navegación",
+        "message": "Usa la barra de navegación superior para moverte entre las diferentes secciones del portafolio.",
+        "image": "/images/1/00_1.png",
+        "frames": ["/images/1/00_1.png", "/images/1/01_1.png", "/images/1/02_1.png"]
+      },
+      {
+        "id": "portfolio",
+        "title": "Proyectos",
+        "message": "Explora mis proyectos más destacados en la sección de portafolio. Cada proyecto incluye detalles técnicos y enlaces en vivo.",
+        "image": "/images/2/Gemini_Generated_Image_797sv0797sv0797s_00.png",
+        "frames": ["/images/2/Gemini_Generated_Image_797sv0797sv0797s_00.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_01.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_02.png"]
+      },
+      {
+        "id": "contact",
+        "title": "Contacto",
+        "message": "¿Interesado en colaborar? Encuentra mis datos de contacto y redes sociales al final de la página.",
+        "image": "/images/3/Gemini_Generated_Image_797sv0797sv0797s_00.png",
+        "frames": ["/images/3/Gemini_Generated_Image_797sv0797sv0797s_00.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_01.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_02.png"]
+      },
+      {
+        "id": "skills",
+        "title": "Habilidades",
+        "message": "Revisa mis habilidades técnicas y experiencia profesional en la sección correspondiente.",
+        "image": "/images/1/03_1.png",
+        "frames": ["/images/1/03_1.png", "/images/1/04_1.png", "/images/1/05_1.png"]
+      },
+      {
+        "id": "theme",
+        "title": "Personalización",
+        "message": "Puedes cambiar entre tema claro y oscuro usando el botón en la esquina superior derecha.",
+        "image": "/images/2/Gemini_Generated_Image_797sv0797sv0797s_03.png",
+        "frames": ["/images/2/Gemini_Generated_Image_797sv0797sv0797s_03.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_04.png", "/images/2/Gemini_Generated_Image_797sv0797sv0797s_05.png"]
+      },
+      {
+        "id": "download",
+        "title": "Currículum",
+        "message": "Descarga mi CV actualizado en formato PDF desde la sección de contacto.",
+        "image": "/images/3/Gemini_Generated_Image_797sv0797sv0797s_03.png",
+        "frames": ["/images/3/Gemini_Generated_Image_797sv0797sv0797s_03.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_04.png", "/images/3/Gemini_Generated_Image_797sv0797sv0797s_05.png"]
+      }
+    ],
+    "states": {
+      "idle": "En espera",
+      "talking": "Hablando",
+      "thinking": "Pensando"
+    },
+    "actions": {
+      "close": "Cerrar asistente",
+      "nextTip": "Siguiente consejo",
+      "skipAnimation": "Saltar animación"
+    }
+  }
+}

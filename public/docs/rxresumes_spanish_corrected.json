@@ -1,0 +1,552 @@
+{
+  "public": false,
+  "basics": {
+    "name": "Erick Manuel Sang Cifuentes",
+    "headline": "Ingeniero de Datos | Especialista en Python, Apache Spark y Arquitecturas Cloud",
+    "email": "ericksang@gmail.com",
+    "phone": "+573134816342",
+    "location": "Madrid, Colombia",
+    "url": {
+      "label": "Portfolio",
+      "href": "https://ericksang.dev"
+    },
+    "customFields": [],
+    "picture": {
+      "url": "",
+      "effects": {
+        "hidden": false,
+        "border": false,
+        "grayscale": false
+      }
+    },
+    "photo": {
+      "url": "",
+      "size": 64,
+      "aspectRatio": 1,
+      "borderRadius": 50,
+      "effects": {
+        "hidden": false,
+        "border": false,
+        "grayscale": false
+      }
+    }
+  },
+  "sections": {
+    "summary": {
+      "name": "Resumen Profesional",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "summary",
+      "content": "<p>Ingeniero de Datos con más de 5 años de experiencia enfocado en automatización, optimización, escalabilidad y resolución de problemas en los sectores financiero y educativo. Experiencia liderando equipos técnicos y entregando impacto empresarial medible a través de implementaciones de arquitecturas de datos.</p><p>Especializado en la implementación de stacks de datos incluyendo Python, Apache Spark y plataformas cloud (AWS, Azure, GCP). Enfoque reciente en arquitecturas RAG, sistemas de IA conversacional, y Data Science con integración de ML. Resultados demostrados incluyen 90% de mejoras en procesamiento y 60% de reducción en tiempos de acceso a datos a través de iniciativas de automatización y optimización.</p>"
+    },
+    "awards": {
+      "name": "Reconocimientos",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": false,
+      "id": "awards",
+      "items": []
+    },
+    "certifications": {
+      "name": "Certificaciones",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "certifications",
+      "items": [
+        {
+          "id": "cert1",
+          "visible": true,
+          "name": "Associate Data Engineer in SQL",
+          "issuer": "DataCamp (DE101)",
+          "date": "2024",
+          "summary": "Certificación integral que cubre principios de diseño de bases de datos, implementación de procesos ETL, frameworks de calidad de datos y técnicas avanzadas de visualización de datos",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "cert2",
+          "visible": true,
+          "name": "Data Engineer in Python",
+          "issuer": "DataCamp (DE201)",
+          "date": "2024",
+          "summary": "Certificación avanzada en herramientas de data engineering nativas de cloud, arquitectura de pipelines escalables y prácticas de implementación de código de nivel productivo",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "cert3",
+          "visible": true,
+          "name": "SQL Associate",
+          "issuer": "DataCamp",
+          "date": "2024",
+          "summary": "Certificación especializada en optimización de consultas complejas, ajuste de rendimiento y diseño de arquitectura de bases de datos empresariales",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "cert4",
+          "visible": true,
+          "name": "Scrum Fundamentals Certified (SFC™)",
+          "issuer": "SCRUMstudy",
+          "date": "2024",
+          "summary": "Metodologías ágiles y gestión de proyectos",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "cert5",
+          "visible": true,
+          "name": "Python + SQL + Power BI (7 certificaciones)",
+          "issuer": "LinkedIn Learning, SoloLearn, ProgrammingHub",
+          "date": "2024",
+          "summary": "Colección integral de certificaciones que cubren metodologías avanzadas de programación y dominio de herramientas de inteligencia empresarial",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "education": {
+      "name": "Educación",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "education",
+      "items": [
+        {
+          "id": "edu1",
+          "visible": true,
+          "institution": "Politécnico Grancolombiano",
+          "studyType": "Ingeniería de Software",
+          "area": "Bogotá, Colombia",
+          "score": "Octavo semestre aprobado",
+          "date": "Enero 2022 - Presente",
+          "summary": "<p>Formación especializada en <strong>Arquitectura de Software, Sistemas de Base de Datos, Cloud Computing, Machine Learning</strong>. Enfoque en tecnologías modernas y desarrollo de software empresarial.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "edu2",
+          "visible": true,
+          "institution": "ECCI",
+          "studyType": "Tecnología en Automatización y Robótica",
+          "area": "Bogotá, Colombia",
+          "score": "Opción de grado",
+          "date": "Marzo 2017 - Junio 2021",
+          "summary": "<p>Tecnología enfocada en <strong>Sistemas de Control, Automatización Industrial, Programación de Robots</strong> y fundamentos técnicos en automatización.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "experience": {
+      "name": "Experiencia Profesional",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "experience",
+      "items": [
+        {
+          "id": "exp1",
+          "visible": true,
+          "company": "SohoHumantech",
+          "position": "Data Engineer - Consultoría",
+          "location": "Bogotá, Colombia",
+          "date": "Junio 2025 - Agosto 2025",
+          "summary": "<p>Participé en el desarrollo de una plataforma de analytics para GASCO Chile, entregando soluciones de inteligencia empresarial. Contribuí a la arquitectura e implementación de un sistema de integración de datos utilizando GCP Looker y BigQuery, habilitando el consumo de datos a través de endpoints corporativos.</p><p>Desarrollé aplicaciones frontend con React y NextJS, estableciendo patrones de consumo de APIs. Logré 40% de mejora en tiempos de respuesta de consultas mediante optimización de vistas de BigQuery y mecanismos de entrega de datos. Contribuí a flujos de trabajo de desarrollo incorporando control de versiones Git y SonarQube para mantener estándares de calidad de código.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "exp2",
+          "visible": true,
+          "company": "Corporación Unificada Nacional (CUN)",
+          "position": "Data Engineer - Líder Técnico",
+          "location": "Bogotá, Colombia",
+          "date": "Febrero 2025 - Junio 2025",
+          "summary": "<p><strong>Implementación de Fuente Única de Verdad (SSOT):</strong> Lideré la transformación de la gestión de datos institucionales mediante implementación SSOT basada en AWS. Integré stack de datos incluyendo Great Expectations para calidad de datos, Airbyte para ingesta, dbt para transformación y Apache Airflow para orquestación, resultando en 60% de reducción en tiempos de acceso a datos consolidados.</p><p><strong>Sistema de IA Conversacional CUN 360:</strong> Diseñé e implementé una arquitectura RAG para el sistema de bot conversacional universitario. Utilicé pgVector en AWS para embeddings y búsqueda semántica, mientras coordinaba con el equipo de Fábrica de Software usando N8N para automatización de workflows. Desplegué el sistema sirviendo a 20,000+ usuarios como puerta de contacto principal.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "exp3",
+          "visible": true,
+          "company": "FACTECH",
+          "position": "Data Engineer - Líder de Proyecto",
+          "location": "Bogotá, Colombia",
+          "date": "Agosto 2024 - Enero 2025",
+          "summary": "<p>Lideré un equipo multidisciplinario de 6 profesionales en la transformación de automatización de procesos educativos para el Ministerio de Educación (MEN). Diseñé e implementé pipelines ETL utilizando Apache Airflow, logrando 90% de mejora en eficiencia de procesamiento y automatización de flujos de trabajo críticos.</p><p>Migré sistemas legacy a arquitecturas cloud, usando Amazon RDS y Aurora RDS para escalabilidad y rendimiento. Implementé sistemas de validación automática que redujeron errores operacionales en 35%, mientras optimizaba configuraciones de bases de datos relacionales y NoSQL resultando en 50% de reducción en tiempos de ejecución de consultas. Colaboré con equipos DevOps para establecer Infrastructure as Code (IaC) y pipelines CI/CD para procesos de despliegue.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "exp4",
+          "visible": true,
+          "company": "Teleperformance",
+          "position": "Data Specialist",
+          "location": "Bogotá, Colombia",
+          "date": "Diciembre 2021 - Julio 2024",
+          "summary": "<p>Especializado en el diseño e implementación de soluciones de datos para clientes financieros globales dentro de un entorno de contact center. Desarrollé pipelines de datos soportando múltiples instituciones financieras, incorporando fuentes de datos diversas incluyendo APIs, web scraping, sistemas RPA y logs operacionales.</p><p>Aseguré cumplimiento con estándares PCI-DSS mientras manejaba datos financieros sensibles en todas las implementaciones. Diseñé y arquitecturé sistemas OLAP y OLTP incluyendo cubos de análisis y datamarts para soportar análisis y reportes de contact center. Mantuve operaciones 24/7 a través de sistemas de monitoreo automatizado y desarrollé dashboards con Power BI proporcionando métricas e insights financieros a stakeholders.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "exp5",
+          "visible": true,
+          "company": "Nexa BPO",
+          "position": "Senior Visualization Architect",
+          "location": "Bogotá, Colombia",
+          "date": "Enero 2019 - Noviembre 2021",
+          "summary": "<p>Inicié la especialización en ingeniería de datos dentro del sector de contact center financiero, estableciendo experiencia fundamental en gestión de datos financieros y cumplimiento normativo. Participé en la modernización de flujos de trabajo de procesamiento de datos migrando procesos ETL tradicionales a SAS Guide para múltiples clientes financieros, asegurando confiabilidad y rendimiento mejorados.</p><p>Gestioné operaciones de datos financieros críticos utilizando bases de datos Oracle y SQL Server, implementando sistemas automatizados de visualización con SAS VIYA para cumplir requisitos normativos estrictos. Contribuí a la transición organizacional de reportes basados en Excel a Power BI, entregando dashboards interactivos que lograron 70% de reducción en tiempo de generación de reportes. Establecí estándares integrales de calidad y mejores prácticas alineadas con requisitos regulatorios financieros.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "exp6",
+          "visible": true,
+          "company": "Gaviria & Borbón Asociados",
+          "position": "Coordinador de Sistemas",
+          "location": "Bogotá, Colombia",
+          "date": "Junio 2018 - Julio 2019",
+          "summary": "<p>Lideré la coordinación y gestión de servicios de tecnología e infraestructura de sistemas, asegurando rendimiento óptimo y confiabilidad de operaciones críticas del negocio. Supervisé procesos de gobierno de TI y proporcioné soporte integral para sistemas de misión crítica.</p><p>Garanticé el funcionamiento adecuado de diversos servicios de tecnología implementados a través de plataformas de software e infraestructura. Establecí protocolos robustos de respaldo y soporte para sistemas críticos, asegurando continuidad del negocio y excelencia operacional.</p>",
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "volunteer": {
+      "name": "Voluntariado",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": false,
+      "id": "volunteer",
+      "items": []
+    },
+    "interests": {
+      "name": "Tecnologías en Desarrollo",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "interests",
+      "items": [
+        {
+          "id": "int1",
+          "visible": true,
+          "name": "Data Science & Integración ML",
+          "keywords": [
+            "Pipelines de Machine Learning",
+            "MLOps & Despliegue de Modelos",
+            "Automatización de Data Science",
+            "Integración de Modelos ML"
+          ]
+        },
+        {
+          "id": "int2",
+          "visible": true,
+          "name": "Automatización & Optimización",
+          "keywords": [
+            "Automatización de Procesos",
+            "Optimización de Rendimiento",
+            "Soluciones de Escalabilidad",
+            "Frameworks de Resolución de Problemas"
+          ]
+        },
+        {
+          "id": "int3",
+          "visible": true,
+          "name": "Cloud & Arquitecturas Avanzadas",
+          "keywords": [
+            "Certificaciones AWS/Azure/GCP (en progreso)",
+            "Lambda & Kappa Architecture",
+            "Real-time Analytics",
+            "Distributed Systems"
+          ]
+        }
+      ]
+    },
+    "languages": {
+      "name": "Idiomas",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "languages",
+      "items": [
+        {
+          "id": "lang1",
+          "visible": true,
+          "name": "Español",
+          "description": "Nativo",
+          "level": 5
+        },
+        {
+          "id": "lang2",
+          "visible": true,
+          "name": "Inglés",
+          "description": "Intermedio (B2) - Certificación en progreso",
+          "level": 3
+        }
+      ]
+    },
+    "profiles": {
+      "name": "Perfiles",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "profiles",
+      "items": [
+        {
+          "id": "prof1",
+          "visible": true,
+          "network": "LinkedIn",
+          "username": "esangc",
+          "icon": "linkedin",
+          "url": {
+            "label": "LinkedIn",
+            "href": "https://linkedin.com/in/esangc"
+          }
+        },
+        {
+          "id": "prof2",
+          "visible": true,
+          "network": "GitHub",
+          "username": "leonsang",
+          "icon": "github",
+          "url": {
+            "label": "GitHub",
+            "href": "https://github.com/leonsang"
+          }
+        }
+      ]
+    },
+    "projects": {
+      "name": "Proyectos Destacados",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "projects",
+      "items": [
+        {
+          "id": "proj1",
+          "visible": true,
+          "name": "Proyecto Integral CUN: Automatización + SSOT + IA",
+          "description": "Líder Técnico - FACTECH/CUN",
+          "date": "Agosto 2024 - Junio 2025",
+          "summary": "<p>Proyecto integral de transformación en dos fases demostrando liderazgo técnico de extremo a extremo e innovación en ingeniería de datos. La Fase 1 se enfocó en revolucionar la automatización de procesos educativos para el Ministerio de Educación, entregando 90% de mejora en eficiencia de procesamiento mediante implementación de pipelines ETL sofisticados.</p><p>La Fase 2 abarcó el desarrollo de una arquitectura de Fuente Única de Verdad de vanguardia en AWS, complementada por la creación de CUN 360, un sistema avanzado de IA conversacional sirviendo a 20,000+ usuarios. Esta fase logró 60% de reducción en tiempos de acceso a datos mientras implementaba arquitectura RAG de última generación para interacciones inteligentes de usuarios.</p>",
+          "keywords": [
+            "Apache Airflow",
+            "AWS",
+            "RAG Architecture",
+            "pgVector",
+            "Liderazgo Técnico"
+          ],
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        },
+        {
+          "id": "proj2",
+          "visible": true,
+          "name": "Modernización BI Financiero Multi-Cliente",
+          "description": "Senior Architect - Nexa BPO",
+          "date": "Enero 2019 - Noviembre 2021",
+          "summary": "<p>Lideré una iniciativa integral de transformación de inteligencia empresarial para un contact center financiero de gran escala, revolucionando capacidades de procesamiento y reportes de datos a través de múltiples sectores financieros. Orquesté la modernización completa de flujos de trabajo de datos, transicionando desde sistemas legacy basados en Excel hacia procesos ETL avanzados con SAS Guide y dashboards interactivos con Power BI.</p><p>Implementé sistemas automatizados de reportes de cumplimiento usando SAS VIYA, asegurando adherencia a regulaciones financieras estrictas a través de sectores bancarios, fintech y seguros. Entregué impacto empresarial medible mediante 70% de reducción en tiempo de generación de reportes mientras mantenía los más altos estándares de precisión de datos y cumplimiento regulatorio.</p>",
+          "keywords": [
+            "SAS Guide",
+            "Power BI",
+            "SAS VIYA",
+            "Sector Financiero",
+            "Oracle"
+          ],
+          "url": {
+            "label": "",
+            "href": ""
+          }
+        }
+      ]
+    },
+    "publications": {
+      "name": "Publicaciones",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": false,
+      "id": "publications",
+      "items": []
+    },
+    "references": {
+      "name": "Referencias",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": false,
+      "id": "references",
+      "items": []
+    },
+    "skills": {
+      "name": "Habilidades Técnicas",
+      "columns": 1,
+      "separateLinks": true,
+      "visible": true,
+      "id": "skills",
+      "items": [
+        {
+          "id": "skill1",
+          "visible": true,
+          "name": "Data Engineering & Analytics",
+          "description": "5+ años",
+          "level": 5,
+          "keywords": [
+            "Python",
+            "SQL",
+            "Apache Spark",
+            "Apache Airflow",
+            "ETL/ELT",
+            "RAG Architecture",
+            "Data Science",
+            "ML Integration",
+            "Programación Orientada a Objetos",
+            "Múltiples Lenguajes de Programación"
+          ]
+        },
+        {
+          "id": "skill2",
+          "visible": true,
+          "name": "Plataformas Cloud",
+          "description": "2-3 años",
+          "level": 3,
+          "keywords": [
+            "AWS - S3, Lambda, Glue, Redshift, RDS",
+            "Azure - Data Factory, Synapse Analytics",
+            "GCP - BigQuery, Looker, Cloud Storage",
+            "Great Expectations",
+            "Airbyte",
+            "dbt"
+          ]
+        },
+        {
+          "id": "skill3",
+          "visible": true,
+          "name": "Bases de Datos & Storage",
+          "description": "5+ años",
+          "level": 5,
+          "keywords": [
+            "SQL Server",
+            "PostgreSQL",
+            "Oracle",
+            "MongoDB",
+            "pgVector",
+            "Amazon RDS/Aurora"
+          ]
+        },
+        {
+          "id": "skill4",
+          "visible": true,
+          "name": "BI & Visualización",
+          "description": "3-4 años",
+          "level": 4,
+          "keywords": [
+            "Power BI",
+            "SAS VIYA",
+            "SAS Guide",
+            "LookerML",
+            "BigQuery"
+          ]
+        },
+        {
+          "id": "skill5",
+          "visible": true,
+          "name": "Áreas de Enfoque Principal",
+          "description": "5+ años",
+          "level": 5,
+          "keywords": [
+            "Automatización",
+            "Optimización",
+            "Escalabilidad",
+            "Resolución de Problemas",
+            "Liderazgo Técnico",
+            "Sector Financiero",
+            "Operaciones Contact Center"
+          ]
+        }
+      ]
+    },
+    "custom": {}
+  },
+  "metadata": {
+    "template": "chikorita",
+    "layout": [
+      [
+        [
+          "summary",
+          "experience",
+          "projects",
+          "education"
+        ],
+        [
+          "profiles",
+          "skills",
+          "certifications",
+          "languages",
+          "interests"
+        ]
+      ]
+    ],
+    "css": {
+      "value": ".section[data-section=\"skills\"] .item-header { font-weight: bold; color: #00ff41; } .section[data-section=\"experience\"] .item-header { color: #00ff41; } .section[data-section=\"projects\"] .item-header { color: #00ff41; }",
+      "visible": false
+    },
+    "page": {
+      "margin": 16,
+      "format": "a4",
+      "options": {
+        "breakLine": true,
+        "pageNumbers": true
+      }
+    },
+    "theme": {
+      "background": "#ffffff",
+      "text": "#000000",
+      "primary": "#57534e"
+    },
+    "typography": {
+      "font": {
+        "family": "Roboto Condensed",
+        "subset": "latin",
+        "variants": [
+          "regular"
+        ],
+        "size": 11
+      },
+      "lineHeight": 1.4,
+      "hideIcons": false,
+      "underlineLinks": true
+    },
+    "notes": "CV Data Engineer - Versión Español con información consolidada y validada"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Acerca de",
+    "technical": "Técnico",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "certifications": "Certificaciones",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Erick Sang Cifuentes",
+    "title": "Ingeniero de Datos",
+    "dynamicTitles": [
+      "Ingeniero de Datos",
+      "Modelador de Datos",
+      "Desarrollador ETL",
+      "Especialista en Automatización de Datos", 
+      "Desarrollador de Analytics"
+    ],
+    "description": "Apasionado por convertir desafíos complejos de datos en soluciones elegantes que impulsan el crecimiento empresarial y la innovación",
+    "dynamicDescriptions": [
+      "Apasionado por convertir desafíos complejos de datos en soluciones elegantes que impulsan el crecimiento empresarial y la innovación",
+      "Diseñando estructuras de datos eficientes y esquemas que optimizan el rendimiento y permiten análisis escalables",
+      "Construyendo procesos ETL robustos que transforman datos crudos en conjuntos de datos limpios y confiables para business intelligence",
+      "Creando flujos de trabajo automatizados de datos que reducen el esfuerzo manual y aseguran salidas consistentes y de alta calidad",
+      "Desarrollando soluciones analíticas que convierten datos en insights accionables para la toma de decisiones estratégicas"
+    ],
+    "downloadCV": "Descargar CV",
+    "viewWork": "Ver Mi Trabajo",
+    "scrollDown": "Desplázate hacia abajo",
+
+    "stats": {
+      "experience": "Años de Experiencia",
+      "projects": "Proyectos Completados",
+      "pipelines": "Pipelines de Datos",
+      "technologies": "Tecnologías"
+    }
+  },
+  "cv": {
+    "title": "Descargar CV",
+    "subtitle": "Elige tu formato preferido",
+    "atsTip": "Consejo ATS",
+    "atsDescription": "Los CVs optimizados para ATS (Sistema de Seguimiento de Candidatos) están diseñados para pasar a través de los sistemas de cribado automatizado utilizados por muchas empresas.",
+    "atsBadge": "ATS Optimizado",
+    "standardBadge": "Estándar",
+    "download": "Descargar",
+    "preview": "Vista Previa",
+    "downloadSuccess": "¡CV descargado exitosamente!",
+    "downloadError": "Error al descargar el CV. Por favor, inténtalo de nuevo.",
+    "close": "Cerrar"
+  },
+  "certifications": {
+    "title": "Certificaciones",
+    "subtitle": "Certificaciones profesionales y credenciales que validan mi experiencia en ingeniería de datos y tecnologías cloud.",
+    "filters": {
+      "all": "Todas",
+      "cloud": "Plataformas Cloud",
+      "dataPlatform": "Plataformas de Datos",
+      "analytics": "Analytics y BI"
+    },
+    "status": {
+      "active": "Activa",
+      "expiringSoon": "Próxima a Vencer",
+      "expired": "Expirada"
+    },
+    "skills": "Habilidades Clave",
+    "moreSkills": "habilidades más",
+    "credentialId": "ID de Credencial",
+    "verify": "Verificar Credencial",
+    "stats": {
+      "total": "Total de Certificaciones",
+      "active": "Certificaciones Activas",
+      "professional": "Nivel Profesional",
+      "providers": "Proveedores de Certificación"
+    }
+  },
+  "about": {
+    "title": "Acerca de Mí",
+    "description": "Ingeniero de Datos apasionado con experiencia en la construcción de soluciones de datos escalables y la transformación de datos complejos en insights accionables. Me especializo en crear pipelines de datos robustos, implementar arquitecturas basadas en la nube y desarrollar soluciones innovadoras que impulsan el crecimiento empresarial.",
+    "expertiseTitle": "Áreas Clave de Experiencia",
+    "expertise": {
+      "dataEngineering": {
+        "title": "Excelencia en Ingeniería de Datos",
+        "description": "Especializado en construir pipelines de datos escalables, procesos ETL y almacenes de datos usando tecnologías modernas en la nube."
+      },
+      "cloudPlatform": {
+        "title": "Experiencia en Plataformas Cloud",
+        "description": "Competente en AWS, Azure y GCP con experiencia práctica en arquitecturas serverless y soluciones cloud-native."
+      },
+      "analytics": {
+        "title": "Analítica e Inteligencia de Negocios",
+        "description": "Experto en crear dashboards de inteligencia de negocios e implementar soluciones de visualización de datos usando Power BI, Tableau y herramientas personalizadas."
+      },
+      "databaseDesign": {
+        "title": "Diseño de Bases de Datos",
+        "description": "Diseñando esquemas de bases de datos eficientes y optimización"
+      },
+      "machineLearning": {
+        "title": "Aprendizaje Automático",
+        "description": "Implementando modelos de ML y soluciones de ciencia de datos"
+      },
+      "cloudArchitecture": {
+        "title": "Arquitectura en la Nube",
+        "description": "Desplegando y gestionando soluciones de datos basadas en la nube"
+      }
+    }
+  },
+  "technical": {
+    "title": "Excelencia Técnica",
+    "titleHighlight": "Habilidades",
+    "description": "Experiencia integral en el stack moderno de datos y tecnologías en la nube, permitiendo el desarrollo de soluciones end-to-end.",
+    "certifications": {
+      "title": "Certificaciones"
+    },
+    "categories": {
+      "languages": "Lenguajes de Programación",
+      "frameworks": "Frameworks y Librerías",
+      "databases": "Bases de Datos",
+      "cloud": "Plataformas en la Nube",
+      "tools": "Herramientas y Tecnologías",
+      "dataEngineering": "Ingeniería de Datos",
+      "analytics": "Analítica e BI",
+      "machineLearning": "Aprendizaje Automático",
+      "devops": "DevOps e Infraestructura"
+    },
+    "charts": {
+      "skillOverview": "Resumen de Habilidades",
+      "topSkills": "Habilidades Principales"
+    }
+  },
+  "experience": {
+    "title": "Experiencia Profesional",
+    "titleHighlight": "Experiencia",
+    "subtitle": "Trayectoria Profesional y Logros",
+    "description": "Mi trayectoria en ingeniería de datos y analítica, construyendo soluciones que impulsan el crecimiento empresarial y la innovación.",
+    "current": "Actual",
+    "present": "Presente",
+    "responsibilities": "Responsabilidades Clave",
+    "achievements": "Logros",
+    "technologies": "Tecnologías",
+    "downloadCV": "Descargar CV"
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "titleHighlight": "Proyectos",
+    "description": "Mostrando mi experiencia técnica y enfoque de resolución de problemas a través de aplicaciones del mundo real y soluciones innovadoras.",
+    "filters": {
+      "all": "Todos los Proyectos",
+      "dataEngineering": "Ingeniería de Datos",
+      "cloud": "Soluciones en la Nube",
+      "analytics": "Analítica e BI",
+      "machineLearning": "Aprendizaje Automático",
+      "webDevelopment": "Desarrollo Web"
+    },
+    "viewDetails": "Ver Detalles",
+    "viewCode": "Ver Código",
+    "liveDemo": "Demo en Vivo",
+    "technologies": "Tecnologías Utilizadas"
+  },
+  "contact": {
+    "title": "Ponte en",
+    "titleHighlight": "Contacto",
+    "description": "¿Listo para discutir tu próximo proyecto de datos? Conectemos y exploremos cómo podemos transformar tus datos en insights valiosos.",
+    "info": {
+      "title": "Información de Contacto",
+      "email": "Correo",
+      "phone": "Teléfono",
+      "location": "Ubicación"
+    },
+    "social": {
+      "title": "Conéctate Conmigo"
+    },
+    "status": {
+      "title": "Estado Actual",
+      "available": "Disponible para nuevas oportunidades",
+      "description": "Estoy buscando activamente nuevas oportunidades y proyectos emocionantes en los que trabajar."
+    },
+    "form": {
+      "title": "Enviar un Mensaje",
+      "name": "Nombre",
+      "email": "Correo",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "namePlaceholder": "Tu nombre",
+      "emailPlaceholder": "tu.correo@ejemplo.com",
+      "subjectPlaceholder": "¿De qué se trata?",
+      "messagePlaceholder": "Cuéntame sobre tu proyecto u oportunidad...",
+      "sendButton": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "successMessage": "¡Mensaje enviado exitosamente! Te responderé pronto.",
+      "errorMessage": "Algo salió mal. Por favor intenta de nuevo o contáctame directamente."
+    }
+  }
+}
