@@ -1,248 +1,249 @@
+# 🚀 Portfolio Personal - Next.js 14
+
 <div align="center">
-
-# 👋 ¡Hola! Soy Erick Sang
-
-### 🚀 Data Engineer | Analytics Specialist | Cloud Solutions Architect
-
-*Transformando datos en insights estratégicos con más de 4 años de experiencia*
-
----
-
-![Experience](https://img.shields.io/badge/Experience-4%2B%20Years-brightgreen?style=for-the-badge&logo=calendar&logoColor=white)
-![Data Engineering](https://img.shields.io/badge/Specialization-Data%20Engineering-blue?style=for-the-badge&logo=databricks&logoColor=white)
-![Cloud Platforms](https://img.shields.io/badge/Cloud-AWS%20%7C%20Azure%20%7C%20GCP-orange?style=for-the-badge&logo=amazon-aws&logoColor=white)
-
+  <img src="https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js 14" />
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/Framer_Motion-black?style=for-the-badge&logo=framer&logoColor=blue" alt="Framer Motion" />
 </div>
 
-## 🎯 About Me
+## 📖 Descripción
 
-<table>
-<tr>
-<td width="60%">
+Portfolio personal moderno y profesional desarrollado con **Next.js 14**, **TypeScript** y **Tailwind CSS**. Incluye un asistente virtual con IA integrada, diseño responsive optimizado y soporte completo multiidioma (ES/EN).
 
-**Data Engineer** with **5+ years** of experience specializing in building **scalable data solutions** and **cloud architectures**. I transform complex data challenges into robust, production-ready systems that drive business growth and innovation.
+### 🎯 **Objetivo**
+Mostrar habilidades técnicas, proyectos destacados y experiencia profesional de manera interactiva y atractiva, con enfoque en la experiencia del usuario y performance optimizada.
 
-**🌟 Key Expertise:**
-- **Data Engineering**: ETL/ELT pipelines, real-time processing, data modeling
-- **Cloud Platforms**: AWS, Azure, GCP with serverless and cloud-native solutions
-- **Analytics & BI**: Power BI, Looker, advanced data visualization
-- **Leadership**: Technical team lead with proven track record in cross-functional projects
+## ✨ Features
 
-**📍 Location:** Madrid, Colombia  
-**🎯 Status:** Available for new opportunities  
-**🌐 Portfolio:** [ericksang.dev](https://ericksang.dev)
+- **Asistente Virtual con IA**: Integración con Hugging Face para respuestas inteligentes
+- **Diseño Responsive**: Optimizado para todos los dispositivos
+- **Multiidioma**: Soporte completo para español e inglés
+- **Animaciones Fluidas**: Transiciones suaves y efectos visuales
+- **Tema Oscuro/Claro**: Cambio dinámico de tema
+- **SEO Optimizado**: Meta tags y estructura optimizada para buscadores
+- **Performance**: Optimizado para Core Web Vitals
 
-</td>
-<td width="40%">
+## 🛠️ Stack Tecnológico
 
-```python
-class DataEngineer:
-    def __init__(self):
-        self.name = "Erick Sang"
-        self.role = "Data Engineer"
-        self.experience = "5+ years"
-        self.location = "Madrid, Colombia"
-    
-    def get_skills(self):
-        return {
-            "languages": ["Python", "SQL", "JavaScript"],
-            "cloud": ["AWS", "Azure", "GCP"],
-            "tools": ["Spark", "Airflow", "dbt"],
-            "databases": ["PostgreSQL", "MongoDB", "BigQuery"]
-        }
-    
-    def current_focus(self):
-        return "Building scalable data solutions"
+### **Frontend**
+- **Framework**: Next.js 14 (App Router) - Framework React de producción
+- **Lenguaje**: TypeScript - Tipado estático para JavaScript
+- **Estilos**: Tailwind CSS - Framework CSS utility-first
+- **Animaciones**: Framer Motion - Librería de animaciones para React
+- **Iconos**: Lucide React - Iconos SVG optimizados
+
+### **Backend & IA**
+- **IA**: Hugging Face API - Modelos de lenguaje natural
+- **API Routes**: Next.js API Routes - Endpoints serverless
+
+### **Deployment & Tools**
+- **Hosting**: Vercel - Plataforma optimizada para Next.js
+- **Control de Versiones**: Git & GitHub
+- **Package Manager**: npm/yarn
+- **Linting**: ESLint + Prettier
+
+## 📦 Scripts Disponibles
+
+```bash
+# Desarrollo
+npm run dev          # 🚀 Servidor de desarrollo (http://localhost:3000)
+npm run build        # 🏗️  Build optimizado para producción
+npm run start        # ▶️  Servidor de producción local
+
+# Calidad de Código
+npm run lint         # 🔍 Análisis de código con ESLint
+npm run lint:fix     # 🔧 Corrección automática de errores de linting
+npm run type-check   # ✅ Verificación de tipos TypeScript
+npm run format       # 💅 Formateo de código con Prettier
+
+# Testing (si está configurado)
+npm run test         # 🧪 Ejecutar tests unitarios
+npm run test:watch   # 👀 Tests en modo watch
+npm run test:coverage # 📊 Reporte de cobertura
 ```
 
-</td>
-</tr>
-</table>
+## 📁 Estructura Relevante
 
-## 💼 Professional Experience
+```
+src/
+├── app/                 # App Router (Next.js 14)
+├── components/          # Componentes reutilizables
+├── config/             # Configuración del portfolio
+├── hooks/              # Custom hooks
+├── lib/                # Utilidades y helpers
+└── types/              # Definiciones de tipos
 
-<details>
-<summary><b>🚀 Current & Recent Positions</b></summary>
-<br>
+public/
+├── docs/               # Documentos (CV, etc.)
+├── images/             # Imágenes del portfolio
+└── locales/            # Archivos de traducción
+```
 
-**🔹 Data Engineer - Consulting** | *SohoHumantech* | `June 2025 - August 2025`
-- Participated in analytics platform development for **GASCO Chile**
-- Implemented data integration system using **GCP Looker** and **BigQuery**
-- Achieved **40% improvement** in query response times through BigQuery optimization
+## ⚙️ Configuración de Contenido
 
-**🔹 Data Engineer - Technical Lead** | *Corporación Unificada Nacional (CUN)* | `February 2025 - June 2025`
-- Led **SSOT implementation** with AWS, Great Expectations, Airbyte, dbt, and Airflow
-- Designed **RAG architecture** for CUN 360 conversational AI system serving **20,000+ users**
-- Achieved **60% reduction** in consolidated data access times
+El contenido del portfolio se configura en:
+- `src/config/portfolio.ts` - Datos principales
+- `public/locales/` - Traducciones
+- `public/docs/` - Documentos y archivos
 
-**🔹 Data Engineer - Project Lead** | *FACTECH* | `August 2024 - January 2025`
-- Led cross-functional team of **6 professionals** for Ministry of Education automation
-- Achieved **90% improvement** in processing efficiency with Apache Airflow ETL pipelines
-- Reduced operational errors by **35%** and query execution times by **50%**
+### Contenido Bilingüe
 
-**🔹 Data Specialist** | *Teleperformance* | `December 2021 - July 2024`
-- Designed data solutions for global financial clients with **PCI-DSS compliance**
-- Architected **OLAP and OLTP systems** including analysis cubes and datamarts
-- Maintained **24/7 operations** with automated monitoring and Power BI dashboards
+Todos los textos están disponibles en español e inglés:
+- Detección automática del idioma del navegador
+- Cambio manual de idioma
+- URLs localizadas
 
-</details>
+### Estructura Modular
 
-## 🛠️ Technical Skills
+Cada sección del portfolio es un componente independiente:
+- Fácil mantenimiento
+- Reutilización de código
+- Carga optimizada
 
-<div align="center">
+## 🚀 Instalación y Desarrollo Local
 
-### Programming & Databases
-![Python](https://img.shields.io/badge/Python-95%25-3776ab?style=flat-square&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-92%25-336791?style=flat-square&logo=postgresql&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-85%25-f7df1e?style=flat-square&logo=javascript&logoColor=black)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-92%25-336791?style=flat-square&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-85%25-47a248?style=flat-square&logo=mongodb&logoColor=white)
+### **Prerrequisitos**
+- Node.js 18+ 
+- npm o yarn
+- Git
 
-### Cloud Platforms & Tools
-![AWS](https://img.shields.io/badge/AWS-90%25-232f3e?style=flat-square&logo=amazon-aws&logoColor=white)
-![Azure](https://img.shields.io/badge/Azure-85%25-0078d4?style=flat-square&logo=microsoft-azure&logoColor=white)
-![GCP](https://img.shields.io/badge/GCP-80%25-4285f4?style=flat-square&logo=google-cloud&logoColor=white)
-![Apache Spark](https://img.shields.io/badge/Apache%20Spark-90%25-e25a1c?style=flat-square&logo=apache-spark&logoColor=white)
-![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-88%25-017cee?style=flat-square&logo=apache-airflow&logoColor=white)
+### **Instalación**
 
-### Analytics & Visualization
-![Power BI](https://img.shields.io/badge/Power%20BI-95%25-f2c811?style=flat-square&logo=power-bi&logoColor=black)
-![Tableau](https://img.shields.io/badge/Tableau-85%25-e97627?style=flat-square&logo=tableau&logoColor=white)
-![Looker](https://img.shields.io/badge/Looker-80%25-4285f4?style=flat-square&logo=looker&logoColor=white)
-![dbt](https://img.shields.io/badge/dbt-88%25-ff694b?style=flat-square&logo=dbt&logoColor=white)
+1. **Clona el repositorio**
+   ```bash
+   git clone https://github.com/Leonsang/Porfolio.git
+   cd Porfolio
+   ```
 
-</div>
+2. **Instala las dependencias**
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
 
-## 🚀 Featured Projects
+3. **Configura las variables de entorno (opcional)**
+   ```bash
+   cp .env.example .env.local
+   ```
+   Edita `.env.local` y agrega tu token de Hugging Face:
+   ```env
+   HUGGINGFACE_API_TOKEN=tu_token_aqui
+   ```
 
-<div align="center">
+4. **Ejecuta el servidor de desarrollo**
+   ```bash
+   npm run dev
+   ```
 
-| Project | Description | Technologies | Impact |
-|---------|-------------|--------------|--------|
-| **🔄 Real-time Data Pipeline** | Built real-time processing pipeline with Kafka & Spark | `Kafka` `Spark` `AWS Lambda` `DynamoDB` | **80% faster** processing |
-| **☁️ Data Warehouse Migration** | Migrated legacy warehouse to Snowflake cloud solution | `Snowflake` `dbt` `Airflow` `Python` | **10x performance**, **60% cost reduction** |
-| **🤖 ML Model Pipeline** | End-to-end MLOps pipeline for predictive analytics | `Python` `MLflow` `Kubernetes` `TensorFlow` | **15% accuracy improvement** |
+5. **Abre tu navegador**
+   Visita [http://localhost:3000](http://localhost:3000)
 
-</div>
+### **🎉 ¡Listo!** Tu portfolio está funcionando localmente.
 
-## 🎓 Education & Certifications
+## 🌐 Deploy en Producción
 
-<table>
-<tr>
-<td width="50%">
+### **Vercel (Recomendado)**
 
-### 📚 Education
-- **Software Engineering** (8th semester)  
-  *Politécnico Grancolombiano* | `2022 - Present`
-- **Automation & Robotics Technology**  
-  *ECCI* | `2017 - 2021`
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Leonsang/Porfolio)
 
-</td>
-<td width="50%">
+1. **Deploy automático desde GitHub**
+   - Conecta tu repositorio en [Vercel](https://vercel.com)
+   - Configura las variables de entorno
+   - Deploy automático en cada push
 
-### 🏆 Key Certifications
-- **Associate Data Engineer in SQL** - DataCamp
-- **Data Engineer in Python** - DataCamp  
-- **SQL Associate** - DataCamp
-- **Scrum Fundamentals Certified (SFC™)** - SCRUMstudy
-- **Python + SQL + Power BI** - LinkedIn Learning
+2. **Características optimizadas para Vercel:**
+   - ✅ Build automático
+   - ✅ Optimización de imágenes
+   - ✅ Edge Functions para IA
+   - ✅ CDN global
+   - ✅ Analytics integrado
 
-</td>
-</tr>
-</table>
+### **Otras plataformas**
+- **Netlify**: Compatible con build estático
+- **Railway**: Deploy con Docker
+- **AWS Amplify**: Integración con AWS
 
-## ⚙️ GitHub Analytics
+## 🔧 Configuración de Variables de Entorno
 
-<div align="center">
+Para el asistente de IA (opcional):
+```env
+HUGGINGFACE_API_TOKEN=tu_token_aqui
+```
 
-<table>
-<tr>
-<td width="50%">
+## 📱 Responsive Design
 
-<img src="https://github-readme-stats.vercel.app/api?username=ErickYangs&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117" alt="GitHub Stats" />
+El portfolio está optimizado para:
+- Desktop (1024px+)
+- Tablet (768px - 1023px)
+- Mobile (320px - 767px)
 
-</td>
-<td width="50%">
+## 🎨 Personalización
 
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ErickYangs&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="Top Languages" />
+### Colores y Tema
+Los colores se configuran en `tailwind.config.js` y `src/app/globals.css`
 
-</td>
-</tr>
-</table>
+### Contenido
+Modifica `src/config/portfolio.ts` para actualizar:
+- Información personal
+- Proyectos
+- Habilidades
+- Experiencia
+- Certificaciones
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=ErickYangs&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub Streak" />
+### Traducciones
+Actualiza los archivos en `public/locales/` para modificar textos
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=ErickYangs&theme=tokyo-night&hide_border=true&bg_color=0D1117" alt="Contribution Graph" />
+## 🧪 Testing
 
-</div>
+```bash
+npm run test         # Ejecutar tests
+npm run test:watch   # Tests en modo watch
+npm run test:coverage # Coverage report
+```
 
-## 🏆 Achievements & Recognition
+## 📈 Performance
 
-<div align="center">
+El proyecto incluye optimizaciones para:
+- Lazy loading de componentes
+- Optimización de imágenes con Next.js Image
+- Code splitting automático
+- Preload de recursos críticos
 
-![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=ErickYangs&theme=tokyonight&no-frame=true&no-bg=true&row=1&column=7)
+## 🤝 Contribución
 
-### 📈 Key Metrics
-![Commits](https://img.shields.io/badge/Total%20Commits-500+-00d4aa?style=for-the-badge&logo=git&logoColor=white)
-![Repositories](https://img.shields.io/badge/Public%20Repos-25+-1f6feb?style=for-the-badge&logo=github&logoColor=white)
-![Years Active](https://img.shields.io/badge/Years%20Active-3+-ff6b6b?style=for-the-badge&logo=calendar&logoColor=white)
+Este es un proyecto personal, pero las **sugerencias y mejoras son bienvenidas**.
 
-</div>
+### **¿Cómo contribuir?**
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-## 🤝 Let's Connect & Collaborate
+### **Reportar bugs**
+Si encuentras algún bug, por favor [abre un issue](https://github.com/Leonsang/Porfolio/issues) con:
+- Descripción del problema
+- Pasos para reproducirlo
+- Capturas de pantalla (si aplica)
 
-<div align="center">
+## 📞 Contacto
 
-<table>
-<tr>
-<td align="center" width="33%">
+**Erick Sang** - Data Engineer & Full Stack Developer
 
-### 💼 Professional
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/erick-sang)
+- 🌐 **Website**: [ericksang.dev](https://ericksang.dev)
+- 💼 **LinkedIn**: [esangc](https://linkedin.com/in/esangc)
+- 📧 **Email**: ericksang@gmail.com
+- 🐱 **GitHub**: [@Leonsang](https://github.com/Leonsang)
 
-*Let's discuss opportunities*
+## 📄 Licencia
 
-</td>
-<td align="center" width="33%">
-
-### 📧 Contact
-[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:erickyang.dev@gmail.com)
-
-*Direct communication*
-
-</td>
-<td align="center" width="33%">
-
-### 🚀 Portfolio
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-4CAF50?style=for-the-badge&logo=web&logoColor=white)](https://erickyangs.github.io/Portfolio/)
-
-*Explore my work*
-
-</td>
-</tr>
-</table>
-
-</div>
-
----
-
-<div align="center">
-
-### 💡 *"Transforming data into actionable insights, one pipeline at a time"*
-
-<img src="https://komarev.com/ghpvc/?username=ErickYangs&label=Profile%20Views&color=brightgreen&style=flat-square" alt="Profile Views" />
-
-**⭐ If you find my work valuable, consider starring my repositories!**
-
-</div>
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
-## Pinned Loading
-
-1. **Portfolio** - Personal website with data engineering case studies and interactive visualizations
-2. **Data Quality Validator** - Streamlit app for automated data quality checks and validation  
-3. **CV Generation Tools** - RenderCV and Reactive Resume templates for data professionals
-4. **Data Engineering Projects** - ETL/ELT pipelines, cloud architectures, and data solutions
-5. **BI & Visualization** - Power BI dashboards, Looker implementations, and analytics tools
-6. **Cloud & Infrastructure** - AWS, Azure, GCP implementations and automation scripts
+<div align="center">
+  <p>⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub! ⭐</p>
+  <p>Hecho con ❤️ por <a href="https://github.com/Leonsang">Erick Sang</a></p>
+</div>
