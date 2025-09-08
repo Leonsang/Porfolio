@@ -1,0 +1,228 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "technical": "Technical",
+    "experience": "Experience",
+    "projects": "Projects",
+    "certifications": "Certifications",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Erick Sang Cifuentes",
+    "title": "Data Engineer",
+    "dynamicTitles": [
+      "Data Engineer",
+      "Data Modeler",
+      "ETL Developer",
+      "Data Automation Specialist", 
+      "Analytics Developer"
+    ],
+    "description": "Passionate about turning complex data challenges into elegant solutions that drive business growth and innovation",
+    "dynamicDescriptions": [
+      "Passionate about turning complex data challenges into elegant solutions that drive business growth and innovation",
+      "Designing efficient data structures and schemas that optimize performance and enable scalable analytics",
+      "Building robust ETL processes that transform raw data into clean, reliable datasets for business intelligence",
+      "Creating automated data workflows that reduce manual effort and ensure consistent, high-quality outputs",
+      "Developing analytical solutions that turn data into actionable insights for strategic decision-making"
+    ],
+    "downloadCV": "Download CV",
+    "viewWork": "View My Work",
+    "scrollDown": "Scroll Down",
+
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "pipelines": "Data Pipelines",
+      "technologies": "Technologies"
+    }
+  },
+  "cv": {
+    "title": "Download CV",
+    "subtitle": "Choose your preferred format",
+    "atsTip": "ATS Tip",
+    "atsDescription": "ATS (Applicant Tracking System) optimized CVs are designed to pass through automated screening systems used by many companies.",
+    "atsBadge": "ATS Optimized",
+    "standardBadge": "Standard",
+    "download": "Download",
+    "preview": "Preview",
+    "downloadSuccess": "CV downloaded successfully!",
+    "downloadError": "Error downloading CV. Please try again.",
+    "close": "Close"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Professional certifications and credentials that validate my expertise in data engineering and cloud technologies.",
+    "filters": {
+      "all": "All",
+      "cloud": "Cloud Platforms",
+      "dataPlatform": "Data Platforms",
+      "analytics": "Analytics & BI"
+    },
+    "status": {
+      "active": "Active",
+      "expiringSoon": "Expiring Soon",
+      "expired": "Expired"
+    },
+    "skills": "Key Skills",
+    "moreSkills": "more skills",
+    "credentialId": "Credential ID",
+    "verify": "Verify Credential",
+    "stats": {
+      "total": "Total Certifications",
+      "active": "Active Certifications",
+      "professional": "Professional Level",
+      "providers": "Certification Providers"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "description": "Passionate Data Engineer with expertise in building scalable data solutions and transforming complex data into actionable insights. I specialize in creating robust data pipelines, implementing cloud-based architectures, and developing innovative solutions that drive business growth.",
+    "expertiseTitle": "Key Areas of Expertise",
+    "expertise": {
+      "dataEngineering": {
+        "title": "Data Engineering Excellence",
+        "description": "Specialized in building scalable data pipelines, ETL processes, and data warehouses using modern cloud technologies."
+      },
+      "cloudPlatform": {
+        "title": "Cloud Platform Expertise",
+        "description": "Proficient in AWS, Azure, and GCP with hands-on experience in serverless architectures and cloud-native solutions."
+      },
+      "analytics": {
+        "title": "Analytics & BI",
+        "description": "Expert in creating business intelligence dashboards and implementing data visualization solutions using Power BI, Tableau, and custom tools."
+      },
+      "databaseDesign": {
+        "title": "Database Design",
+        "description": "Designing efficient database schemas and optimization"
+      },
+      "machineLearning": {
+        "title": "Machine Learning",
+        "description": "Implementing ML models and data science solutions"
+      },
+      "cloudArchitecture": {
+        "title": "Cloud Architecture",
+        "description": "Deploying and managing cloud-based data solutions"
+      }
+    },
+    "personalInfo": {
+      "title": "Personal Information",
+      "name": "Name",
+      "location": "Location",
+      "role": "Role"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "pipelines": "Data Pipelines Built",
+      "certifications": "Technologies Mastered"
+    },
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me"
+  },
+  "technical": {
+    "title": "Technical Excellence",
+    "titleHighlight": "Skills",
+    "subtitle": "Skills & Technologies",
+    "description": "Comprehensive expertise across the modern data stack and cloud technologies, enabling end-to-end solution development.",
+    "categories": {
+      "programming": {
+        "title": "Programming Languages"
+      },
+      "databases": {
+        "title": "Databases & Storage"
+      },
+      "cloud": {
+        "title": "Cloud Platforms"
+      },
+      "tools": {
+        "title": "Data Engineering Tools"
+      },
+      "analytics": {
+        "title": "Analytics & BI"
+      },
+      "ml": {
+        "title": "Machine Learning"
+      },
+      "languages": "Programming Languages",
+      "frameworks": "Frameworks & Libraries",
+      "dataEngineering": "Data Engineering",
+      "devops": "DevOps & Infrastructure"
+    },
+    "certifications": {
+      "title": "Certifications"
+    },
+    "charts": {
+      "skillOverview": "Skills Overview",
+      "topSkills": "Top Technologies"
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "titleHighlight": "Experience",
+    "subtitle": "Career Journey & Achievements",
+    "description": "My journey in data engineering and analytics, building solutions that drive business growth and innovation.",
+    "current": "Current",
+    "present": "Present",
+    "responsibilities": "Key Responsibilities",
+    "achievements": "Achievements",
+    "technologies": "Technologies",
+    "downloadCV": "Download CV"
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "titleHighlight": "Projects",
+    "subtitle": "Showcasing my technical expertise and problem-solving approach",
+    "description": "Showcasing my technical expertise and problem-solving approach through real-world applications and innovative solutions.",
+    "filters": {
+      "all": "All Projects",
+      "dataEngineering": "Data Engineering",
+      "cloud": "Cloud Solutions",
+      "analytics": "Analytics & BI",
+      "machineLearning": "Machine Learning",
+      "webDevelopment": "Web Development"
+    },
+    "features": "Features",
+    "viewDetails": "View Details",
+    "viewCode": "View Code",
+    "liveDemo": "Live Demo",
+    "technologies": "Technologies Used",
+    "moreProjects": "Want to see more projects?",
+    "viewGithub": "View on GitHub"
+  },
+  "contact": {
+    "title": "Get In",
+    "titleHighlight": "Touch",
+    "description": "Ready to discuss your next data project? Let's connect and explore how we can transform your data into valuable insights.",
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location"
+    },
+    "social": {
+      "title": "Connect With Me"
+    },
+    "status": {
+      "title": "Current Status",
+      "available": "Available for new opportunities",
+      "description": "I'm actively looking for new opportunities and exciting projects to work on."
+    },
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your.email@example.com",
+      "subjectPlaceholder": "What's this about?",
+      "messagePlaceholder": "Tell me about your project or opportunity...",
+      "sendButton": "Send Message",
+      "sending": "Sending...",
+      "successMessage": "Message sent successfully! I'll get back to you soon.",
+      "errorMessage": "Something went wrong. Please try again or contact me directly."
+    }
+  }
+}
