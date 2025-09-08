@@ -14,10 +14,10 @@ export const portfolioConfig: PortfolioConfig = {
     availability: "Available for new opportunities"
   },
   stats: {
-    years_experience: "3+",
-    projects_completed: "15+",
-    data_pipelines_built: "50+",
-    technologies_mastered: "12+"
+    years_experience: 3,
+    projects_completed: 15,
+    data_pipelines_built: 50,
+    technologies_mastered: 12
   },
   skills: {
     data_engineering: {

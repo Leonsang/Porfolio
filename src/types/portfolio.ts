@@ -12,10 +12,10 @@ export interface PersonalInfo {
 }
 
 export interface Stats {
-  years_experience: string;
-  projects_completed: string;
-  data_pipelines_built: string;
-  technologies_mastered: string;
+  years_experience: number;
+  projects_completed: number;
+  data_pipelines_built: number;
+  technologies_mastered: number;
 }
 
 export interface SkillCategory {

@@ -36,6 +36,7 @@ interface KeyPerformanceSliderProps {
 }
 
 function KeyPerformanceSlider({ stats, achievements, currentTitleIndex = 0 }: KeyPerformanceSliderProps) {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Define contextual metrics for each professional title
   const contextualMetrics = {
@@ -91,7 +92,7 @@ function KeyPerformanceSlider({ stats, achievements, currentTitleIndex = 0 }: Ke
     }
   };
 
-  const currentContext = contextualMetrics[currentTitleIndex] || contextualMetrics[0];
+  const currentContext = contextualMetrics[currentTitleIndex as keyof typeof contextualMetrics] || contextualMetrics[0];
   const contextMetrics = currentContext.metrics.slice(0, 4); // Max 4 metrics
 
   // Sync with title changes
