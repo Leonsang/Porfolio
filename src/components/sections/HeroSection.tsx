@@ -6,18 +6,36 @@ import { Download } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { portfolioConfig } from '@/config/portfolio';
 import { CVDownloadModal } from '@/components/modals/CVDownloadModal';
-import { DynamicTitleSlider } from '@/components/ui/DynamicTitleSlider';
-import { ChevronLeft, ChevronRight, TrendingUp, Target, Database, Settings, BarChart, GitBranch, Zap, Activity, Brain, Layers, FileText, Clock, Users, Award, CheckCircle, Download as DownloadIcon } from 'lucide-react';
+import { TrendingUp, Target, Database, Settings, BarChart, GitBranch, Zap, Activity, Brain, Layers, FileText, Clock, Users, Award, CheckCircle } from 'lucide-react';
 
 // Contextual Key Performance Component
 interface KeyPerformanceSliderProps {
-  stats: any;
-  achievements: any;
+  stats: {
+    data_pipelines_built: number;
+    years_experience: number;
+    projects_completed: number;
+    technologies_mastered: number;
+  };
+  achievements: {
+    performance_metrics: {
+      data_processing_tb?: string;
+      uptime_percentage?: string;
+      query_optimization?: string;
+      data_quality?: string;
+      batch_processing?: string;
+      error_reduction?: string;
+      automation_processes?: string;
+      time_saved?: string;
+      cost_reduction?: string;
+      dashboards_created?: string;
+      user_adoption?: string;
+      insights_delivered?: string;
+    };
+  };
   currentTitleIndex?: number;
 }
 
 function KeyPerformanceSlider({ stats, achievements, currentTitleIndex = 0 }: KeyPerformanceSliderProps) {
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Define contextual metrics for each professional title
   const contextualMetrics = {
