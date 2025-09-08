@@ -59,6 +59,8 @@ export interface Certification {
   status: string;
   category: string;
   issuer?: string;
+  date?: string;
+  summary?: string;
 }
 
 export interface Achievements {

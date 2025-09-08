@@ -6,7 +6,8 @@ export default getRequestConfig(async ({requestLocale}) => {
   const locale = await requestLocale;
   
   // Validate that the incoming `locale` parameter is valid
-  const validLocale = routing.locales.includes(locale as string) ? (locale as string) : routing.defaultLocale;
+  const currentLocale = locale || routing.defaultLocale;
+  const validLocale = (routing.locales as readonly string[]).includes(currentLocale) ? currentLocale : routing.defaultLocale;
 
   try {
     const messages = (await import(`../../messages/${validLocale}.json`)).default;

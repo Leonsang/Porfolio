@@ -108,7 +108,7 @@ const UnifiedChatAssistant: React.FC<UnifiedChatAssistantProps> = ({
     setCurrentIndex(0);
     setIsTyping(true);
     setShowSkipButton(false);
-  }, [currentTip?.id]);
+  }, [currentTip]);
 
   useEffect(() => {
     if (!isTyping || !currentTip || currentIndex >= currentTip.message.length) {
@@ -122,7 +122,7 @@ const UnifiedChatAssistant: React.FC<UnifiedChatAssistantProps> = ({
     }, typewriterSpeed);
 
     return () => clearTimeout(timer);
-  }, [currentIndex, currentTip, isTyping]);
+  }, [currentIndex, currentTip, isTyping, typewriterSpeed]);
 
   // Show skip button after 2 seconds
   useEffect(() => {

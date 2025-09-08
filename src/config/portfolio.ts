@@ -175,33 +175,25 @@ export const portfolioConfig: PortfolioConfig = {
       name: "Associate Data Engineer in SQL",
       status: "Active",
       category: "Data",
-      issuer: "DataCamp (DE101)",
-      date: "2024",
-      summary: "Comprehensive certification covering database design principles, ETL process implementation, data quality frameworks, and advanced data visualization techniques"
+      issuer: "DataCamp (DE101)"
     },
     {
       name: "Data Engineer in Python",
       status: "Active",
       category: "Data",
-      issuer: "DataCamp (DE201)",
-      date: "2024",
-      summary: "Advanced certification in cloud-native data engineering tools, scalable pipeline architecture, and production-grade code implementation practices"
+      issuer: "DataCamp (DE201)"
     },
     {
       name: "SQL Associate",
       status: "Active",
       category: "Data",
-      issuer: "DataCamp",
-      date: "2024",
-      summary: "Specialized certification in complex query optimization, performance tuning, and enterprise database architecture design"
+      issuer: "DataCamp"
     },
     {
       name: "Scrum Fundamentals Certified (SFC™)",
       status: "Active",
       category: "Project Management",
-      issuer: "SCRUMstudy",
-      date: "2024",
-      summary: "Agile methodologies and project management"
+      issuer: "SCRUMstudy"
     },
     {
       name: "Python + SQL + Power BI (7 certifications)",

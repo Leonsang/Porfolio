@@ -24,7 +24,7 @@ export function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const [showAssistant, setShowAssistant] = useState(true);
   
   // Assistant messages hook
-  const { getAllTips, loading: messagesLoading } = useAssistantMessages();
+  const { getAllTips } = useAssistantMessages();
 
   useEffect(() => {
     // Check if document is ready
