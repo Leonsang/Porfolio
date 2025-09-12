@@ -61,26 +61,6 @@ export function TechnicalSection() {
     }
   ];
 
-  const certs = [
-    {
-      name: 'AWS Certified Solutions Architect',
-      issuer: 'Amazon Web Services',
-      year: '2023',
-      level: 'Associate'
-    },
-    {
-      name: 'Google Cloud Professional Data Engineer',
-      issuer: 'Google Cloud',
-      year: '2023',
-      level: 'Professional'
-    },
-    {
-      name: 'Databricks Certified Associate Developer',
-      issuer: 'Databricks',
-      year: '2022',
-      level: 'Associate'
-    }
-  ];
 
   return (
     <section id="technical" className="py-20 relative">
@@ -162,50 +142,7 @@ export function TechnicalSection() {
           })}
         </div>
 
-        {/* Certifications */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <h3 className="text-2xl font-bold text-light mb-8 text-center">
-            <span className="text-secondary">{t('certifications.title')}</span>
-          </h3>
-          
-          <div className="grid md:grid-cols-2 gap-6">
-            {certs.map((cert, index) => (
-              <motion.div
-                key={cert.name}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="
-                  bg-dark/30 backdrop-blur-sm border border-primary/10 rounded-lg p-6
-                  hover:border-primary/30 transition-all duration-300
-                  hover:bg-primary/5 cursor-pointer group
-                "
-              >
-                <div className="flex items-start justify-between mb-2">
-                  <h4 className="font-semibold text-light text-lg group-hover:text-primary transition-colors duration-300">
-                    {cert.name}
-                  </h4>
-                  <span className="text-xs bg-primary/20 text-primary px-2 py-1 rounded group-hover:bg-primary/30 transition-colors duration-300">
-                    {cert.level}
-                  </span>
-                </div>
-                <p className="text-gray text-sm mb-1 group-hover:text-light transition-colors duration-300">
-                  {cert.issuer}
-                </p>
-                <p className="text-secondary text-sm group-hover:text-primary transition-colors duration-300">
-                  {cert.year}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
       </div>
     </section>
   );

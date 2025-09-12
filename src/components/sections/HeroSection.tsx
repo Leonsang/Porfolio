@@ -36,7 +36,6 @@ interface KeyPerformanceSliderProps {
 }
 
 function KeyPerformanceSlider({ stats, achievements, currentTitleIndex = 0 }: KeyPerformanceSliderProps) {
-  const [currentSlide, setCurrentSlide] = useState(0);
 
   // Define contextual metrics for each professional title
   const contextualMetrics = {
@@ -95,10 +94,6 @@ function KeyPerformanceSlider({ stats, achievements, currentTitleIndex = 0 }: Ke
   const currentContext = contextualMetrics[currentTitleIndex as keyof typeof contextualMetrics] || contextualMetrics[0];
   const contextMetrics = currentContext.metrics.slice(0, 4); // Max 4 metrics
 
-  // Sync with title changes
-  useEffect(() => {
-    setCurrentSlide(0); // Reset to first slide when context changes
-  }, [currentTitleIndex]);
 
   return (
     <div className="relative">
@@ -557,27 +552,54 @@ export function HeroSection() {
       </motion.div>
 
       {/* Enhanced floating particles */}
-      {[...Array(20)].map((_, i) => (
-      <motion.div 
-          key={i}
-          className="absolute w-1 h-1 bg-primary rounded-full opacity-30"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-        animate={{ 
-            y: [0, -30, 0],
-            opacity: [0.3, 1, 0.3],
-            scale: [1, 1.5, 1]
-        }}
-        transition={{ 
-            duration: 3 + Math.random() * 2,
-          repeat: Infinity, 
-            ease: 'easeInOut',
-            delay: Math.random() * 2
-          }}
-        />
-      ))}
+      {[...Array(20)].map((_, i) => {
+        // Predefined deterministic values to avoid hydration mismatch
+        const particlePositions = [
+          { left: 12.5, top: 18.3, duration: 4.2, delay: 0.8 },
+          { left: 78.9, top: 34.7, duration: 3.6, delay: 1.5 },
+          { left: 45.2, top: 67.1, duration: 4.8, delay: 0.3 },
+          { left: 89.6, top: 23.9, duration: 3.9, delay: 1.2 },
+          { left: 23.4, top: 78.5, duration: 4.1, delay: 0.7 },
+          { left: 67.8, top: 45.2, duration: 3.4, delay: 1.8 },
+          { left: 34.1, top: 89.7, duration: 4.5, delay: 0.2 },
+          { left: 91.3, top: 12.6, duration: 3.7, delay: 1.4 },
+          { left: 56.7, top: 56.8, duration: 4.3, delay: 0.9 },
+          { left: 18.9, top: 73.4, duration: 3.8, delay: 1.1 },
+          { left: 73.2, top: 29.1, duration: 4.0, delay: 0.6 },
+          { left: 41.5, top: 84.3, duration: 3.5, delay: 1.7 },
+          { left: 85.7, top: 41.9, duration: 4.4, delay: 0.4 },
+          { left: 29.8, top: 67.6, duration: 3.3, delay: 1.3 },
+          { left: 62.4, top: 15.8, duration: 4.7, delay: 0.1 },
+          { left: 15.6, top: 92.2, duration: 3.2, delay: 1.6 },
+          { left: 76.3, top: 38.5, duration: 4.6, delay: 0.5 },
+          { left: 48.1, top: 71.7, duration: 3.1, delay: 1.9 },
+          { left: 92.7, top: 26.3, duration: 4.9, delay: 0.0 },
+          { left: 37.9, top: 83.1, duration: 3.0, delay: 1.0 }
+        ];
+        const particle = particlePositions[i % particlePositions.length];
+        
+        return (
+          <motion.div 
+            key={i}
+            className="absolute w-1 h-1 bg-primary rounded-full opacity-30"
+            style={{
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+            }}
+            animate={{ 
+              y: [0, -30, 0],
+              opacity: [0.3, 1, 0.3],
+              scale: [1, 1.5, 1]
+            }}
+            transition={{ 
+              duration: particle.duration,
+              repeat: Infinity, 
+              ease: 'easeInOut',
+              delay: particle.delay
+            }}
+          />
+        );
+      })}
       
       {/* CV Download Modal */}
       <CVDownloadModal 
