@@ -109,71 +109,74 @@
   },
   "about": {
     "title": "About Me",
-    "description": "I'm a passionate Data Engineer and lifelong learner who thrives at the intersection of data, programming, and continuous innovation. What drives me isn't just building solutions – it's the constant pursuit of knowledge, the elegance of clean code, and the thrill of transforming complex challenges into scalable, impactful systems.",
-    "professionalValue": {
-      "title": "What I Bring to Your Team",
-      "content": "I deliver end-to-end data solutions with a focus on scalability, maintainability, and business impact. My approach combines strong technical fundamentals with a growth mindset, ensuring I not only solve today's challenges but also adapt quickly to tomorrow's opportunities."
+    "description": "Beyond technical expertise, what sets me apart is my ability to bridge complex data challenges with elegant, maintainable solutions that deliver real business value.",
+    "professionalJourney": {
+      "title": "Professional Journey",
+      "content": "My fascination for transforming raw information into meaningful insights led me to specialize in data engineering. I've evolved from basic ETL processes to architecting comprehensive data ecosystems.\n\nWhat drives me is turning complex data landscapes into clean, scalable solutions. Each project teaches me that great data engineering isn't just about moving data—it's about understanding business context and building systems that grow with organizations."
     },
-    "coreStrengths": {
-      "title": "Core Strengths",
-      "items": [
-        {
-          "title": "Data Engineering Excellence",
-          "description": "Building robust ETL pipelines, data warehouses, and real-time processing systems that scale with your business needs.",
-          "icon": "🏗️"
-        },
-        {
-          "title": "Programming Craftsmanship",
-          "description": "Writing clean, maintainable code in Python, SQL, and modern frameworks. I believe code should tell a story and be built to last.",
-          "icon": "⚡"
-        },
-        {
-          "title": "Continuous Learning",
-          "description": "Staying ahead of industry trends, rapidly adopting new technologies, and sharing knowledge with the team to drive collective growth.",
-          "icon": "📈"
-        }
-      ]
+    "technicalPhilosophy": {
+      "title": "Technical Philosophy",
+      "content": "My approach combines proven engineering principles with innovative problem-solving. Every architecture decision is guided by three core principles: reliability, performance, and simplicity.\n\nI believe the best solutions work seamlessly behind the scenes, empowering teams to focus on what they do best. Technical elegance comes from simplicity, not complexity."
     },
-    "problemSolver": {
-      "title": "Problem-Solving Approach",
-      "content": "I approach every challenge with curiosity and systematic thinking. Whether it's optimizing a pipeline that processes millions of records, debugging complex data quality issues, or architecting solutions for future scalability, I combine analytical rigor with creative problem-solving to deliver results that matter."
-    },
-    "learningDriven": {
-      "title": "Learning & Growth Mindset",
-      "content": "Technology evolves rapidly, and so do I. I'm constantly exploring new tools, techniques, and methodologies. From cloud technologies to machine learning frameworks, I embrace change as an opportunity to grow and bring fresh perspectives to every project."
-    },
-    "beyondWork": {
-      "title": "Beyond the Code",
-      "content": "When I'm not coding or designing data systems, you'll find me exploring emerging technologies, contributing to open-source projects, or enjoying life's simple pleasures.",
+    "behindEngineer": {
+      "title": "Behind the Engineer",
+      "subtitle": "The person behind the algorithms",
       "interests": {
-        "coffee": "Coffee",
-        "dogs": "Dog Lover", 
-        "music": "Music",
-        "sports": "Sports",
-        "anime": "Anime",
-        "scifi": "Sci-Fi",
-        "arts": "Arts",
-        "learning": "Continuous Learning"
+        "dogs": "Dog Lover",
+        "dogsDesc": "My dream is to travel the world in a motorhome with my furry companions, exploring new places together",
+        "travel": "Nomadic Life",
+        "travelDesc": "Planning the freedom of living on the road, combining remote work with constant adventures",
+        "motorcycles": "Motorcycles",
+        "motorcyclesDesc": "The passion for two wheels and the sense of freedom only a bike can offer",
+        "coffee": "Coffee Ritual",
+        "coffeeDesc": "Every line of code starts with perfect coffee - my fuel for creating elegant solutions",
+        "gaming": "Gaming",
+        "gamingDesc": "Virtual worlds that challenge strategy and fuel creativity for problem-solving",
+        "books": "Books & Series",
+        "booksDesc": "Great stories that inspire new perspectives and fuel technical imagination",
+        "teaching": "Teaching",
+        "teachingDesc": "Sharing knowledge multiplies impact - helping others grow in their technical journey"
       },
-      "quote": "Code with purpose, learn without limits, build for the future"
+      "values": {
+        "title": "What I value most",
+        "content": "Recovering the sense of family, teaching as a form of transcendence, and finding joy in life's simple things. In the end, technology only makes sense if it improves human connections."
+      }
     },
-    "personalInfo": {
-      "title": "Professional Profile",
-      "name": "Name",
-      "location": "Location",
-      "role": "Role",
-      "status": "Availability",
-      "experience": "Experience Level",
-      "focus": "Current Focus"
+    "impactVision": {
+      "title": "Future Vision",
+      "content": "I envision data flowing as naturally as water, systems so intuitive they become invisible, and organizations empowered to make real-time insight-based decisions.\n\nMy goal is to build tomorrow's data infrastructure - where technical complexity hides behind simple interfaces and teams can focus on innovating instead of struggling with data logistics."
     },
-    "stats": {
-      "experience": "Years Experience",
-      "projects": "Projects Completed",
-      "pipelines": "Data Pipelines Built",
-      "certifications": "Technologies Mastered"
+    "myApproach": {
+      "title": "My Approach",
+      "content": "I build data solutions that don't just work—they transform how organizations make decisions. My 5+ years of experience focuses on creating reliable systems that deliver real business value.\n\n**Results I've achieved**:\n• **90% improvement** in data processing efficiency\n• **60% reduction** in operational costs through optimization\n• **99.9% reliability** in critical production systems\n• **Terabytes of data** processed daily without interruptions"
     },
-    "downloadCV": "Download CV",
-    "contactMe": "Contact Me"
+    "technicalExpertise": {
+      "title": "Technical Expertise",
+      "content": "My tech stack spans from data ingestion to presentation, with hands-on experience in modern architectures and cutting-edge tools.\n\n**Core stack**:\n• **Languages**: Python, Advanced SQL, Bash scripting\n• **Cloud Platforms**: AWS, Azure, GCP with native services\n• **Data Engineering**: Apache Spark, Airflow, dbt, Great Expectations\n• **Storage & Processing**: Snowflake, BigQuery, PostgreSQL, MongoDB\n• **Architectures**: SSOT, Data Lakes, RAG systems, MLOps pipelines"
+    },
+    "businessImpact": {
+      "title": "Business Impact",
+      "content": "Every project I develop is designed to generate measurable and sustainable value. I specialize in translating complex needs into elegant technical solutions that scale with the business.\n\n**Value I generate**:\n• **Reduced time-to-insight**: From hours to minutes in critical information access\n• **Data democratization**: Tools that empower all organizational levels\n• **Intelligent automation**: Processes that reduce manual effort by 70%\n• **Future scalability**: Architectures prepared for business growth"
+    },
+    "profileCard": {
+      "title": "Personal Essence",
+      "subtitle": "The values that define me",
+      "values": {
+        "excellence": {
+          "title": "Craftsmanship Excellence",
+          "description": "Every line of code is an opportunity to create something elegant and lasting"
+        },
+        "collaboration": {
+          "title": "Mentorship",
+          "description": "The best code is written when we share knowledge and grow together"
+        },
+        "learning": {
+          "title": "Infinite Curiosity",
+          "description": "Technology evolves, I evolve - there's always something new to discover"
+        }
+      },
+      "motto": "Code with purpose, live with passion, travel with dogs"
+    }
   },
   "technical": {
     "title": "Technical Excellence",

@@ -19,6 +19,7 @@ interface PortfolioLayoutProps {
 export function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const [activeSection, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
+  const [loadingProgress, setLoadingProgress] = useState(0);
   const [isAudioPlayerOpen, setIsAudioPlayerOpen] = useState(false);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
   const [showAssistant, setShowAssistant] = useState(false);
@@ -27,33 +28,58 @@ export function PortfolioLayout({ children }: PortfolioLayoutProps) {
   const { getAllTips } = useAssistantMessages();
 
   useEffect(() => {
-    // Check if document is ready
+    // Minimum loading time for better UX (2 seconds)
+    const minLoadingTime = 2000;
+    const startTime = Date.now();
+    
+    // Progress animation
+    const progressInterval = setInterval(() => {
+      const elapsedTime = Date.now() - startTime;
+      const progress = Math.min((elapsedTime / minLoadingTime) * 100, 100);
+      setLoadingProgress(progress);
+    }, 50);
+    
     const checkDocumentReady = () => {
-      if (document.readyState === 'complete') {
-        setIsLoading(false);
-      } else {
-        // Fallback timer for slower connections
-        const timer = setTimeout(() => {
+      const elapsedTime = Date.now() - startTime;
+      const remainingTime = Math.max(0, minLoadingTime - elapsedTime);
+      
+      setTimeout(() => {
+        setLoadingProgress(100);
+        setTimeout(() => {
           setIsLoading(false);
-        }, 500);
-        return () => clearTimeout(timer);
-      }
+        }, 200); // Small delay to show 100% completion
+      }, remainingTime);
     };
 
     if (document.readyState === 'complete') {
-      setIsLoading(false);
+      checkDocumentReady();
     } else {
-      document.addEventListener('readystatechange', checkDocumentReady);
-      // Fallback timer
+      const handleReadyStateChange = () => {
+        if (document.readyState === 'complete') {
+          checkDocumentReady();
+        }
+      };
+      
+      document.addEventListener('readystatechange', handleReadyStateChange);
+      
+      // Fallback timer for slower connections
       const fallbackTimer = setTimeout(() => {
-        setIsLoading(false);
-      }, 500);
+        setLoadingProgress(100);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 200);
+      }, 5000);
       
       return () => {
-        document.removeEventListener('readystatechange', checkDocumentReady);
+        document.removeEventListener('readystatechange', handleReadyStateChange);
         clearTimeout(fallbackTimer);
+        clearInterval(progressInterval);
       };
     }
+    
+    return () => {
+      clearInterval(progressInterval);
+    };
   }, []);
 
   const handleSectionChange = (sectionId: string) => {
@@ -77,18 +103,45 @@ export function PortfolioLayout({ children }: PortfolioLayoutProps) {
       <div className="fixed inset-0 bg-gradient-to-br from-dark via-dark/95 to-primary/10 flex items-center justify-center z-modal overflow-hidden">
         {/* Animated Background Particles */}
         <div className="absolute inset-0">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute w-1 h-1 bg-primary/30 rounded-full animate-pulse"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
-                animationDuration: `${2 + Math.random() * 3}s`
-              }}
-            />
-          ))}
+          {[...Array(20)].map((_, i) => {
+            // Predefined deterministic values to avoid hydration mismatch
+            const particlePositions = [
+              { left: 15.2, top: 23.8, delay: 0.3, duration: 3.2 },
+              { left: 67.4, top: 45.1, delay: 1.1, duration: 4.1 },
+              { left: 89.3, top: 12.7, delay: 0.7, duration: 2.8 },
+              { left: 34.6, top: 78.9, delay: 1.8, duration: 3.9 },
+              { left: 52.1, top: 56.3, delay: 0.2, duration: 2.5 },
+              { left: 76.8, top: 89.4, delay: 1.4, duration: 4.3 },
+              { left: 23.5, top: 34.2, delay: 0.9, duration: 3.1 },
+              { left: 91.7, top: 67.8, delay: 0.5, duration: 2.9 },
+              { left: 45.9, top: 21.6, delay: 1.6, duration: 3.7 },
+              { left: 12.3, top: 83.5, delay: 0.4, duration: 4.0 },
+              { left: 68.2, top: 39.7, delay: 1.2, duration: 2.6 },
+              { left: 83.6, top: 72.1, delay: 0.8, duration: 3.4 },
+              { left: 29.4, top: 58.9, delay: 1.5, duration: 2.7 },
+              { left: 56.7, top: 14.3, delay: 0.6, duration: 3.8 },
+              { left: 74.1, top: 91.2, delay: 1.3, duration: 4.2 },
+              { left: 18.8, top: 47.6, delay: 0.1, duration: 3.0 },
+              { left: 92.5, top: 26.4, delay: 1.7, duration: 2.4 },
+              { left: 41.2, top: 65.8, delay: 0.9, duration: 3.6 },
+              { left: 63.9, top: 82.7, delay: 1.0, duration: 2.8 },
+              { left: 37.6, top: 53.1, delay: 0.3, duration: 3.3 }
+            ];
+            const particle = particlePositions[i % particlePositions.length];
+            
+            return (
+              <div
+                key={i}
+                className="absolute w-1 h-1 bg-primary/30 rounded-full animate-pulse"
+                style={{
+                  left: `${particle.left}%`,
+                  top: `${particle.top}%`,
+                  animationDelay: `${particle.delay}s`,
+                  animationDuration: `${particle.duration}s`
+                }}
+              />
+            );
+          })}
         </div>
         
         <div className="text-center relative z-10">
@@ -106,26 +159,26 @@ export function PortfolioLayout({ children }: PortfolioLayoutProps) {
             </div>
           </div>
           
-          {/* Construction Message */}
-          <div className="pixel-text text-2xl mb-2 animate-pulse" style={{
+          {/* Loading Message */}
+          <div className="pixel-text text-2xl mb-6 animate-pulse" style={{
             color: 'var(--secondary-color)',
             textShadow: '0 0 10px var(--secondary-color)'
-          }}>SITIO EN CONSTRUCCIÓN</div>
-          
-          <div className="pixel-text text-lg mb-6 text-gray-300">LOADING PORTFOLIO...</div>
+          }}>CARGANDO PORTAFOLIO</div>
           
           {/* Enhanced Progress Bar */}
           <div className="mt-6 mb-4">
             <div className="w-80 h-3 bg-gray-800/50 rounded-full overflow-hidden border border-primary/20 backdrop-blur-sm">
               <div 
-                className="h-full bg-gradient-to-r from-primary via-secondary to-primary rounded-full relative overflow-hidden"
+                className="h-full bg-gradient-to-r from-primary via-secondary to-primary rounded-full relative overflow-hidden transition-all duration-300 ease-out"
                 style={{ 
-                  width: '100%',
-                  animation: 'loadingBar 2s ease-in-out infinite'
+                  width: `${loadingProgress}%`
                 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse"></div>
               </div>
+            </div>
+            <div className="text-xs text-gray-400 mt-2">
+              {Math.round(loadingProgress)}% completado
             </div>
           </div>
           
@@ -149,14 +202,7 @@ export function PortfolioLayout({ children }: PortfolioLayoutProps) {
           </div>
         </div>
         
-        {/* CSS Animations */}
-        <style jsx>{`
-          @keyframes loadingBar {
-            0% { transform: translateX(-100%); }
-            50% { transform: translateX(0%); }
-            100% { transform: translateX(100%); }
-          }
-        `}</style>
+
       </div>
     );
   }

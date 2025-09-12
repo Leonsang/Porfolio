@@ -109,71 +109,74 @@
   },
   "about": {
     "title": "Acerca de Mí",
-    "description": "Soy un Ingeniero de Datos apasionado y eterno aprendiz que prospera en la intersección entre datos, programación e innovación continua. Lo que me motiva no es solo construir soluciones, sino la búsqueda constante del conocimiento, la elegancia del código limpio, y la emoción de transformar desafíos complejos en sistemas escalables e impactantes.",
-    "professionalValue": {
-      "title": "Lo Que Aporto a Tu Equipo",
-      "content": "Entrego soluciones de datos end-to-end con enfoque en escalabilidad, mantenibilidad e impacto empresarial. Mi enfoque combina fundamentos técnicos sólidos con una mentalidad de crecimiento, asegurando que no solo resuelvo los desafíos de hoy sino que me adapto rápidamente a las oportunidades del mañana."
+    "description": "Más allá de la experiencia técnica, me distingue mi capacidad de conectar desafíos complejos de datos con soluciones elegantes y mantenibles que entregan valor empresarial real.",
+    "professionalJourney": {
+      "title": "Trayectoria Profesional",
+      "content": "Mi fascinación por transformar información cruda en insights significativos me llevó a especializarme en ingeniería de datos. He evolucionado desde procesos ETL básicos hasta arquitecturar ecosistemas de datos integrales.\n\nLo que me impulsa es convertir paisajes de datos complejos en soluciones limpias y escalables. Cada proyecto me enseña que la gran ingeniería de datos no se trata solo de mover datos, sino de entender el contexto empresarial y construir sistemas que crezcan con las organizaciones."
     },
-    "coreStrengths": {
-      "title": "Fortalezas Principales",
-      "items": [
-        {
-          "title": "Excelencia en Ingeniería de Datos",
-          "description": "Construyendo pipelines ETL robustos, almacenes de datos y sistemas de procesamiento en tiempo real que escalan con las necesidades de tu negocio.",
-          "icon": "🏗️"
-        },
-        {
-          "title": "Maestría en Programación",
-          "description": "Escribiendo código limpio y mantenible en Python, SQL y frameworks modernos. Creo que el código debe contar una historia y estar construido para durar.",
-          "icon": "⚡"
-        },
-        {
-          "title": "Aprendizaje Continuo",
-          "description": "Manteniéndome al día con tendencias de la industria, adoptando rápidamente nuevas tecnologías y compartiendo conocimiento con el equipo para impulsar el crecimiento colectivo.",
-          "icon": "📈"
-        }
-      ]
+    "technicalPhilosophy": {
+      "title": "Filosofía Técnica",
+      "content": "Mi enfoque combina principios de ingeniería probados con resolución innovadora de problemas. Cada decisión arquitectónica está guiada por tres principios: confiabilidad, rendimiento y simplicidad.\n\nCreo que las mejores soluciones son aquellas que funcionan sin problemas tras bambalinas, empoderando a los equipos para enfocarse en lo que mejor hacen. La elegancia técnica viene de la simplicidad, no de la complejidad."
     },
-    "problemSolver": {
-      "title": "Enfoque de Resolución de Problemas",
-      "content": "Abordo cada desafío con curiosidad y pensamiento sistemático. Ya sea optimizando un pipeline que procesa millones de registros, depurando problemas complejos de calidad de datos, o arquitecturando soluciones para escalabilidad futura, combino rigor analítico con resolución creativa de problemas para entregar resultados que importan."
-    },
-    "learningDriven": {
-      "title": "Mentalidad de Aprendizaje y Crecimiento",
-      "content": "La tecnología evoluciona rápidamente, y yo también. Constantemente exploro nuevas herramientas, técnicas y metodologías. Desde tecnologías en la nube hasta frameworks de machine learning, abrazo el cambio como una oportunidad para crecer y aportar perspectivas frescas a cada proyecto."
-    },
-    "beyondWork": {
-      "title": "Más Allá del Código",
-      "content": "Cuando no estoy programando o diseñando sistemas de datos, me encontrarás explorando tecnologías emergentes, contribuyendo a proyectos open-source, o disfrutando los placeres simples de la vida.",
+    "behindEngineer": {
+      "title": "Detrás del Ingeniero",
+      "subtitle": "La persona detrás de los algoritmos",
       "interests": {
-        "coffee": "Café",
-        "dogs": "Amante de Perros", 
-        "music": "Música",
-        "sports": "Deportes",
-        "anime": "Anime",
-        "scifi": "Ciencia Ficción",
-        "arts": "Artes",
-        "learning": "Aprendizaje Continuo"
+        "dogs": "Amante de Perros",
+        "dogsDesc": "Mi sueño es viajar por el mundo en una autocaravana con mis compañeros peludos, explorando nuevos lugares juntos",
+        "travel": "Vida Nómada",
+        "travelDesc": "Planificando la libertad de vivir en la carretera, combinando trabajo remoto con aventuras constantes",
+        "motorcycles": "Motocicletas",
+        "motorcyclesDesc": "La pasión por las dos ruedas y la sensación de libertad que solo una moto puede ofrecer",
+        "coffee": "Ritual del Café",
+        "coffeeDesc": "Cada línea de código comienza con el café perfecto - mi combustible para crear soluciones elegantes",
+        "gaming": "Videojuegos",
+        "gamingDesc": "Mundos virtuales que desafían la estrategia y alimentan la creatividad para resolver problemas",
+        "books": "Libros & Series",
+        "booksDesc": "Grandes historias que inspiran nuevas perspectivas y alimentan la imaginación técnica",
+        "teaching": "Enseñanza",
+        "teachingDesc": "Compartir conocimiento es multiplicar el impacto - ayudar a otros a crecer en su camino técnico"
       },
-      "quote": "Programar con propósito, aprender sin límites, construir para el futuro"
+      "values": {
+        "title": "Lo que más valoro",
+        "content": "Recuperar el sentido de familia, la enseñanza como forma de trascender, y encontrar alegría en las cosas simples de la vida. Al final, la tecnología solo tiene sentido si mejora las conexiones humanas."
+      }
     },
-    "personalInfo": {
-      "title": "Perfil Profesional",
-      "name": "Nombre",
-      "location": "Ubicación",
-      "role": "Rol",
-      "status": "Disponibilidad",
-      "experience": "Nivel de Experiencia",
-      "focus": "Enfoque Actual"
+    "impactVision": {
+      "title": "Visión de Futuro",
+      "content": "Visualizo datos que fluyen tan naturalmente como agua, sistemas tan intuitivos que se vuelven invisibles, y organizaciones empoderadas para tomar decisiones basadas en insights en tiempo real.\n\nMi objetivo es construir la infraestructura de datos del futuro - donde la complejidad técnica se oculta detrás de interfaces simples y los equipos pueden enfocarse en innovar en lugar de luchar con la logística de datos."
     },
-    "stats": {
-      "experience": "Años de Experiencia",
-      "projects": "Proyectos Completados",
-      "pipelines": "Pipelines de Datos Construidos",
-      "certifications": "Tecnologías Dominadas"
+    "myApproach": {
+      "title": "Mi Enfoque",
+      "content": "Construyo soluciones de datos que no solo funcionan, sino que transforman la manera en que las organizaciones toman decisiones. Mi experiencia de 5+ años se centra en crear sistemas confiables que entregan valor empresarial real.\n\n**Resultados que he logrado**:\n• **90% mejora** en eficiencia de procesamiento de datos\n• **60% reducción** en costos operativos a través de optimización\n• **99.9% confiabilidad** en sistemas críticos de producción\n• **Terabytes de datos** procesados diariamente sin interrupciones"
     },
-    "downloadCV": "Descargar CV",
-    "contactMe": "Contáctame"
+    "technicalExpertise": {
+      "title": "Experiencia Técnica",
+      "content": "Mi stack tecnológico abarca desde la ingesta hasta la presentación de datos, con experiencia práctica en arquitecturas modernas y herramientas de vanguardia.\n\n**Stack principal**:\n• **Lenguajes**: Python, SQL avanzado, Bash scripting\n• **Cloud Platforms**: AWS, Azure, GCP con servicios nativos\n• **Data Engineering**: Apache Spark, Airflow, dbt, Great Expectations\n• **Storage & Processing**: Snowflake, BigQuery, PostgreSQL, MongoDB\n• **Arquitecturas**: SSOT, Data Lakes, RAG systems, MLOps pipelines"
+    },
+    "businessImpact": {
+      "title": "Impacto Empresarial",
+      "content": "Cada proyecto que desarrollo está diseñado para generar valor medible y sostenible. Me especializo en traducir necesidades complejas en soluciones técnicas elegantes que escalan con el negocio.\n\n**Valor que genero**:\n• **Time-to-insight reducido**: De horas a minutos en acceso a información crítica\n• **Democratización de datos**: Herramientas que empoderan a todos los niveles organizacionales\n• **Automatización inteligente**: Procesos que reducen el esfuerzo manual en un 70%\n• **Escalabilidad futura**: Arquitecturas preparadas para el crecimiento empresarial"
+    },
+    "profileCard": {
+      "title": "Esencia Personal",
+      "subtitle": "Los valores que me definen",
+      "values": {
+        "excellence": {
+          "title": "Excelencia Artesanal",
+          "description": "Cada línea de código es una oportunidad de crear algo elegante y duradero"
+        },
+        "collaboration": {
+          "title": "Mentoría",
+          "description": "El mejor código se escribe cuando compartimos conocimiento y crecemos juntos"
+        },
+        "learning": {
+          "title": "Curiosidad Infinita",
+          "description": "La tecnología evoluciona, yo evoluciono - siempre hay algo nuevo por descubrir"
+        }
+      },
+      "motto": "Code with purpose, live with passion, travel with dogs"
+    }
   },
   "technical": {
     "title": "Excelencia Técnica",
